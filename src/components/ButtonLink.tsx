@@ -5,14 +5,23 @@ export function ButtonLink({
   href,
   children,
   current = false,
+  variant = "default",
+  external = false,
 }: {
   href: string;
   children: string;
   current?: boolean;
+  variant?: "default" | "secondary" | "outline";
+  external?: boolean;
 }) {
   return (
-    <Button asChild>
-      <a href={href} aria-current={current ? "page" : undefined}>
+    <Button asChild variant={variant}>
+      <a
+        href={href}
+        aria-current={current ? "page" : undefined}
+        target={external ? "_blank" : undefined}
+        rel={external ? "noopener" : undefined}
+      >
         {children}
       </a>
     </Button>

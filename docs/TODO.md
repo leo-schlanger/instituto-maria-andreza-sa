@@ -22,4 +22,12 @@ O cliente confirmou em 10 de novembro de 2026 que a declaração serve para iden
 
 ## Domínio
 
-Registo na GoDaddy. Nameservers atuais: `ns01.domaincontrol.com` e `ns02.domaincontrol.com`. O domínio aponta para o parqueamento da AWS, não para a Vercel. Mudar DNS é manual e fica à espera do Leo.
+O domínio fica na GoDaddy. Não se mudam os nameservers. No DNS da GoDaddy, apagar os A de parqueamento (`3.33.130.190` e `15.197.148.33`) e o CNAME de `www` que aponta para o próprio domínio. Criar:
+
+| Tipo | Nome | Valor |
+| --- | --- | --- |
+| A | @ | `216.198.79.1` |
+| A | @ | `64.29.17.1` |
+| CNAME | www | `a68994be907dd78b.vercel-dns-017.com` |
+
+Valores pedidos pela Vercel em 10 de novembro de 2026 (`vercel domains verify`). Sem acesso à conta GoDaddy a partir desta máquina.

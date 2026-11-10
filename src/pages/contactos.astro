@@ -1,17 +1,29 @@
 ---
+import { ButtonLink } from "@/components/ButtonLink";
 import { ContactForm } from "@/components/ContactForm";
+import { Card, CardContent } from "@/components/ui/card";
 import { instagramUrl, pages } from "@/data/site";
 import Base from "@/layouts/Base.astro";
 
 const page = pages.contactos;
 ---
 <Base title={page.title} description={page.description} path={page.path}>
-  <h1>{page.h1}</h1>
-  <p>{page.paragraphs[0]}</p>
-  <p><a href={instagramUrl} target="_blank" rel="noopener">Instagram</a></p>
-  <p>{page.paragraphs[1]}</p>
-  <form class="dead-form" aria-describedby="form-aviso">
-    <p id="form-aviso">{page.formNotice}</p>
-    <ContactForm />
-  </form>
+  <div class="site-wrap page-pad">
+    <h1>{page.h1}</h1>
+    <div class="contact-grid">
+      <div class="contact-channel">
+        <p class="lede">{page.paragraphs[0]}</p>
+        <p>{page.paragraphs[1]}</p>
+        <ButtonLink href={instagramUrl} variant="secondary" external>Instagram</ButtonLink>
+      </div>
+      <Card>
+        <CardContent>
+          <form class="dead-form" aria-describedby="form-aviso">
+            <p id="form-aviso">{page.formNotice}</p>
+            <ContactForm />
+          </form>
+        </CardContent>
+      </Card>
+    </div>
+  </div>
 </Base>

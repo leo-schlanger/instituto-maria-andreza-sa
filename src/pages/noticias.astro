@@ -1,21 +1,24 @@
 ---
+import { ButtonLink } from "@/components/ButtonLink";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
 import { instagramUrl, pages } from "@/data/site";
 import Base from "@/layouts/Base.astro";
 
 const page = pages.noticias;
 ---
 <Base title={page.title} description={page.description} path={page.path}>
-  <h1>{page.h1}</h1>
-  <Separator className="my-6" />
-  <Card>
-    <CardHeader>
-      <CardTitle>Ainda sem notícias</CardTitle>
-    </CardHeader>
-    <CardContent>
-      {page.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
-      <p><a href={instagramUrl} target="_blank" rel="noopener">Instagram</a></p>
-    </CardContent>
-  </Card>
+  <div class="site-wrap page-pad empty-layout">
+    <div>
+      <h1>{page.h1}</h1>
+      <p class="lede">{page.paragraphs[0]}</p>
+    </div>
+    <Card>
+      <CardHeader>
+        <CardTitle>Ainda sem notícias</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <ButtonLink href={instagramUrl} variant="secondary" external>Instagram</ButtonLink>
+      </CardContent>
+    </Card>
+  </div>
 </Base>

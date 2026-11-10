@@ -1,79 +1,78 @@
 ---
 import { ButtonLink } from "@/components/ButtonLink";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
 import { founderLine, instagramUrl, logoAlt, pages } from "@/data/site";
 import Base from "@/layouts/Base.astro";
 
 const page = pages.home;
+const statements = [
+  "Tradição é o que se recebe e se continua.",
+  "Cultura é o que se faz em conjunto, na arte, no encontro e na memória.",
+  "A união luso-brasileira é o motivo do nome.",
+] as const;
 ---
 <Base title={page.title} description={page.description} path={page.path} jsonLd>
-  <img class="hero-mark" src="/brand/logo.webp" width="340" height="340" alt={logoAlt} fetchpriority="high">
-  <h1>{page.h1}</h1>
-  <div class="section-stack">
-    <Card>
-      <CardHeader>
-        <CardTitle>Apresentação</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <p>{page.paragraphs[0]}</p>
-        <p>{founderLine}</p>
-      </CardContent>
-    </Card>
-    <Separator />
-    <Card>
-      <CardHeader>
-        <CardTitle>Propósito</CardTitle>
-      </CardHeader>
-      <CardContent>
+  <section class="hero">
+    <div class="site-wrap hero-grid">
+      <div class="hero-copy">
+        <h1>{page.h1}</h1>
+        <p class="lede">{page.paragraphs[0]}</p>
         <p>{page.paragraphs[1]}</p>
-        <p>{pages.associacao.paragraphs[1]}</p>
-      </CardContent>
-    </Card>
-    <Separator />
-    <Card>
-      <CardHeader>
-        <CardTitle>Portugal e Brasil</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <p>{pages.portugal.paragraphs[0]}</p>
-        <p>{pages.portugal.paragraphs[1]}</p>
-        <p><a href="/portugal-e-brasil/">Portugal e Brasil</a></p>
-      </CardContent>
-    </Card>
-    <Separator />
-    <Card>
-      <CardHeader>
-        <CardTitle>Projetos</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <p>{pages.projetos.paragraphs[0]}</p>
-        <p>{pages.projetos.paragraphs[1]}</p>
-        <p><a href={instagramUrl} target="_blank" rel="noopener">Instagram</a></p>
-      </CardContent>
-    </Card>
-    <Separator />
-    <Card>
-      <CardHeader>
-        <CardTitle>Notícias</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <p>{pages.noticias.paragraphs[0]}</p>
-        <p><a href={instagramUrl} target="_blank" rel="noopener">Instagram</a></p>
-      </CardContent>
-    </Card>
-    <Separator />
-    <Card>
-      <CardHeader>
-        <CardTitle>Participação</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <p>{page.paragraphs[2]}</p>
         <div class="action-row">
           <ButtonLink href="/associacao/">A associação</ButtonLink>
-          <a href={instagramUrl} target="_blank" rel="noopener">Instagram</a>
+          <ButtonLink href={instagramUrl} variant="secondary" external>Instagram</ButtonLink>
         </div>
-      </CardContent>
-    </Card>
-  </div>
+      </div>
+      <figure class="seal-plate">
+        <img src="/brand/logo.webp" width="340" height="340" alt={logoAlt} fetchpriority="high">
+      </figure>
+    </div>
+  </section>
+
+  <section class="pillars" aria-label="O que a associação afirma">
+    <div class="site-wrap pillar-grid">
+      {statements.map((line) => <p class="pillar">{line}</p>)}
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="site-wrap band-inner">
+      <div class="band-copy">
+        <h2>Portugal e Brasil</h2>
+        <p>{pages.portugal.paragraphs[0]}</p>
+      </div>
+      <ButtonLink href="/portugal-e-brasil/" variant="secondary">Portugal e Brasil</ButtonLink>
+    </div>
+  </section>
+
+  <section class="split">
+    <div class="site-wrap split-grid">
+      <Card>
+        <CardHeader>
+          <CardTitle>Projetos</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p>{pages.projetos.paragraphs[0]}</p>
+          <ButtonLink href="/projetos/" variant="outline">Projetos</ButtonLink>
+        </CardContent>
+      </Card>
+      <Card>
+        <CardHeader>
+          <CardTitle>Notícias</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p>{pages.noticias.paragraphs[0]}</p>
+          <ButtonLink href="/noticias/" variant="outline">Notícias</ButtonLink>
+        </CardContent>
+      </Card>
+    </div>
+  </section>
+
+  <section class="invite">
+    <div class="site-wrap invite-inner">
+      <p class="founder">{founderLine}</p>
+      <p>{page.paragraphs[2]}</p>
+      <ButtonLink href="/contactos/">Contactos</ButtonLink>
+    </div>
+  </section>
 </Base>

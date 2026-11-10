@@ -19,6 +19,7 @@ const indexable = new Set([
   "/contactos/",
   "/privacidade/",
   "/cookies/",
+  "/termos/",
 ]);
 
 export default defineConfig({
