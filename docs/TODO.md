@@ -22,7 +22,7 @@ O cliente confirmou em 10 de novembro de 2026 que a declaração serve para iden
 
 ## Domínio
 
-O domínio fica na GoDaddy. Não se mudam os nameservers. No DNS da GoDaddy, apagar os A de parqueamento (`3.33.130.190` e `15.197.148.33`) e o CNAME de `www` que aponta para o próprio domínio. Criar:
+O domínio fica na GoDaddy. Não se mudam os nameservers. O CNAME de `www` já está certo (10 de novembro de 2026). No ápice, os A novos já existem; falta apagar os A de parqueamento (`3.33.130.190` e `15.197.148.33`). Os registos que têm de ficar são:
 
 | Tipo | Nome | Valor |
 | --- | --- | --- |

@@ -1,8 +1,8 @@
 # Estado
 
-Atualizado a 2026-11-10, depois do layout editorial. Há um endereço na Vercel. O domínio próprio ainda aponta para o parqueamento da GoDaddy.
+Atualizado a 2026-11-10, depois dos DNS na GoDaddy. O `www` abre o site. O endereço sem `www` ainda pode cair no parqueamento.
 
-Estimativa do projeto: **85%**. As páginas, o layout, as páginas legais e o endereço de pré-visualização estão feitos. Falta o DNS, que só se muda no painel da GoDaddy, e o conteúdo que a associação ainda não fechou.
+Estimativa do projeto: **90%**. As páginas, o layout e o `www` estão feitos. Falta apagar dois registos A velhos no ápice, e o conteúdo que a associação ainda não fechou.
 
 ## Feito
 
@@ -17,16 +17,16 @@ Estimativa do projeto: **85%**. As páginas, o layout, as páginas legais e o en
 
 ## A meio
 
-- O domínio próprio. Os nameservers ficam na GoDaddy (`ns01.domaincontrol.com` e `ns02.domaincontrol.com`). Não se trocam. A Vercel, em `vercel domains verify` a 10 de novembro de 2026, pede registos DNS: A `@` `216.198.79.1`, A `@` `64.29.17.1`, CNAME `www` `a68994be907dd78b.vercel-dns-017.com`. Hoje o ápice ainda resolve para `3.33.130.190` e `15.197.148.33`.
+- O `www` está certo. Em 10 de novembro de 2026 a Vercel verificou o CNAME e https://www.mariaandrezasa.org abre o site. Os nameservers continuam na GoDaddy. O ápice ainda tem, ao mesmo tempo, os A novos (`216.198.79.1` e `64.29.17.1`) e os A de parqueamento (`3.33.130.190` e `15.197.148.33`). Enquanto estes dois últimos existirem, https://mariaandrezasa.org pode cair na página de parqueamento.
 
 ## Próximo
 
-- Leo grava esses registos na GoDaddy e apaga o parqueamento.
+- Leo apaga na GoDaddy os A de parqueamento `3.33.130.190` e `15.197.148.33`. Os outros registos ficam.
 - Olhar o layout novo no endereço da Vercel.
 
 ## Pendente do Leo
 
-- Na GoDaddy, DNS do domínio, sem mudar nameservers. Apagar os A `3.33.130.190` e `15.197.148.33` e o CNAME de `www` que aponta para o próprio domínio. Criar os dois A e o CNAME acima. É obrigatório para `mariaandrezasa.org` abrir o site. Sem isto, o domínio continua na página de parqueamento. Não há acesso à conta GoDaddy nesta máquina.
+- Na GoDaddy, apagar só os A `3.33.130.190` e `15.197.148.33`. Não mexer nos nameservers, nem nos A `216.198.79.1` e `64.29.17.1`, nem no CNAME de `www`. Sem apagar os dois velhos, `mariaandrezasa.org` (sem www) continua a poder abrir a página de parqueamento. Não há acesso à conta GoDaddy nesta máquina.
 - Confirmar e-mail, telefone e morada institucionais antes de entrarem no site. Opcional até haver atividade económica (quotas, eventos pagos ou patrocínio). Se houver, morada e e-mail passam a ser obrigatórios.
 - O NIPC 518875270 já está só na privacidade e nos termos. Se algum dígito da declaração estiver mal lido, corrigir.
 - Fechar a lista de projetos e as notícias. As páginas dizem que ainda não há.
