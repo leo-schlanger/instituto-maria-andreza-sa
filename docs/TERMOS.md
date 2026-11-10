@@ -6,7 +6,7 @@ Texto de 10 de novembro de 2026.
 
 ## Quem é o titular
 
-O titular do site é o Instituto Associativo Cultural & Artístico Luso-Brasileiro, associação com sede em Portugal.
+O titular do site é o Instituto Associativo Cultural & Artístico Luso Brasileiro Maria Andreza Sá, associação constituída em 30 de junho de 2025. A sede fica na Rua Soeiro Pereira Gomes, n.º 12, 3.º frente, Quinta da Grinja, 2600-265 Vila Franca de Xira.
 
 A marca é Maria Andreza Sá.
 

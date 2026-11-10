@@ -2,7 +2,7 @@
 import { ButtonLink } from "@/components/ButtonLink";
 import { ContactForm } from "@/components/ContactForm";
 import { Card, CardContent } from "@/components/ui/card";
-import { instagramUrl, pages } from "@/data/site";
+import { instagramUrl, pages, seatMapUrl } from "@/data/site";
 import Base from "@/layouts/Base.astro";
 
 const page = pages.contactos;
@@ -14,7 +14,11 @@ const page = pages.contactos;
       <div class="contact-channel">
         <p class="lede">{page.paragraphs[0]}</p>
         <p>{page.paragraphs[1]}</p>
-        <ButtonLink href={instagramUrl} variant="secondary" external>Instagram</ButtonLink>
+        <p>{page.paragraphs[2]}</p>
+        <div class="action-row">
+          <ButtonLink href={instagramUrl} variant="secondary" external>Instagram</ButtonLink>
+          <ButtonLink href={seatMapUrl} variant="outline" external>Ver no Google Maps</ButtonLink>
+        </div>
       </div>
       <Card>
         <CardContent>

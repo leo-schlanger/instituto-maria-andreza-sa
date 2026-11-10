@@ -26,6 +26,6 @@ A política de privacidade e a de cookies são o texto de `docs/PRIVACIDADE.md` 
 
 O formulário em Contactos está visível e desativado. Não envia a mensagem, não a guarda e ninguém a recebe.
 Projetos e notícias não têm lista.
-E-mail, telefone, morada e NIPC não estão publicados.
+E-mail e telefone não estão publicados. A sede registada está em Contactos, com ligação para o Google Maps. O NIPC está na privacidade e nos termos.
 
-Não há deploy. O domínio ainda não aponta para este site.
+O site está em https://mariaandrezasa.org.

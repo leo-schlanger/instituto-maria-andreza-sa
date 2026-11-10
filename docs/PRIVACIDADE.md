@@ -6,7 +6,7 @@ Texto de 10 de novembro de 2026.
 
 ## Quem trata os dados
 
-O responsável pelo tratamento é o Instituto Associativo Cultural & Artístico Luso-Brasileiro, associação com sede em Portugal. O site usa a marca Maria Andreza Sá.
+O responsável pelo tratamento é o Instituto Associativo Cultural & Artístico Luso Brasileiro Maria Andreza Sá, associação constituída em 30 de junho de 2025. A sede fica na Rua Soeiro Pereira Gomes, n.º 12, 3.º frente, Quinta da Grinja, 2600-265 Vila Franca de Xira. O site usa a marca Maria Andreza Sá.
 
 O NIPC é 518875270.
 
@@ -33,6 +33,10 @@ O formulário de contacto está visível e está desativado. Preencher os campos
 O único canal externo é a ligação para https://www.instagram.com/festasantabarbaralx/
 
 O clique sai deste site. O site não incorpora o feed do Instagram. A partir do clique, o Instagram trata os dados na plataforma dele, com as regras dele.
+
+## O mapa da sede
+
+A página de contactos tem uma ligação para o Google Maps com a sede registada. O clique sai deste site. O mapa não fica incorporado nesta página e este site não grava cookies da Google. A partir do clique, a Google trata os dados com as regras dela.
 
 Uma mensagem enviada por esse Instagram sai deste site e passa pelo Instagram.
 

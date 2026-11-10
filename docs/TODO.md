@@ -12,7 +12,7 @@ Não há notícias. `/noticias/` não leva artigos nem datas.
 
 ## Contactos institucionais
 
-E-mail, telefone e morada ainda não estão publicados. O único contacto no site é o Instagram https://www.instagram.com/festasantabarbaralx/
+A sede registada está publicada: Rua Soeiro Pereira Gomes, n.º 12, 3.º frente, Quinta da Grinja, 2600-265 Vila Franca de Xira, com ligação para o Google Maps. E-mail e telefone ainda não estão publicados. O outro contacto no site é o Instagram https://www.instagram.com/festasantabarbaralx/
 
 O formulário permanece desativado até existir um destino real. Não ligar `action` nem `mailto` antes disso.
 

@@ -26,6 +26,6 @@ Estimativa do projeto: **92%**. O site e o DNS estão feitos. Falta o conteúdo 
 ## Pendente do Leo
 
 - Não apagar mais registos DNS. Têm de ficar os dois A (`216.198.79.1` e `64.29.17.1`) e o CNAME de `www`.
-- Confirmar e-mail, telefone e morada institucionais antes de entrarem no site. Opcional até haver atividade económica (quotas, eventos pagos ou patrocínio). Se houver, morada e e-mail passam a ser obrigatórios.
+- Confirmar e-mail e telefone institucionais antes de entrarem no site. A sede registada já está publicada. Se houver atividade económica (quotas, eventos pagos ou patrocínio), o e-mail passa a ser obrigatório.
 - O NIPC 518875270 já está só na privacidade e nos termos. Se algum dígito da declaração estiver mal lido, corrigir.
 - Fechar a lista de projetos e as notícias. As páginas dizem que ainda não há.

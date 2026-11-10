@@ -2,6 +2,12 @@ export const siteUrl = "https://mariaandrezasa.org";
 
 export const instagramUrl = "https://www.instagram.com/festasantabarbaralx/";
 
+export const registeredName = "Instituto Associativo Cultural & Artístico Luso Brasileiro Maria Andreza Sá";
+
+export const seatLine = "Rua Soeiro Pereira Gomes, n.º 12, 3.º frente, Quinta da Grinja, 2600-265 Vila Franca de Xira";
+
+export const seatMapUrl = "https://www.google.com/maps/search/?api=1&query=Rua%20Soeiro%20Pereira%20Gomes%2012%203%C2%BA%20frente%202600-265%20Vila%20Franca%20de%20Xira";
+
 export const orgName = "Instituto Associativo Cultural & Artístico Luso-Brasileiro";
 
 export const brandName = "Maria Andreza Sá";
@@ -39,7 +45,7 @@ export const pages = {
     h1: "Instituto Associativo Cultural & Artístico Luso-Brasileiro",
     paragraphs: [
       "Bem-vindo. Somos uma associação cultural e artística. O nome de marca é Maria Andreza Sá.",
-      "O trabalho da associação está na cultura que Portugal e o Brasil partilham: a língua, as artes e a tradição de cada um.",
+      "O trabalho da associação está na cultura que Portugal e o Brasil partilham: a língua, as artes e a tradição de cada um. Foi constituída em 30 de junho de 2025 e tem sede em Vila Franca de Xira.",
       "O canal público, por agora, é o Instagram da Festa de Santa Bárbara, em Lisboa.",
     ],
   },
@@ -50,7 +56,9 @@ export const pages = {
       "O que é o Instituto Associativo Cultural & Artístico Luso-Brasileiro e quem o representa.",
     h1: "A associação",
     paragraphs: [
-      "O Instituto Associativo Cultural & Artístico Luso-Brasileiro é uma associação cultural e artística. Portugal e o Brasil estão no nome.",
+      `O Instituto Associativo Cultural & Artístico Luso-Brasileiro é uma associação cultural e artística. Portugal e o Brasil estão no nome. O nome registado é ${registeredName}.`,
+      "Foi constituída em 30 de junho de 2025. A atividade registada é a de associação cultural e recreativa.",
+      `A sede fica na ${seatLine}.`,
       "O propósito é tratar a tradição com cuidado, dar espaço à cultura e manter a ligação entre os dois países em atividades concretas, quando elas existirem.",
       founderLine,
       "Aline dos Santos Silva é a responsável pela associação.",
@@ -100,11 +108,12 @@ export const pages = {
   contactos: {
     path: "/contactos/",
     title: "Contactos | Maria Andreza Sá",
-    description: "Instagram do instituto. E-mail, telefone e morada ainda não estão publicados.",
+    description: "Sede em Vila Franca de Xira e Instagram. E-mail e telefone ainda não estão publicados.",
     h1: "Contactos",
     paragraphs: [
       "O contacto que já funciona é o Instagram.",
-      "E-mail, telefone e morada institucional ainda não estão publicados. Entram nesta página quando a associação os confirmar.",
+      `A sede fica na ${seatLine}.`,
+      "E-mail e telefone institucionais ainda não estão publicados. Entram nesta página quando a associação os confirmar.",
     ],
     formNotice:
       "Este formulário está desativado. Não envia a mensagem, não a guarda e ninguém a recebe. Para falar com a associação, use o Instagram.",

@@ -8,7 +8,7 @@ const roots = ["src", "public", "docs"];
 const binary = new Set([".png", ".jpg", ".jpeg", ".webp", ".gif", ".ico", ".woff", ".woff2", ".ttf", ".otf", ".pdf", ".zip"]);
 const email = /[A-Za-z0-9][A-Za-z0-9._%+-]*@[A-Za-z][A-Za-z0-9.-]*\.[A-Za-z]{2,}/;
 const postal = /(?<!\d)\d{4}-\d{3}(?!\d)/g;
-const cnpdPostal = "1200-651";
+const allowedPostal = new Set(["1200-651", "2600-265"]);
 
 function filesIn(dir, out = []) {
   for (const entry of readdirSync(dir)) {
@@ -43,7 +43,7 @@ test("sem e-mail, passaporte, campus ou morada privada", () => {
         if (/passaporte/i.test(line) && !passaporteAllowed(file.rel, line)) hits.push(`${where} passaporte`);
         if (/campus\.ul\.pt/i.test(line)) hits.push(`${where} campus`);
         for (const code of line.matchAll(postal)) {
-          if (code[0] !== cnpdPostal) hits.push(`${where} código postal`);
+          if (!allowedPostal.has(code[0])) hits.push(`${where} código postal`);
         }
       });
     }

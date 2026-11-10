@@ -187,8 +187,8 @@ Passaporte.
 Número de documento.
 NIF pessoal.
 NIPC.
-Morada.
-Código postal.
+Morada privada de pessoa. A sede registada da associação pode estar no site.
+Código postal que não seja o da sede registada nem o da CNPD.
 E-mail pessoal ou de campus.
 Telefone.
 Data de fundação.
