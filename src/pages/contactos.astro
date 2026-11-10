@@ -1,0 +1,17 @@
+---
+import { ContactForm } from "@/components/ContactForm";
+import { instagramUrl, pages } from "@/data/site";
+import Base from "@/layouts/Base.astro";
+
+const page = pages.contactos;
+---
+<Base title={page.title} description={page.description} path={page.path}>
+  <h1>{page.h1}</h1>
+  <p>{page.paragraphs[0]}</p>
+  <p><a href={instagramUrl} target="_blank" rel="noopener">Instagram</a></p>
+  <p>{page.paragraphs[1]}</p>
+  <form class="dead-form" aria-describedby="form-aviso">
+    <p id="form-aviso">{page.formNotice}</p>
+    <ContactForm />
+  </form>
+</Base>

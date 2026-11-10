@@ -1,0 +1,30 @@
+---
+import { ButtonLink } from "@/components/ButtonLink";
+import { MobileMenu } from "@/components/islands/MobileMenu";
+import { brandName, isCurrent, logoAlt, nav } from "@/data/site";
+
+const path = Astro.url.pathname;
+const links = nav.filter((item) => item.href !== "/contactos/");
+---
+<header class="site-header">
+  <div class="site-wrap site-bar">
+    <a class="brand-link" href="/">
+      <img class="brand-mark" src="/brand/logo.webp" width="64" height="64" alt={logoAlt}>
+      <span class="brand-copy">
+        <span class="brand-name">{brandName}</span>
+        <span class="brand-kicker">Instituto Associativo Cultural & Artístico</span>
+      </span>
+    </a>
+    <div class="site-tools">
+      <ButtonLink href="/contactos/" current={isCurrent(path, "/contactos/")}>Contactos</ButtonLink>
+      <div class="site-menu">
+        <MobileMenu client:load items={[...nav]} currentPath={path} />
+      </div>
+    </div>
+  </div>
+  <nav class="site-wrap site-nav" aria-label="Secções">
+    {links.map((item) => (
+      <a href={item.href} aria-current={isCurrent(path, item.href) ? "page" : undefined}>{item.label}</a>
+    ))}
+  </nav>
+</header>

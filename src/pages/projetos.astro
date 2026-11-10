@@ -1,0 +1,26 @@
+---
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { instagramUrl, pages } from "@/data/site";
+import Base from "@/layouts/Base.astro";
+
+const page = pages.projetos;
+---
+<Base title={page.title} description={page.description} path={page.path}>
+  <h1>{page.h1}</h1>
+  <Separator className="my-6" />
+  <section aria-label="Sem lista de eventos">
+    <Card>
+      <CardHeader>
+        <CardTitle>Ainda sem lista</CardTitle>
+      </CardHeader>
+      <CardContent>
+        {page.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+        <p class="action-row">
+          <a href={instagramUrl} target="_blank" rel="noopener">Instagram</a>
+          <a href="/contactos/">Contactos</a>
+        </p>
+      </CardContent>
+    </Card>
+  </section>
+</Base>

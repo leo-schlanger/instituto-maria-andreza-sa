@@ -1,0 +1,79 @@
+---
+import { ButtonLink } from "@/components/ButtonLink";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { founderLine, instagramUrl, logoAlt, pages } from "@/data/site";
+import Base from "@/layouts/Base.astro";
+
+const page = pages.home;
+---
+<Base title={page.title} description={page.description} path={page.path} jsonLd>
+  <img class="hero-mark" src="/brand/logo.webp" width="340" height="340" alt={logoAlt} fetchpriority="high">
+  <h1>{page.h1}</h1>
+  <div class="section-stack">
+    <Card>
+      <CardHeader>
+        <CardTitle>Apresentação</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <p>{page.paragraphs[0]}</p>
+        <p>{founderLine}</p>
+      </CardContent>
+    </Card>
+    <Separator />
+    <Card>
+      <CardHeader>
+        <CardTitle>Propósito</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <p>{page.paragraphs[1]}</p>
+        <p>{pages.associacao.paragraphs[1]}</p>
+      </CardContent>
+    </Card>
+    <Separator />
+    <Card>
+      <CardHeader>
+        <CardTitle>Portugal e Brasil</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <p>{pages.portugal.paragraphs[0]}</p>
+        <p>{pages.portugal.paragraphs[1]}</p>
+        <p><a href="/portugal-e-brasil/">Portugal e Brasil</a></p>
+      </CardContent>
+    </Card>
+    <Separator />
+    <Card>
+      <CardHeader>
+        <CardTitle>Projetos</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <p>{pages.projetos.paragraphs[0]}</p>
+        <p>{pages.projetos.paragraphs[1]}</p>
+        <p><a href={instagramUrl} target="_blank" rel="noopener">Instagram</a></p>
+      </CardContent>
+    </Card>
+    <Separator />
+    <Card>
+      <CardHeader>
+        <CardTitle>Notícias</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <p>{pages.noticias.paragraphs[0]}</p>
+        <p><a href={instagramUrl} target="_blank" rel="noopener">Instagram</a></p>
+      </CardContent>
+    </Card>
+    <Separator />
+    <Card>
+      <CardHeader>
+        <CardTitle>Participação</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <p>{page.paragraphs[2]}</p>
+        <div class="action-row">
+          <ButtonLink href="/associacao/">A associação</ButtonLink>
+          <a href={instagramUrl} target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </CardContent>
+    </Card>
+  </div>
+</Base>

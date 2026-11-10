@@ -1,0 +1,10 @@
+---
+import LegalDoc from "@/components/LegalDoc.astro";
+import { pages } from "@/data/site";
+import Base from "@/layouts/Base.astro";
+
+const page = pages.cookies;
+---
+<Base title={page.title} description={page.description} path={page.path}>
+  <LegalDoc file={page.file} />
+</Base>

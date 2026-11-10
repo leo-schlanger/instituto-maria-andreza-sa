@@ -1,0 +1,14 @@
+# Ficheiros de IA e notas locais. Não entram no git.
+.claude/
+.grok/
+.cursor/
+CLAUDE.md
+CLAUDE.local.md
+AGENTS.md
+graphify-out/
+
+node_modules
+dist
+.astro
+.vercel
+*.log

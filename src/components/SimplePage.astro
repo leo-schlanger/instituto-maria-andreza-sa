@@ -1,0 +1,24 @@
+---
+import { Card, CardContent } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import Base from "@/layouts/Base.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  h1: string;
+  paragraphs: readonly string[];
+}
+
+const { title, description, path, h1, paragraphs } = Astro.props;
+---
+<Base title={title} description={description} path={path}>
+  <h1>{h1}</h1>
+  <Separator className="my-6" />
+  <Card>
+    <CardContent>
+      {paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+    </CardContent>
+  </Card>
+</Base>
