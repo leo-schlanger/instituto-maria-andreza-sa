@@ -5,6 +5,7 @@ import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
 import { fileURLToPath } from "node:url";
 import { externalizeInlineScripts } from "./src/lib/externalize-scripts.mjs";
+import { lastModified } from "./src/lib/lastmod.mjs";
 
 const site = "https://mariaandrezasa.org";
 const src = fileURLToPath(new URL("./src", import.meta.url));
@@ -37,6 +38,7 @@ export default defineConfig({
         return indexable.has(p) || /^\/projetos\/[a-z0-9-]+\/$/.test(p);
       },
       namespaces: { news: false, xhtml: false, image: false, video: false },
+      serialize: (item) => ({ ...item, lastmod: lastModified(new URL(item.url).pathname) }),
     }),
   ],
   vite: {

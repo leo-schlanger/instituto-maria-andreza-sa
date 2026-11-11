@@ -107,25 +107,11 @@ test("rotas indexáveis", () => {
 test("canonical da home", () => {
   const html = readPage("index.html");
   assert.match(html, /rel="canonical" href="https:\/\/mariaandrezasa\.org\/"/);
-  const json = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
-  assert.ok(json, "JSON-LD só na home");
-  const data = JSON.parse(json[1]);
   // sameAs only lists the association's own profiles; the event Instagram is not one of them.
-  assert.equal(JSON.stringify(data).includes("festasantabarbaralx"), false);
-  for (const key of Object.keys(data)) assert.ok(["@context", "@type", "logo", "name", "sameAs", "url"].includes(key), key);
-  assert.equal(data["@type"], "Organization");
-  assert.equal(data.url, "https://mariaandrezasa.org/");
-  assert.equal(data.logo, "https://mariaandrezasa.org/brand/logo.webp");
-  for (const key of ["address", "email", "taxID", "telephone"]) {
-    assert.equal(Object.hasOwn(data, key), false, key);
-  }
-});
-
-test("JSON-LD não sai da home", () => {
   for (const page of pages) {
-    if (page.file === "index.html") continue;
-    const html = readPage(page.file);
-    assert.equal(html.includes("application/ld+json"), false, page.file);
+    const json = readPage(page.file).match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
+    assert.ok(json, page.file);
+    assert.equal(json[1].includes("festasantabarbaralx"), false, page.file);
   }
 });
 

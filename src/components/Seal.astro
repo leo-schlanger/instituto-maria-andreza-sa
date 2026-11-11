@@ -11,15 +11,27 @@ interface Props {
 // A disc 1.12× the image, in the field colour, clips only the square corners and never the art.
 const { size, priority = false, decorative = false } = Astro.props;
 const px = { sm: 56, md: 120, lg: 320, xl: 420 }[size];
+// The image is 89.3% of the disc; sizes follow the disc widths in global.css.
+const sizes = {
+  sm: "54px",
+  md: "134px",
+  lg: "250px",
+  xl: "(min-width: 900px) min(30.4vw, 375px), min(57.2vw, 232px)",
+}[size];
+const srcset = [120, 240, 480].map((w) => `/brand/logo-${w}.webp ${w}w`).concat("/brand/logo.webp 960w").join(", ");
+// The header seal (sm) is above the fold on every page.
+const eager = priority || size === "sm";
 ---
 <span class:list={["seal", `seal--${size}`]}>
   <img
-    src="/brand/logo.webp"
+    src="/brand/logo-480.webp"
+    srcset={srcset}
+    sizes={sizes}
     width={px}
     height={px}
     alt={decorative ? "" : logoAlt}
     decoding="async"
-    loading={priority ? "eager" : "lazy"}
+    loading={eager ? "eager" : "lazy"}
     fetchpriority={priority ? "high" : undefined}
   />
 </span>

@@ -8,6 +8,8 @@ import { fotosPorEvento } from "@/data/eventos-fotos";
 import { eventInstagramLabel } from "@/data/evento-ui";
 import { eventos, type Evento } from "@/data/eventos";
 import Base from "@/layouts/Base.astro";
+import { eventNode } from "@/lib/seo";
+import { siteUrl } from "@/data/site";
 
 export function getStaticPaths() {
   return eventos.map((evento) => ({ params: { slug: evento.slug }, props: { evento } }));
@@ -19,13 +21,22 @@ const ficha = [
   evento.data && { term: "Data", value: evento.data },
   evento.local && { term: "Local", value: evento.local },
 ].filter(Boolean) as { term: string; value: string }[];
+const fotos = fotosPorEvento[evento.slug] ?? [];
+const evNode = eventNode(evento, siteUrl + path, fotos);
 ---
-<Base title={`${evento.titulo} | Maria Andreza Sá`} description={evento.resumo} path={path}>
+<Base
+  title={`${evento.titulo} | Maria Andreza Sá`}
+  description={evento.resumo}
+  path={path}
+  ogType="article"
+  crumbs={[{ name: "Projetos", path: "/projetos/" }, { name: evento.titulo, path }]}
+  structuredData={evNode ? [evNode] : []}
+>
   <PageHero h1={evento.titulo} crumb={evento.titulo} eyebrow="Evento" lede={evento.resumo} parent={{ href: "/projetos/", label: "Projetos" }} />
   <div class="site-wrap page-body">
     <div class="reading reveal">
       {evento.corpo.map((p, i) => <p class:list={[i === 0 && evento.corpo.length > 2 && "dropcap"]}>{p}</p>)}
-      <Gallery fotos={fotosPorEvento[evento.slug] ?? []} titulo={evento.titulo} />
+      <Gallery fotos={fotos} titulo={evento.titulo} />
       <Divider />
       {evento.fontes.length > 0 && (
         <section class="sources" aria-labelledby="fontes-titulo">

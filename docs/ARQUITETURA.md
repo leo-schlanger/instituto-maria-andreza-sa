@@ -49,17 +49,16 @@ Não copiar woff2 de origem solta para o git. Não usar itálico nesta versão. 
 
 **Escolha: `Organization`.** Trocar para `NGO` é uma linha, quando houver confirmação. Não é mudança de arquitetura.
 
-Chaves permitidas, e só estas: `@context`, `@type`, `name`, `url`, `sameAs`. Sem `logo` nesta versão (o PNG de origem pesa 2,1 MB; a imagem social vai no `og:image`). Sem morada, e-mail, telefone, NIPC, `taxID`, `vatID`, `identifier`.
+Atualizado a 2026-11-11. A sede e o NIPC passaram a estar publicados, e o JSON-LD acompanha. Continua `Organization`: o site não diz que a associação é sem fins lucrativos (só a festa).
 
-```json
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Instituto Associativo Cultural & Artístico Maria Andreza Sá",
-  "url": "https://mariaandrezasa.org/",
-  "sameAs": ["https://www.instagram.com/festasantabarbaralx/"]
-}
-```
+Um bloco `<script type="application/ld+json">` com `@graph` em todas as páginas indexáveis, feito em `src/lib/seo.ts` a partir de `src/data/site.ts` e `src/data/eventos.ts`:
+
+- `Organization` (`@id` `/#organizacao`): `name` e `legalName` = nome registado, `alternateName`, `url`, `logo` (`/brand/logo.webp`, 960×960), `image`, `foundingDate`, `founder`, `taxID` (NIPC), `address` da sede. `sameAs` só com `instagramOficialUrl` preenchido, nunca o Instagram do evento. Sem e-mail nem telefone.
+- `WebSite` (`/#website`), `WebPage` por rota (`AboutPage` em `/associacao/`, `ContactPage` em `/contactos/`, `CollectionPage` em `/projetos/` e `/noticias/`).
+- `BreadcrumbList` nas interiores, com os mesmos nomes das migalhas visíveis do `PageHero`.
+- `Event` em cada página de evento com `inicio`: `startDate`/`endDate` ISO, `EventScheduled`, presencial, `location` com o `local` e a `localidade`, `organizer` = a associação. `image` só quando houver fotos em `eventos-fotos.ts`.
+
+O 404 não leva JSON-LD. `tests/seo.test.mjs` faz parse e confere os campos.
 
 `sameAs` é exactamente esse URL, sem barra final e sem mais nenhuma rede. O JSON vai em `<script type="application/ld+json">` só na página `/`. `JSON.stringify` com `<` escapado para `\u003c`. Este script não entra nos hashes da CSP (o leitor de hashes ignora `ld+json`, como em `devinsaesthetic/scripts/csp.mjs`).
 
@@ -115,7 +114,7 @@ A mesma linha de `/mnt/d/Projetos/devinsaesthetic`, mais o sitemap oficial. Node
 - `compressHTML: true` (no Astro 7 o omissão passou a `'jsx'` e come espaços entre elementos inline; lição do outro site em 2026-10-20)
 - `integrations`: `react()` e `sitemap({ filter, namespaces: { news: false, xhtml: false, image: false, video: false } })`
 - `vite.plugins`: `@tailwindcss/vite`
-- O `filter` do sitemap aceita só o `pathname` das nove rotas (com barra final). Não comparar o host: um `SITE_URL` de preview deitaria as páginas todas fora. Sem `lastmod`, `changefreq` ou `priority` (o `new Date()` suja o diff; a Google ignora os outros dois).
+- O `filter` do sitemap aceita só o `pathname` das nove rotas (com barra final). Não comparar o host: um `SITE_URL` de preview deitaria as páginas todas fora. Sem `changefreq` nem `priority` (a Google ignora-os). `lastmod` (desde 2026-11-11) = data do último commit dos ficheiros de cada rota, em `src/lib/lastmod.mjs`; só cai para a hora do build se não houver histórico git.
 
 `tsconfig.json` como no outro site: `extends` `astro/tsconfigs/strict`, `jsx` `react-jsx`, alias `@/*` → `src/*`.
 
@@ -212,6 +211,8 @@ Ficheiro Astro → pasta em `dist/` (`associacao.astro` → `dist/associacao/ind
 
 Open Graph, em todas as indexáveis: `og:type=website`, `og:site_name` = nome público completo, `og:title` = title, `og:description` = description, `og:url` = canonical, `og:locale=pt_PT`, `og:image` = `https://mariaandrezasa.org/og.png`, largura 1200, altura 630. `twitter:card=summary_large_image`. Sem `hreflang` (uma língua só). `<link rel="sitemap" href="/sitemap-index.xml">` no head.
 
+Desde 2026-11-11: `og:type=article` nas páginas de evento, `og:site_name` «Instituto Maria Andreza Sá», `og:image` = `og.jpg` com `og:image:type` e `og:image:alt`, e `twitter:title`, `twitter:description`, `twitter:image`, `twitter:image:alt`. As indexáveis levam `robots` «index, follow, max-image-preview:large». Preload da Playfair 500 latin (H1 e nome da marca), da Montserrat 400 latin e de `/ornaments/azulejo-ouro.svg` (fundo do hero, que é o LCP da home). O selo usa `srcset` com `/brand/logo-120|240|480.webp` e `logo.webp` (960). `/ornaments/` e `/brand/` têm `Cache-Control: public, max-age=86400, stale-while-revalidate=604800` no `vercel.json` (não têm hash no nome; `/_astro/` continua imutável).
+
 `public/robots.txt` estático:
 
 ```
@@ -223,7 +224,7 @@ Sitemap: https://mariaandrezasa.org/sitemap-index.xml
 
 O `@astrojs/sitemap` 3.7.4 escreve `dist/sitemap-index.xml` e `dist/sitemap-0.xml`. O smoke exige que `sitemap-0.xml` tenha exactamente as nove `<loc>` (com barra final) e nenhuma ocorrência de `404`.
 
-JSON-LD só em `/`, com o objeto acima. O smoke faz parse e recusa qualquer outra chave.
+JSON-LD em todas as indexáveis (ver acima).
 
 ## Conteúdo
 
@@ -452,7 +453,7 @@ Curto, com:
 
 ## Fora desta versão
 
-Painel, área de sócios, quotas, pagamentos, formulário que envie, newsletter, blog ou notícias dinâmicas, mais redes além daquele Instagram, mapa, analytics, banner de cookies, PWA, línguas extra, `NGO` no JSON-LD, NIPC e sede no HTML.
+Painel, área de sócios, quotas, pagamentos, formulário que envie, newsletter, blog ou notícias dinâmicas, mais redes além daquele Instagram, mapa, analytics, banner de cookies, PWA, línguas extra, `NGO` no JSON-LD.
 
 ## Pendências
 

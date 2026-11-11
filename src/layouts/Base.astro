@@ -1,20 +1,66 @@
 ---
 import "@/styles/global.css";
+// Above-the-fold faces: Playfair 500 (H1, brand name) and Montserrat 400 (lede, body).
+import serifH1 from "@fontsource/playfair-display/files/playfair-display-latin-500-normal.woff2?url";
+import sansBody from "@fontsource/montserrat/files/montserrat-latin-400-normal.woff2?url";
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
-import { organizationJsonLd, siteUrl } from "@/data/site";
+import { siteUrl } from "@/data/site";
+import {
+  breadcrumbNode,
+  jsonLdScript,
+  orgId,
+  organizationNode,
+  siteName,
+  webPageNode,
+  websiteNode,
+  type Crumb,
+  type PageType,
+} from "@/lib/seo";
 
 interface Props {
   title: string;
   description: string;
   path: string;
   noindex?: boolean;
-  jsonLd?: boolean;
+  ogType?: "website" | "article";
+  pageType?: PageType;
+  // Trail after "Início", same labels as the visible crumbs.
+  crumbs?: Crumb[];
+  structuredData?: Record<string, unknown>[];
 }
 
-const { title, description, path, noindex = false, jsonLd = false } = Astro.props;
+const {
+  title,
+  description,
+  path,
+  noindex = false,
+  ogType = "website",
+  pageType = "WebPage",
+  crumbs = [],
+  structuredData = [],
+} = Astro.props;
 const canonical = siteUrl + path;
 const image = `${siteUrl}/og.jpg`;
+const imageAlt = "Selo do instituto e o texto Associação cultural e artística luso-brasileira, Portugal e Brasil, Vila Franca de Xira";
+const isHome = path === "/";
+const trail: Crumb[] = crumbs.length > 0 ? [{ name: "Início", path: "/" }, ...crumbs] : [];
+const jsonLd = noindex
+  ? null
+  : jsonLdScript([
+      organizationNode(),
+      websiteNode(),
+      webPageNode({
+        canonical,
+        title,
+        description,
+        type: pageType,
+        hasBreadcrumb: trail.length > 0,
+        about: isHome || pageType === "AboutPage" ? orgId : undefined,
+      }),
+      ...(trail.length > 0 ? [breadcrumbNode(canonical, trail)] : []),
+      ...structuredData,
+    ]);
 ---
 <!doctype html>
 <html lang="pt-PT">
@@ -23,10 +69,16 @@ const image = `${siteUrl}/og.jpg`;
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
 <meta name="description" content={description}>
-{noindex ? <meta name="robots" content="noindex"> : <link rel="canonical" href={canonical}>}
+{noindex ? <meta name="robots" content="noindex"> : <>
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href={canonical}>
+</>}
+<link rel="preload" href={serifH1} as="font" type="font/woff2" crossorigin>
+<link rel="preload" href={sansBody} as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/ornaments/azulejo-ouro.svg" as="image" type="image/svg+xml">
 {!noindex && <>
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Instituto Associativo Cultural & Artístico Luso-Brasileiro">
+<meta property="og:type" content={ogType}>
+<meta property="og:site_name" content={siteName}>
 <meta property="og:title" content={title}>
 <meta property="og:description" content={description}>
 <meta property="og:url" content={canonical}>
@@ -34,7 +86,13 @@ const image = `${siteUrl}/og.jpg`;
 <meta property="og:image" content={image}>
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:alt" content={imageAlt}>
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content={title}>
+<meta name="twitter:description" content={description}>
+<meta name="twitter:image" content={image}>
+<meta name="twitter:image:alt" content={imageAlt}>
 <link rel="sitemap" href="/sitemap-index.xml">
 </>}
 <meta name="theme-color" content="#F8F4EA">
@@ -42,7 +100,7 @@ const image = `${siteUrl}/og.jpg`;
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-{jsonLd && <script type="application/ld+json" set:html={organizationJsonLd} />}
+{jsonLd && <script type="application/ld+json" set:html={jsonLd} />}
 </head>
 <body>
 <a class="skip-link" href="#conteudo">Saltar para o conteúdo</a>

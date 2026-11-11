@@ -13,3 +13,6 @@ dist
 .vercel
 *.log
 .env*
+
+# Local research notes with unconfirmed lists.
+docs/PESQUISA-ASSOCIACAO.md

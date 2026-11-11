@@ -5,7 +5,21 @@ export const instagramOficialUrl = "";
 
 export const registeredName = "Instituto Associativo Cultural & Artístico Luso Brasileiro Maria Andreza Sá";
 
-export const seatLine = "Rua Soeiro Pereira Gomes, n.º 12, 3.º frente, Quinta da Grinja, 2600-265 Vila Franca de Xira";
+// Registered seat of the association (public), split for structured data.
+export const seatAddress = {
+  street: "Rua Soeiro Pereira Gomes, n.º 12, 3.º frente, Quinta da Grinja",
+  postalCode: "2600-265",
+  locality: "Vila Franca de Xira",
+  country: "PT",
+} as const;
+
+export const seatLine = `${seatAddress.street}, ${seatAddress.postalCode} ${seatAddress.locality}`;
+
+// Entity tax number, already published in the legal pages.
+export const nipc = "518875270";
+
+// ISO form of the constitution date shown in the facts ("30 de junho de 2025").
+export const foundingDate = "2025-06-30";
 
 export const seatMapUrl = "https://www.google.com/maps/search/?api=1&query=Rua%20Soeiro%20Pereira%20Gomes%2012%203%C2%BA%20frente%202600-265%20Vila%20Franca%20de%20Xira";
 
@@ -177,12 +191,3 @@ export const pages = {
     file: "docs/TERMOS.md",
   },
 } as const;
-
-export const organizationJsonLd = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: orgName,
-  url: `${siteUrl}/`,
-  logo: `${siteUrl}/brand/logo.webp`,
-  ...(instagramOficialUrl ? { sameAs: [instagramOficialUrl] } : {}),
-}).replaceAll("<", "\\u003c");

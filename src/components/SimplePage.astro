@@ -4,6 +4,7 @@ import Divider from "@/components/Divider.astro";
 import PageHero from "@/components/PageHero.astro";
 import Base from "@/layouts/Base.astro";
 import { nav } from "@/data/site";
+import type { PageType } from "@/lib/seo";
 
 interface Props {
   title: string;
@@ -15,13 +16,14 @@ interface Props {
   facts?: readonly { term: string; value: string }[];
   pattern?: "azulejo" | "calcada";
   sources?: readonly { titulo: string; url: string }[];
+  pageType?: PageType;
 }
 
-const { title, description, path, h1, eyebrow, paragraphs, facts, pattern, sources } = Astro.props;
+const { title, description, path, h1, eyebrow, paragraphs, facts, pattern, sources, pageType } = Astro.props;
 const [lead, ...rest] = paragraphs;
 const related = nav.filter((item) => item.href !== "/" && item.href !== path).slice(0, 4);
 ---
-<Base title={title} description={description} path={path}>
+<Base title={title} description={description} path={path} pageType={pageType} crumbs={[{ name: h1, path }]}>
   <PageHero h1={h1} crumb={h1} eyebrow={eyebrow} lede={lead} pattern={pattern} />
   <div class="site-wrap page-body">
     <div class="reading reveal">

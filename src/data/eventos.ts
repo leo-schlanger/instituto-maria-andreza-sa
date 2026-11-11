@@ -7,14 +7,18 @@ export type Evento = {
   resumo: string;
   corpo: string[];
   data?: string;
+  // ISO dates (YYYY-MM-DD) matching `data`, for structured data.
+  inicio?: string;
+  fim?: string;
   local?: string;
+  // City of `local`, for the Event address.
+  localidade?: string;
   instagramUrl?: string;
   fontes: Fonte[];
 };
 
 export const eventos: Evento[] = [
   {
-    // ISO: 2026-09-04 to 2026-09-06
     slug: "festa-de-santa-barbara-lisboa-2026",
     titulo: "1.ª Festa de Santa Bárbara em Lisboa",
     resumo:
@@ -27,7 +31,10 @@ export const eventos: Evento[] = [
       "Em Salvador da Bahia, a Festa de Santa Bárbara faz-se a 4 de dezembro, no Centro Histórico, e é Património Imaterial da Bahia desde 2008. No candomblé, a santa é homenageada como Iansã, também chamada Oyá.",
     ],
     data: "4 a 6 de setembro de 2026",
+    inicio: "2026-09-04",
+    fim: "2026-09-06",
     local: "Arroios, Lisboa",
+    localidade: "Lisboa",
     instagramUrl: "https://www.instagram.com/festasantabarbaralx/",
     fontes: [
       {

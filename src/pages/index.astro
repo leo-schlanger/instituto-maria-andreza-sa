@@ -24,7 +24,7 @@ const areas = [
 ];
 const featured = eventos[0];
 ---
-<Base title={page.title} description={page.description} path={page.path} jsonLd>
+<Base title={page.title} description={page.description} path={page.path}>
   <section class="hero">
     <div class="hero__pattern" aria-hidden="true"></div>
     <div class="hero__glow" aria-hidden="true"></div>
@@ -118,7 +118,7 @@ const featured = eventos[0];
         <p class="eyebrow eyebrow--light">Duas margens, uma língua</p>
         <h2 id="ponte-titulo" class="section-title">Portugal e Brasil</h2>
         <p>{pages.portugal.paragraphs[0]}</p>
-        <ButtonLink href="/portugal-e-brasil/" variant="ivory">Ler mais</ButtonLink>
+        <ButtonLink href="/portugal-e-brasil/" variant="ivory">Ler sobre Portugal e Brasil</ButtonLink>
       </div>
     </div>
   </section>

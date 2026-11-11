@@ -7,7 +7,7 @@ import Base from "@/layouts/Base.astro";
 
 const page = pages.contactos;
 ---
-<Base title={page.title} description={page.description} path={page.path}>
+<Base title={page.title} description={page.description} path={page.path} pageType="ContactPage" crumbs={[{ name: page.h1, path: page.path }]}>
   <PageHero h1={page.h1} crumb={page.h1} eyebrow="Falar com o instituto" lede={page.description} />
   <div class="site-wrap section-pad contact-grid">
     <section class="channels" aria-labelledby="canais">

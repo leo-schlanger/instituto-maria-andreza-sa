@@ -41,7 +41,7 @@ const others = [
   { href: "/termos/", label: "Termos" },
 ].filter((item) => item.href !== pagePath);
 ---
-<Base title={title} description={description} path={pagePath}>
+<Base title={title} description={description} path={pagePath} crumbs={[{ name: h1, path: pagePath }]}>
   <PageHero h1={h1} crumb={h1} eyebrow="Informação legal" />
   <div class="site-wrap page-body page-body--legal">
     <aside class="legal-aside" aria-label="Índice">

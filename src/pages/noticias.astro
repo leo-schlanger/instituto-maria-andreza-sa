@@ -9,7 +9,7 @@ import Base from "@/layouts/Base.astro";
 const page = pages.noticias;
 const latest = eventos[0];
 ---
-<Base title={page.title} description={page.description} path={page.path}>
+<Base title={page.title} description={page.description} path={page.path} pageType="CollectionPage" crumbs={[{ name: "Notícias", path: page.path }]}>
   <PageHero h1={page.h1} crumb="Notícias" eyebrow="Arquivo" lede={page.paragraphs[0]} />
   <div class="site-wrap section-pad">
     <EmptyState title="Ainda sem notícias" label="Sem notícias publicadas">

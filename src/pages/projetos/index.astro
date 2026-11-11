@@ -9,7 +9,7 @@ import Base from "@/layouts/Base.astro";
 
 const page = pages.projetos;
 ---
-<Base title={page.title} description={page.description} path={page.path}>
+<Base title={page.title} description={page.description} path={page.path} pageType="CollectionPage" crumbs={[{ name: "Projetos", path: page.path }]}>
   <PageHero h1={page.h1} crumb="Projetos" eyebrow="Iniciativas e eventos" lede={eventos.length > 0 ? undefined : page.paragraphs[0]} />
   <div class="site-wrap section-pad">
     {eventos.length > 0 ? (
