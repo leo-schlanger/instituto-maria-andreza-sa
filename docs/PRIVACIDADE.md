@@ -2,7 +2,7 @@
 
 Esta página explica o que o site https://mariaandrezasa.org faz com dados pessoais. O site é institucional e estático. Não cria conta nem perfil.
 
-Texto de 10 de novembro de 2026.
+Texto de 11 de novembro de 2026.
 
 ## Quem trata os dados
 
@@ -10,9 +10,17 @@ O responsável pelo tratamento é o Instituto Associativo Cultural & Artístico 
 
 O NIPC é 518875270.
 
-Enquanto a associação não confirmar um e-mail institucional, o contacto para exercer direitos é o Instagram: https://www.instagram.com/festasantabarbaralx/
+## Como nos contactar sobre os seus dados
 
-O e-mail institucional será acrescentado a esta página quando a associação o confirmar.
+Para perguntas sobre privacidade e para exercer os seus direitos, use este contacto:
+
+- carta para a sede: Instituto Associativo Cultural & Artístico Luso Brasileiro Maria Andreza Sá, Rua Soeiro Pereira Gomes, n.º 12, 3.º frente, Quinta da Grinja, 2600-265 Vila Franca de Xira.
+
+Escreva «Proteção de dados» no envelope ou no início da carta. Diga o que pede e como prefere receber a resposta.
+
+A associação ainda não tem e-mail institucional. Quando tiver, o endereço passa a constar desta lista e serve também para estes pedidos.
+
+O Instagram ligado neste site é o da Festa de Santa Bárbara, um evento. Não é um canal da associação para pedidos sobre dados.
 
 Não indicamos encarregado de proteção de dados. Se a associação nomear um, o contacto passa a constar daqui.
 
@@ -24,23 +32,31 @@ Os interesses legítimos são mostrar a página que pediu e proteger o site cont
 
 O site não tem medição de visitas, píxel, newsletter, área de sócios nem base de dados. Não traça um perfil seu. Não toma decisões automáticas sobre si. Não vende dados.
 
+## Nomes e fotografias nas páginas de projetos
+
+As páginas de projetos contam as atividades da associação. Podem referir o nome de pessoas com papel público num evento, como artistas, curadoria ou madrinha, e o papel que tiveram. Esses nomes vêm das notícias de imprensa indicadas como fontes na própria página.
+
+Publicamos só o nome e o papel no evento. Não publicamos contactos, moradas nem outros dados dessas pessoas.
+
+Uma página de evento pode ter uma galeria de fotografias. Damos preferência a fotografias de conjunto e de palco. Uma fotografia em que alguém apareça em destaque só é publicada com autorização dessa pessoa, salvo quando a lei a dispensa. Fotografias de crianças em destaque só com autorização de quem exerce as responsabilidades parentais.
+
+A finalidade é documentar e divulgar a atividade cultural da associação. A base é o interesse legítimo da associação nessa divulgação, previsto no artigo 6.º, n.º 1, alínea f), do Regulamento (UE) 2016/679, ou a autorização da pessoa, quando a pedimos.
+
+Estes conteúdos ficam publicados enquanto a página documentar o evento.
+
+Se aparece num nome ou numa fotografia e não concorda, peça a correção ou a remoção pelo contacto indicado acima. Diga a página e, se for uma fotografia, qual. Avaliamos o pedido e, quando procede, retiramos ou corrigimos o conteúdo.
+
 ## O formulário de contacto
 
 O formulário de contacto está visível e está desativado. Preencher os campos não envia a mensagem. Não a guarda. Não a faz chegar a nenhum e-mail. Não espere resposta por esse formulário.
 
-## O link para o Instagram
+## Ligações para outros sites
 
-O único canal externo é a ligação para https://www.instagram.com/festasantabarbaralx/
+O site tem ligações para sites de terceiros: o Instagram da Festa de Santa Bárbara, as notícias de imprensa citadas como fontes e o Google Maps com a sede registada.
 
-O clique sai deste site. O site não incorpora o feed do Instagram. A partir do clique, o Instagram trata os dados na plataforma dele, com as regras dele.
+O clique sai deste site. O site não incorpora o feed do Instagram, as notícias nem o mapa, e não grava cookies desses serviços. A partir do clique, cada serviço trata os dados com as regras dele.
 
-## O mapa da sede
-
-A página de contactos tem uma ligação para o Google Maps com a sede registada. O clique sai deste site. O mapa não fica incorporado nesta página e este site não grava cookies da Google. A partir do clique, a Google trata os dados com as regras dela.
-
-Uma mensagem enviada por esse Instagram sai deste site e passa pelo Instagram.
-
-Não envie cópia do documento de identificação por esse canal. Se for preciso confirmar que o pedido é seu, diremos o mínimo necessário, por um meio adequado.
+Uma mensagem enviada pelo Instagram do evento passa pelo Instagram e não chega à associação como pedido sobre dados. Não envie cópia do documento de identificação por esse canal nem por outro. Se for preciso confirmar que o pedido é seu, diremos o mínimo necessário, por um meio adequado.
 
 ## Alojamento
 
@@ -51,6 +67,8 @@ Se a Vercel guardar registos técnicos da ligação, esses registos ficam do lad
 ## Durante quanto tempo
 
 Não há ficheiro de contactos. Não há mensagens recebidas por este site. Por isso não há prazo de conservação de mensagens.
+
+Uma carta enviada à sede é guardada só o tempo preciso para responder e para provar que respondemos.
 
 O site em si não cria uma conta nem um perfil.
 
@@ -66,9 +84,9 @@ Pode pedir:
 
 A portabilidade aplica-se quando a lei a prevê. Neste site, como não há conta nem um ficheiro que nos tenha entregue, em regra não há dados organizados para entregar nesse formato.
 
-O pedido faz-se pelo Instagram indicado acima. A resposta é dada sem demora injustificada e, em regra, no prazo de um mês a contar da receção. Esse prazo pode ser alargado nos termos do artigo 12.º, n.º 3, do Regulamento (UE) 2016/679.
+O pedido faz-se pelo contacto indicado em «Como nos contactar sobre os seus dados». A resposta é dada sem demora injustificada e, em regra, no prazo de um mês a contar da receção. Esse prazo pode ser alargado nos termos do artigo 12.º, n.º 3, do Regulamento (UE) 2016/679.
 
-Como o site não guarda mensagens nem perfis, muitos pedidos terminam com uma resposta simples: não temos um ficheiro seu para consultar, corrigir ou apagar.
+Para quem só visita o site, muitos pedidos terminam com uma resposta simples: não temos um ficheiro seu para consultar, corrigir ou apagar.
 
 Pode reclamar à Comissão Nacional de Proteção de Dados (CNPD), em https://www.cnpd.pt/
 
@@ -86,7 +104,7 @@ A página de cookies deste site explica a ausência de cookies e o que mudaria s
 
 ## Normas consultadas
 
-Regulamento (UE) 2016/679, artigos 6.º, n.º 1, alínea f), 12.º, n.º 3, 13.º, 15.º, 16.º, 17.º, 18.º, 20.º, 21.º e 77.º. Texto em português consultado em 10 de novembro de 2026: https://eur-lex.europa.eu/legal-content/PT/TXT/?uri=CELEX:32016R0679
+Regulamento (UE) 2016/679, artigos 6.º, n.º 1, alínea f), 12.º, n.º 3, 13.º, 14.º, 15.º, 16.º, 17.º, 18.º, 20.º, 21.º e 77.º. Texto em português consultado em 11 de novembro de 2026: https://eur-lex.europa.eu/legal-content/PT/TXT/?uri=CELEX:32016R0679
 
 Contactos da CNPD consultados em 10 de novembro de 2026 em https://www.cnpd.pt/ e em https://www.cnpd.pt/cnpd/atendimento-ao-publico/
 
