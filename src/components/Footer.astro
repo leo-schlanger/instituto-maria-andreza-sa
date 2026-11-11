@@ -1,19 +1,39 @@
 ---
-import { instagramUrl, orgName } from "@/data/site";
+import Seal from "@/components/Seal.astro";
+import Star from "@/components/Star.astro";
+import { brandName, instagramOficialUrl, nav, orgName, registeredName, seatLine, seatMapUrl } from "@/data/site";
 ---
 <footer class="site-footer">
-  <div class="site-wrap site-footer-inner">
+  <div class="footer-pattern" aria-hidden="true"></div>
+  <div class="site-wrap footer-grid">
     <div class="footer-brand">
-      <p class="footer-name">{orgName}</p>
-      <p><a href={instagramUrl} target="_blank" rel="noopener">Instagram</a></p>
+      <Seal size="md" decorative />
+      <div>
+        <p class="footer-name">{brandName}</p>
+        <p class="footer-org">{orgName}</p>
+      </div>
     </div>
-    <div class="footer-meta">
-      <nav aria-label="Informação">
-        <a href="/privacidade/">Privacidade</a>
-        <a href="/termos/">Termos</a>
-        <a href="/cookies/">Cookies</a>
-      </nav>
-      <p class="credit">Desenvolvido por <a href="https://leoschlanger.com" target="_blank" rel="noopener">leoschlanger.com</a></p>
+    <nav class="footer-col" aria-label="Secções do site">
+      <p class="footer-title">Navegação</p>
+      {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+    </nav>
+    <div class="footer-col">
+      <p class="footer-title">Sede</p>
+      <address>{seatLine}</address>
+      <a href={seatMapUrl} target="_blank" rel="noopener">Ver no mapa</a>
+      {instagramOficialUrl && (
+        <a class="footer-social" href={instagramOficialUrl} target="_blank" rel="noopener">Instagram</a>
+      )}
     </div>
+    <nav class="footer-col" aria-label="Informação legal">
+      <p class="footer-title">Informação</p>
+      <a href="/privacidade/">Privacidade</a>
+      <a href="/termos/">Termos</a>
+      <a href="/cookies/">Cookies</a>
+    </nav>
+  </div>
+  <div class="site-wrap footer-base">
+    <p class="footer-registered"><Star />{registeredName}</p>
+    <p class="credit">Desenvolvido por <a href="https://leoschlanger.com" target="_blank" rel="noopener">leoschlanger.com</a></p>
   </div>
 </footer>

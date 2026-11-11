@@ -7,8 +7,12 @@ Em cada página há um title, uma meta description e um único H1. O H1 é a lin
 Domínio previsto, fora das páginas. Ainda não é um contacto.
 https://mariaandrezasa.org
 
-Canal público confirmado.
+Instagram oficial da associação. Ainda não existe. Fica em `instagramOficialUrl` (vazia) em `src/data/site.ts`; o rodapé e os contactos só mostram o link quando tiver valor.
+
+Instagram de um evento, não da associação. Rótulo obrigatório «Instagram da Festa de Santa Bárbara». Só aparece ligado ao evento (`src/data/eventos.ts`).
 https://www.instagram.com/festasantabarbaralx/
+
+Textos atualizados a 2026-11-11 com os blocos de `docs/PESQUISA-ASSOCIACAO.md` §4. A fonte viva é `src/data/site.ts`; este ficheiro espelha-a.
 
 Texto alternativo do selo, se a imagem for usada.
 Selo do Instituto Associativo Cultural e Artístico Luso-Brasileiro, Maria Andreza Sá.
@@ -21,155 +25,163 @@ Caminho
 /
 
 Title
-Instituto Maria Andreza Sá, cultura luso-brasileira
+Instituto Maria Andreza Sá, associação luso-brasileira
 
 Meta description
-Associação cultural e artística com sede em Portugal. O nome no selo é Maria Andreza Sá. Tradição, cultura e união entre Portugal e Brasil.
+Associação cultural e artística luso-brasileira com sede em Vila Franca de Xira. Organizou a 1.ª Festa de Santa Bárbara em Lisboa, em 2026.
 
 H1
 Associação cultural e artística luso-brasileira
 
 Corpo
-Bem-vindos ao Instituto Associativo Cultural & Artístico Luso-Brasileiro. No selo, o nome é Maria Andreza Sá. A associação tem sede em Portugal. O propósito é a tradição, a cultura e a união entre Portugal e Brasil.
+O Instituto Associativo Cultural & Artístico Luso-Brasileiro Maria Andreza Sá é uma associação cultural e artística. Foi constituída a 30 de junho de 2025 e tem sede em Vila Franca de Xira.
 
-Este site apresenta a associação. O que já está confirmado fica nas páginas. O que ainda não está escrito será publicado pela própria associação.
+O trabalho está na cultura que Portugal e o Brasil partilham. A língua é a mesma. As tradições de cada país têm aqui lugar próprio.
 
-Para conhecer a associação, abra a página A Associação.
-/associacao
+A associação organizou a 1.ª Festa de Santa Bárbara em Lisboa. Decorreu em Arroios, de 4 a 6 de setembro de 2026, com missa, cortejo e feijoada. A cantora Alcione foi a madrinha.
 
-Para o canal público que já funciona, abra o Instagram.
-https://www.instagram.com/festasantabarbaralx/
+A festa trouxe a Lisboa uma tradição de Salvador da Bahia. Teve notícia no Público, no DN Brasil e na imprensa baiana.
+
+O Instagram que ligamos neste site é o da Festa de Santa Bárbara.
 
 ## A Associação
 
 Caminho
-/associacao
+/associacao/
 
 Title
-Associação cultural luso-brasileira Maria Andreza Sá
+Associação cultural luso-brasileira em Vila Franca de Xira
 
 Meta description
-Associação cultural e artística com sede em Portugal. A responsável é Aline dos Santos Silva. A história escrita publica-se quando estiver fechada.
+O Instituto Maria Andreza Sá é uma associação cultural e recreativa, constituída em 2025, com sede em Vila Franca de Xira. Cultura de Portugal e do Brasil.
 
 H1
-A associação Maria Andreza Sá
+A associação
 
 Corpo
-O Instituto Associativo Cultural & Artístico Luso-Brasileiro é uma associação cultural e artística. O nome no selo é Maria Andreza Sá. A sede é em Portugal.
+O Instituto Associativo Cultural & Artístico Luso-Brasileiro é uma associação cultural e artística. O nome registado é Instituto Associativo Cultural & Artístico Luso Brasileiro Maria Andreza Sá.
 
-O propósito é a tradição, a cultura e a união entre Portugal e Brasil.
+Foi constituída a 30 de junho de 2025. A atividade registada é a de associação cultural e recreativa.
 
-A associação quer dar o mesmo lugar à cultura de Portugal e à cultura do Brasil. A tradição fica ao lado da arte. O texto público não avança para lá do que já está confirmado. Quem chega é recebido neste site e no Instagram.
-https://www.instagram.com/festasantabarbaralx/
+A sede fica na Rua Soeiro Pereira Gomes, n.º 12, 3.º frente, Quinta da Grinja, 2600-265 Vila Franca de Xira.
 
-A responsável pela associação é Aline dos Santos Silva.
+Portugal e o Brasil estão no nome. A associação trabalha a tradição, as artes e o encontro entre as pessoas dos dois países.
 
-A história escrita da associação será publicada pela própria associação quando essa história estiver fechada. Esta página não a substitui.
+A associação organizou a 1.ª Festa de Santa Bárbara em Lisboa. Decorreu em Arroios, de 4 a 6 de setembro de 2026, sem fins lucrativos.
+
+A fundadora é Maria Andreza Sá.
+
+Aline dos Santos Silva é a responsável pela associação.
+
+A história escrita da associação, com datas e factos, será publicada aqui pela própria associação.
 
 ## Cultura
 
 Caminho
-/cultura
+/cultura/
 
 Title
-Cultura, arte e património de Portugal e do Brasil
+Cultura brasileira em Portugal | Maria Andreza Sá
 
 Meta description
-Atividades culturais, exposições, arte e património de Portugal e do Brasil. Ainda não há calendário publicado.
+Atividades culturais da associação Maria Andreza Sá. A 1.ª Festa de Santa Bárbara levou a Lisboa missa, cortejo afro-brasileiro, arte e gastronomia baiana.
 
 H1
-Cultura, arte e património
+Cultura
 
 Corpo
-Esta página vai reunir atividades culturais, exposições, arte e património de Portugal e do Brasil.
+Esta página reúne as atividades culturais da associação. A arte, a música, a fé popular e a cozinha de Portugal e do Brasil cabem aqui.
 
-Ainda não há calendário. Não há datas nem lista de atividades. Quando uma atividade existir, a associação publica aqui a informação confirmada.
+A primeira atividade com registo público é a Festa de Santa Bárbara em Lisboa, que a associação organizou em setembro de 2026. No domingo, 6 de setembro, houve missa na Igreja de Nossa Senhora dos Anjos, em Arroios, e depois um cortejo pelas ruas do centro até à Praça da Figueira.
 
-Até lá, a página fica neste âmbito. O canal onde a associação já fala em público é o Instagram.
-https://www.instagram.com/festasantabarbaralx/
+O programa anunciado juntava grupos afro-brasileiros, capoeira e percussão, a exposição «Afro Barroco Cachoeira, Recôncavo da Bahia, Religiosidade», com curadoria de Jomar Lima, uma mostra de moda e gastronomia baiana.
+
+As próximas atividades entram nesta página com data e lugar, quando a associação as anunciar.
 
 ## Portugal e Brasil
 
 Caminho
-/portugal-e-brasil
+/portugal-e-brasil/
 
 Title
-Portugal e Brasil na associação Maria Andreza Sá
+Portugal e Brasil, de Salvador a Lisboa
 
 Meta description
-A língua portuguesa é comum aos dois países. O nome da associação junta as duas culturas. O intercâmbio documenta-se quando existir.
+Em Salvador, a Festa de Santa Bárbara faz-se a 4 de dezembro. Em 2026 chegou a Arroios, em Lisboa. A ligação entre Portugal e o Brasil na associação.
 
 H1
-Portugal e Brasil na associação
+Portugal e Brasil
 
 Corpo
-Portugal e Brasil estão no nome da associação. A língua portuguesa é partilhada pelos dois países. As culturas são duas. A associação não as trata como se fossem uma só.
+A associação leva os dois países no nome. A língua é comum. As culturas são duas, e é essa diferença que dá sentido ao intercâmbio.
 
-O propósito declarado é a tradição, a cultura e a união entre Portugal e Brasil.
+A Festa de Santa Bárbara mostra bem esta ligação. Em Salvador da Bahia, o culto existe desde 1641 e a festa faz-se a 4 de dezembro, no Centro Histórico. Desde 2008 é Património Imaterial da Bahia.
 
-Esta página vai documentar iniciativas de intercâmbio quando existirem. Hoje não há essa lista. Uma iniciativa confirmada passa a ser descrita aqui.
+Segundo o Público, a imagem da santa foi levada para Salvador por um casal de portugueses há quase 400 anos. Na Bahia, o candomblé homenageia na mesma festa a divindade Iansã.
 
-O Instagram é o canal público já em uso.
-https://www.instagram.com/festasantabarbaralx/
+Em setembro de 2026, a festa fez o caminho de volta. A associação organizou a 1.ª edição em Arroios, em Lisboa. O lema da 1.ª edição foi «Os ventos que ventam lá, ventam cá».
+
+Esta página vai juntar outras iniciativas entre os dois países, com data e lugar, quando existirem.
 
 ## Projetos
 
 Caminho
-/projetos
+/projetos/
 
 Title
-Projetos da associação Maria Andreza Sá
+Projetos | Maria Andreza Sá
 
 Meta description
-As iniciativas ainda não estão listadas. Veja o Instagram da associação ou a página de contactos.
+Iniciativas e eventos do Instituto Maria Andreza Sá.
 
 H1
-Projetos da associação
+Projetos e eventos
 
 Corpo
-As iniciativas da associação ainda não estão listadas. Quando um projeto tiver nome e descrição confirmados pela associação, passa a aparecer aqui. Até lá, o caminho é o Instagram e a página de contactos.
-https://www.instagram.com/festasantabarbaralx/
-/contactos
+As iniciativas e os eventos ainda não estão listados neste site. Quando a associação fechar um projeto, ele aparece aqui.
+
+Com eventos publicados em `src/data/eventos.ts`, a página mostra os cartões dos eventos em vez do corpo acima. Cada evento tem página própria em /projetos/<slug>/ com o texto, a ficha, as fontes e a galeria.
 
 ## Notícias
 
 Caminho
-/noticias
+/noticias/
 
 Title
-Notícias da associação Maria Andreza Sá
+Notícias | Maria Andreza Sá
 
 Meta description
-Ainda não há notícias publicadas. Esta página não traz artigos nem datas. O canal público atual é o Instagram.
+Novidades do instituto. Ainda não há notícias publicadas.
 
 H1
-Notícias da associação
+Notícias
 
 Corpo
-Ainda não há notícias publicadas. Esta página não mostra artigos nem datas.
+Ainda não há notícias publicadas. Esta página fica para a cobertura das atividades, quando elas acontecem.
 
-Quando a associação tiver um anúncio para publicar, o texto entra aqui com a data real. Até esse dia, o canal com publicações é o Instagram.
-https://www.instagram.com/festasantabarbaralx/
+O estado vazio aponta para a página do evento mais recente, quando existir.
 
 ## Contactos
 
 Caminho
-/contactos
+/contactos/
 
 Title
-Contactos da associação Maria Andreza Sá
+Contactos | Maria Andreza Sá
 
 Meta description
-O canal público que funciona é o Instagram. O formulário do site não envia mensagens. Os restantes dados ainda não estão publicados.
+Sede em Vila Franca de Xira. E-mail e telefone ainda não estão publicados.
 
 H1
-Contactos da associação
+Contactos
 
 Corpo
-O canal que funciona hoje é o Instagram. É o único contacto público confirmado.
-https://www.instagram.com/festasantabarbaralx/
+A sede fica na Rua Soeiro Pereira Gomes, n.º 12, 3.º frente, Quinta da Grinja, 2600-265 Vila Franca de Xira.
 
-Os restantes dados institucionais ainda não estão publicados.
+E-mail e telefone institucionais ainda não estão publicados. Entram nesta página quando a associação os confirmar.
+
+Aviso do formulário
+Este formulário está desativado. Não envia a mensagem, não a guarda e ninguém a recebe.
 
 O formulário não envia mensagens. Não há um servidor a recebê-las. O texto não chega à associação e não fica registado no site. Nenhuma mensagem escrita aqui foi enviada.
 
@@ -181,7 +193,7 @@ Mensagem
 
 ## Não publicar
 
-Este bloco não vai para o site. Lista o que fica de fora de qualquer página.
+Este bloco não vai para o site. Lista o que fica de fora de qualquer página. Exceção desde 2026-11-11: os factos da 1.ª Festa de Santa Bárbara em Lisboa com fonte citada (programa, exposição, lema, nomes aprovados pelo Leo), em `src/data/eventos.ts` e nas páginas que o citam.
 
 Passaporte.
 Número de documento.
@@ -191,7 +203,6 @@ Morada privada de pessoa. A sede registada da associação pode estar no site.
 Código postal que não seja o da sede registada nem o da CNPD.
 E-mail pessoal ou de campus.
 Telefone.
-Data de fundação.
 História novelada.
 Exposições já feitas.
 Obras.

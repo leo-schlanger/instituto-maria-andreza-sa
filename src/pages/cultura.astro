@@ -1,7 +1,24 @@
 ---
 import SimplePage from "@/components/SimplePage.astro";
+import { eventos } from "@/data/eventos";
 import { pages } from "@/data/site";
 
 const page = pages.cultura;
 ---
-<SimplePage title={page.title} description={page.description} path={page.path} h1={page.h1} paragraphs={page.paragraphs} />
+<SimplePage
+  title={page.title}
+  description={page.description}
+  path={page.path}
+  h1={page.h1}
+  eyebrow="Artes, memória e património"
+  paragraphs={page.paragraphs}
+>
+  {eventos[0] && (
+    <div class="status-note reveal" slot="aside">
+      <p class="related__title">Evento</p>
+      <p>{eventos[0].titulo}</p>
+      <p class="status-note__meta">{[eventos[0].data, eventos[0].local].filter(Boolean).join(" · ")}</p>
+      <a class="text-link" href={`/projetos/${eventos[0].slug}/`}>Ler sobre o evento</a>
+    </div>
+  )}
+</SimplePage>

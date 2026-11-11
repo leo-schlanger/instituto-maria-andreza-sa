@@ -1,25 +1,57 @@
 ---
+import Arrow from "@/components/Arrow.astro";
+import Divider from "@/components/Divider.astro";
+import PageHero from "@/components/PageHero.astro";
 import Base from "@/layouts/Base.astro";
+import { nav } from "@/data/site";
 
 interface Props {
   title: string;
   description: string;
   path: string;
   h1: string;
+  eyebrow: string;
   paragraphs: readonly string[];
+  facts?: readonly { term: string; value: string }[];
+  pattern?: "azulejo" | "calcada";
+  sources?: readonly { titulo: string; url: string }[];
 }
 
-const { title, description, path, h1, paragraphs } = Astro.props;
+const { title, description, path, h1, eyebrow, paragraphs, facts, pattern, sources } = Astro.props;
 const [lead, ...rest] = paragraphs;
+const related = nav.filter((item) => item.href !== "/" && item.href !== path).slice(0, 4);
 ---
 <Base title={title} description={description} path={path}>
-  <div class="site-wrap page-pad reading">
-    <h1>{h1}</h1>
-    {lead && <p class="lede">{lead}</p>}
-    {rest.length > 0 && (
-      <div class="reading-body">
-        {rest.map((paragraph) => <p>{paragraph}</p>)}
-      </div>
-    )}
+  <PageHero h1={h1} crumb={h1} eyebrow={eyebrow} lede={lead} pattern={pattern} />
+  <div class="site-wrap page-body">
+    <div class="reading reveal">
+      <slot name="before" />
+      {rest.map((paragraph, i) => <p class:list={[i === 0 && rest.length > 2 && "dropcap"]}>{paragraph}</p>)}
+      <slot />
+      <Divider />
+      {sources && sources.length > 0 && (
+        <section class="sources" aria-labelledby="fontes-titulo">
+          <h2 id="fontes-titulo" class="sources__title">Fontes</h2>
+          <ol>
+            {sources.map((f) => <li><a href={f.url} target="_blank" rel="noopener">{f.titulo}</a></li>)}
+          </ol>
+        </section>
+      )}
+    </div>
+    <aside class="page-aside" aria-label="Nesta secção">
+      {facts && (
+        <div class="fact-card reveal">
+          <p class="fact-card__title">Ficha</p>
+          <dl>
+            {facts.map((f) => <div><dt>{f.term}</dt><dd>{f.value}</dd></div>)}
+          </dl>
+        </div>
+      )}
+      <slot name="aside" />
+      <nav class="related reveal" aria-label="Outras secções">
+        <p class="related__title">Continuar a ler</p>
+        {related.map((item) => <a href={item.href}>{item.label}<Arrow /></a>)}
+      </nav>
+    </aside>
   </div>
 </Base>

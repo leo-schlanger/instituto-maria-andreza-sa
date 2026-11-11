@@ -1,12 +1,7 @@
 ---
-import LegalDoc from "@/components/LegalDoc.astro";
+import LegalPage from "@/components/LegalPage.astro";
 import { pages } from "@/data/site";
-import Base from "@/layouts/Base.astro";
 
 const page = pages.termos;
 ---
-<Base title={page.title} description={page.description} path={page.path}>
-  <div class="site-wrap page-pad">
-    <LegalDoc file={page.file} />
-  </div>
-</Base>
+<LegalPage title={page.title} description={page.description} path={page.path} file={page.file} />

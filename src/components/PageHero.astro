@@ -1,0 +1,29 @@
+---
+import Star from "@/components/Star.astro";
+
+interface Props {
+  h1: string;
+  crumb: string;
+  eyebrow: string;
+  lede?: string;
+  pattern?: "azulejo" | "calcada";
+  parent?: { href: string; label: string };
+}
+
+const { h1, crumb, eyebrow, lede, pattern = "azulejo", parent } = Astro.props;
+---
+<section class:list={["page-hero", `page-hero--${pattern}`]}>
+  <div class="page-hero__pattern" aria-hidden="true"></div>
+  <div class="site-wrap page-hero__inner">
+    <nav class="crumbs" aria-label="Localização">
+      <a href="/">Início</a>
+      <span aria-hidden="true">/</span>
+      {parent && <><a href={parent.href}>{parent.label}</a><span aria-hidden="true">/</span></>}
+      <span aria-current="page">{crumb}</span>
+    </nav>
+    <p class="eyebrow eyebrow--light"><Star />{eyebrow}</p>
+    <h1>{h1}</h1>
+    {lede && <p class="page-hero__lede">{lede}</p>}
+    <slot />
+  </div>
+</section>

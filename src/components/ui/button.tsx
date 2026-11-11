@@ -4,7 +4,7 @@ import { Slot } from "radix-ui";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex shrink-0 items-center justify-center gap-2 rounded-lg font-sans text-base font-medium whitespace-nowrap transition-colors outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  "inline-flex shrink-0 items-center justify-center gap-2 rounded-full font-sans text-base font-semibold tracking-[0.01em] whitespace-nowrap transition-[background-color,border-color,color,transform] duration-200 outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   {
     variants: {
       variant: {
@@ -16,12 +16,14 @@ const buttonVariants = cva(
         secondary: "bg-secondary font-semibold text-secondary-foreground hover:bg-champagne",
         ghost: "hover:bg-champagne hover:text-text",
         link: "text-primary underline-offset-4 hover:underline",
+        ivory: "border border-secondary bg-background text-primary hover:bg-white",
+        outlineLight: "border border-champagne/70 bg-transparent text-white hover:border-champagne hover:bg-white/10",
       },
       size: {
-        default: "min-h-11 px-4 py-2 has-[>svg]:px-3",
+        default: "min-h-11 px-5 py-2",
         xs: "min-h-11 gap-1 px-2 text-base has-[>svg]:px-1.5",
         sm: "min-h-11 gap-1.5 px-3 has-[>svg]:px-2.5",
-        lg: "min-h-11 px-6 has-[>svg]:px-4",
+        lg: "min-h-12 px-6 text-base",
         icon: "size-11",
         "icon-xs": "size-11",
         "icon-sm": "size-11",

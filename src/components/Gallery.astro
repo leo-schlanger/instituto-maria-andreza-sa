@@ -1,0 +1,33 @@
+---
+import Photo from "@/components/Photo.astro";
+import type { Foto } from "@/data/eventos-fotos";
+
+interface Props {
+  fotos: Foto[];
+  titulo: string;
+}
+
+const { fotos, titulo } = Astro.props;
+// Credits repeat per photo when they differ; one shared line when they are all the same.
+const creditos = [...new Set(fotos.map((f) => f.credito).filter(Boolean))] as string[];
+const shared = creditos.length === 1 && fotos.every((f) => f.credito === creditos[0]);
+---
+{fotos.length > 0 && (
+  <section class="gallery" aria-labelledby="galeria-titulo">
+    <div class="gallery__head">
+      <h2 id="galeria-titulo" class="sources__title">Galeria</h2>
+      <p class="gallery__count">{fotos.length} {fotos.length === 1 ? "fotografia" : "fotografias"}</p>
+    </div>
+    <div class:list={["gallery__grid", `gallery__grid--${Math.min(fotos.length, 4)}`]}>
+      {fotos.map((foto, i) => (
+        <figure class:list={["gallery__item", i === 0 && fotos.length > 2 && "gallery__item--lead"]}>
+          <a href={foto.src} target="_blank" rel="noopener" aria-label={`Abrir fotografia ${i + 1} de ${fotos.length} em tamanho grande`}>
+            <Photo foto={foto} sizes={i === 0 ? "(min-width: 1000px) 760px, 100vw" : "(min-width: 1000px) 380px, 50vw"} />
+          </a>
+          {!shared && foto.credito && <figcaption>Fotografia: {foto.credito}</figcaption>}
+        </figure>
+      ))}
+    </div>
+    {shared && <p class="gallery__credit">Fotografias: {creditos[0]}. {titulo}.</p>}
+  </section>
+)}

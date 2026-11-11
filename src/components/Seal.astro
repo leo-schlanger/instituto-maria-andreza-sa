@@ -1,0 +1,25 @@
+---
+import { logoAlt } from "@/data/site";
+
+interface Props {
+  size: "sm" | "md" | "lg" | "xl";
+  priority?: boolean;
+  decorative?: boolean;
+}
+
+// The seal is RGB with an ivory field and its outer ring reaches past the inscribed circle.
+// A disc 1.12× the image, in the field colour, clips only the square corners and never the art.
+const { size, priority = false, decorative = false } = Astro.props;
+const px = { sm: 56, md: 120, lg: 320, xl: 420 }[size];
+---
+<span class:list={["seal", `seal--${size}`]}>
+  <img
+    src="/brand/logo.webp"
+    width={px}
+    height={px}
+    alt={decorative ? "" : logoAlt}
+    decoding="async"
+    loading={priority ? "eager" : "lazy"}
+    fetchpriority={priority ? "high" : undefined}
+  />
+</span>

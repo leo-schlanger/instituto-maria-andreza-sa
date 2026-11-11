@@ -1,0 +1,49 @@
+---
+import Arrow from "@/components/Arrow.astro";
+import Photo from "@/components/Photo.astro";
+import Star from "@/components/Star.astro";
+import { fotosPorEvento } from "@/data/eventos-fotos";
+import { eventInstagramLabel, type Evento } from "@/data/evento-ui";
+
+interface Props {
+  evento: Evento;
+  headingLevel?: 2 | 3;
+}
+
+const { evento, headingLevel = 3 } = Astro.props;
+const Heading = `h${headingLevel}` as "h2" | "h3";
+const capa = fotosPorEvento[evento.slug]?.[0];
+const meta = [evento.data, evento.local].filter(Boolean) as string[];
+---
+<article class="event-card" id={evento.slug} data-evento={evento.slug}>
+  {capa ? (
+    <figure class="event-card__art event-card__art--photo">
+      <Photo foto={capa} sizes="(min-width: 900px) 480px, 100vw" />
+      <span class="event-card__badge" aria-hidden="true">Evento</span>
+      {capa.credito && <figcaption>Fotografia: {capa.credito}</figcaption>}
+    </figure>
+  ) : (
+    <div class="event-card__art" aria-hidden="true">
+      <span class="event-card__badge">Evento</span>
+      <Star class="event-card__star" />
+      {evento.data && <span class="event-card__date">{evento.data}</span>}
+    </div>
+  )}
+  <div class="event-card__body">
+    {meta.length > 0 && (
+      <p class="event-card__meta">{meta.join(" · ")}</p>
+    )}
+    <Heading class="event-card__title">
+      <a href={`/projetos/${evento.slug}/`}>{evento.titulo}</a>
+    </Heading>
+    <p class="event-card__summary">{evento.resumo}</p>
+    <div class="event-card__actions">
+      <a class="event-card__link" href={`/projetos/${evento.slug}/`}>Ler sobre o evento<Arrow /></a>
+      {evento.instagramUrl && (
+        <a class="event-card__link event-card__link--quiet" href={evento.instagramUrl} target="_blank" rel="noopener">
+          {eventInstagramLabel(evento)}<Arrow />
+        </a>
+      )}
+    </div>
+  </div>
+</article>

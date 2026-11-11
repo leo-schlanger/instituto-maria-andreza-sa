@@ -1,0 +1,23 @@
+---
+import type { Foto } from "@/data/eventos-fotos";
+
+interface Props {
+  foto: Foto;
+  sizes: string;
+  eager?: boolean;
+  class?: string;
+}
+
+const { foto, sizes, eager = false, class: className } = Astro.props;
+---
+<img
+  class={className}
+  src={foto.src800}
+  srcset={`${foto.src800} 800w, ${foto.src} ${foto.largura}w`}
+  sizes={sizes}
+  width={foto.largura}
+  height={foto.altura}
+  alt={foto.alt}
+  loading={eager ? "eager" : "lazy"}
+  decoding="async"
+/>

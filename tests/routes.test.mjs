@@ -8,32 +8,32 @@ const dist = path.resolve("dist");
 const pages = [
   {
     file: "index.html",
-    title: "Instituto Maria Andreza Sá",
-    h1: "Instituto Associativo Cultural & Artístico Luso-Brasileiro",
+    title: "Instituto Maria Andreza Sá, associação luso-brasileira",
+    h1: "Associação cultural e artística luso-brasileira",
     canonical: "https://mariaandrezasa.org/",
   },
   {
     file: "associacao/index.html",
-    title: "A associação | Maria Andreza Sá",
+    title: "Associação cultural luso-brasileira em Vila Franca de Xira",
     h1: "A associação",
     canonical: "https://mariaandrezasa.org/associacao/",
   },
   {
     file: "cultura/index.html",
-    title: "Cultura | Maria Andreza Sá",
+    title: "Cultura brasileira em Portugal | Maria Andreza Sá",
     h1: "Cultura",
     canonical: "https://mariaandrezasa.org/cultura/",
   },
   {
     file: "portugal-e-brasil/index.html",
-    title: "Portugal e Brasil | Maria Andreza Sá",
+    title: "Portugal e Brasil, de Salvador a Lisboa",
     h1: "Portugal e Brasil",
     canonical: "https://mariaandrezasa.org/portugal-e-brasil/",
   },
   {
     file: "projetos/index.html",
     title: "Projetos | Maria Andreza Sá",
-    h1: "Projetos em preparação",
+    h1: "Projetos e eventos",
     canonical: "https://mariaandrezasa.org/projetos/",
   },
   {
@@ -110,11 +110,12 @@ test("canonical da home", () => {
   const json = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
   assert.ok(json, "JSON-LD só na home");
   const data = JSON.parse(json[1]);
-  assert.deepEqual(Object.keys(data).sort(), ["@context", "@type", "logo", "name", "sameAs", "url"]);
+  // sameAs only lists the association's own profiles; the event Instagram is not one of them.
+  assert.equal(JSON.stringify(data).includes("festasantabarbaralx"), false);
+  for (const key of Object.keys(data)) assert.ok(["@context", "@type", "logo", "name", "sameAs", "url"].includes(key), key);
   assert.equal(data["@type"], "Organization");
   assert.equal(data.url, "https://mariaandrezasa.org/");
   assert.equal(data.logo, "https://mariaandrezasa.org/brand/logo.webp");
-  assert.deepEqual(data.sameAs, ["https://www.instagram.com/festasantabarbaralx/"]);
   for (const key of ["address", "email", "taxID", "telephone"]) {
     assert.equal(Object.hasOwn(data, key), false, key);
   }
@@ -140,7 +141,7 @@ test("404", () => {
 
 test("contactos com formulário morto", () => {
   const html = readPage("contactos/index.html");
-  assert.match(html, /Este formulário está desativado\. Não envia a mensagem, não a guarda e ninguém a recebe\. Para falar com a associação, use o Instagram\./);
+  assert.match(html, /Este formulário está desativado\. Não envia a mensagem, não a guarda e ninguém a recebe\./);
   const form = html.match(/<form\b[^>]*>/i);
   assert.ok(form);
   assert.doesNotMatch(form[0], /\baction=/i);
@@ -153,12 +154,41 @@ test("contactos com formulário morto", () => {
   assert.equal(html.includes("fetch("), false);
 });
 
-test("projetos sem lista fictícia", () => {
+test("projetos sem lista fictícia", async () => {
+  const { eventos } = await import("../src/data/eventos.ts");
   const html = readPage("projetos/index.html");
-  assert.match(html, /aria-label="Sem lista de eventos"/);
-  assert.equal(html.includes("<article"), false);
-  assert.equal(html.includes("<time"), false);
-  assert.equal((html.match(/<ul[\s>]/g) || []).length, 0);
+  if (eventos.length === 0) {
+    assert.match(html, /aria-label="Sem lista de eventos"/);
+    assert.equal(html.includes("<article"), false);
+    assert.equal(html.includes("<time"), false);
+    assert.equal((html.match(/<ul[\s>]/g) || []).length, 0);
+    return;
+  }
+  assert.equal(html.includes('aria-label="Sem lista de eventos"'), false);
+  assert.equal((html.match(/data-evento="/g) || []).length, eventos.length);
+  for (const evento of eventos) {
+    const page = readPage(`projetos/${evento.slug}/index.html`);
+    assert.equal((page.match(/<h1[\s>]/g) || []).length, 1, evento.slug);
+    assert.equal(innerText(page, "h1"), evento.titulo, evento.slug);
+    assert.ok(page.includes(`rel="canonical" href="https://mariaandrezasa.org/projetos/${evento.slug}/"`), evento.slug);
+    for (const fonte of evento.fontes) assert.ok(page.includes(`href="${fonte.url}"`), fonte.url);
+    if (evento.instagramUrl) assert.match(page, /Instagram da Festa de Santa Bárbara|Instagram do evento/);
+  }
+});
+
+test("Instagram do evento nunca aparece como da associação", () => {
+  for (const file of ["index.html", "contactos/index.html", "noticias/index.html", "projetos/index.html"]) {
+    const html = readPage(file);
+    for (const a of html.matchAll(/<a\b[^>]*festasantabarbaralx[^>]*>([\s\S]*?)<\/a>/g)) {
+      assert.match(a[1], /Festa de Santa Bárbara|evento/, file);
+    }
+  }
+});
+
+test("sitemap inclui páginas de eventos", async () => {
+  const { eventos } = await import("../src/data/eventos.ts");
+  const xml = readFileSync(path.join(dist, "sitemap-0.xml"), "utf8");
+  for (const evento of eventos) assert.ok(xml.includes(`/projetos/${evento.slug}/`), evento.slug);
 });
 
 test("scripts externos e sem fontes de terceiros", () => {

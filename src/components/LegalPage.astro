@@ -1,0 +1,61 @@
+---
+import { readFileSync } from "node:fs";
+import path from "node:path";
+import Arrow from "@/components/Arrow.astro";
+import PageHero from "@/components/PageHero.astro";
+import Base from "@/layouts/Base.astro";
+import { renderLegalMarkdown } from "@/lib/legal-md.mjs";
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  file: string;
+}
+
+const { title, description, path: pagePath, file } = Astro.props;
+const html = renderLegalMarkdown(readFileSync(path.join(process.cwd(), file), "utf8"));
+
+// The first H1 goes to the page hero; H2s get anchors for the side index.
+const h1Match = html.match(/<h1>([\s\S]*?)<\/h1>/);
+const h1 = h1Match ? h1Match[1].replace(/<[^>]+>/g, "") : title;
+const slug = (text: string) =>
+  text
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+const toc: { id: string; label: string }[] = [];
+const body = html
+  .replace(/<h1>[\s\S]*?<\/h1>\n?/, "")
+  .replace(/<h2>([\s\S]*?)<\/h2>/g, (_m, inner: string) => {
+    const label = inner.replace(/<[^>]+>/g, "");
+    const id = slug(label);
+    toc.push({ id, label });
+    return `<h2 id="${id}">${inner}</h2>`;
+  });
+const others = [
+  { href: "/privacidade/", label: "Privacidade" },
+  { href: "/cookies/", label: "Cookies" },
+  { href: "/termos/", label: "Termos" },
+].filter((item) => item.href !== pagePath);
+---
+<Base title={title} description={description} path={pagePath}>
+  <PageHero h1={h1} crumb={h1} eyebrow="Informação legal" />
+  <div class="site-wrap page-body page-body--legal">
+    <aside class="legal-aside" aria-label="Índice">
+      {toc.length > 0 && (
+        <nav class="toc" aria-label="Nesta página">
+          <p class="related__title">Nesta página</p>
+          {toc.map((item) => <a href={`#${item.id}`}>{item.label}</a>)}
+        </nav>
+      )}
+      <nav class="related" aria-label="Outros documentos">
+        <p class="related__title">Outros documentos</p>
+        {others.map((item) => <a href={item.href}>{item.label}<Arrow /></a>)}
+      </nav>
+    </aside>
+    <div class="legal reading" set:html={body} />
+  </div>
+</Base>

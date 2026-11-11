@@ -32,7 +32,10 @@ export default defineConfig({
     react(),
     externalizeInlineScripts(),
     sitemap({
-      filter: (page) => indexable.has(new URL(page).pathname),
+      filter: (page) => {
+        const p = new URL(page).pathname;
+        return indexable.has(p) || /^\/projetos\/[a-z0-9-]+\/$/.test(p);
+      },
       namespaces: { news: false, xhtml: false, image: false, video: false },
     }),
   ],

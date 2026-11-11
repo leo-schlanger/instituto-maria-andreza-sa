@@ -1,7 +1,23 @@
 ---
 import SimplePage from "@/components/SimplePage.astro";
+import Star from "@/components/Star.astro";
 import { pages } from "@/data/site";
 
 const page = pages.portugal;
 ---
-<SimplePage title={page.title} description={page.description} path={page.path} h1={page.h1} paragraphs={page.paragraphs} />
+<SimplePage
+  title={page.title}
+  description={page.description}
+  path={page.path}
+  h1={page.h1}
+  eyebrow="Duas margens, uma língua"
+  paragraphs={page.paragraphs}
+  pattern="calcada"
+  sources={page.sources}
+>
+  <div class="twin reveal" slot="before" aria-hidden="true">
+    <span class="twin__side twin__side--pt">Portugal</span>
+    <span class="twin__seal"><Star /></span>
+    <span class="twin__side twin__side--br">Brasil</span>
+  </div>
+</SimplePage>

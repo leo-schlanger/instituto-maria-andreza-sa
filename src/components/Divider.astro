@@ -1,0 +1,10 @@
+---
+import Star from "@/components/Star.astro";
+interface Props {
+  tone?: "gold" | "light";
+}
+const { tone = "gold" } = Astro.props;
+---
+<div class:list={["divider", `divider--${tone}`]} aria-hidden="true">
+  <span></span><Star /><span></span>
+</div>

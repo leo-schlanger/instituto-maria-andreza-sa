@@ -1,78 +1,161 @@
 ---
+import Arrow from "@/components/Arrow.astro";
 import { ButtonLink } from "@/components/ButtonLink";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { founderLine, instagramUrl, logoAlt, pages } from "@/data/site";
+import Divider from "@/components/Divider.astro";
+import EventCard from "@/components/EventCard.astro";
+import Seal from "@/components/Seal.astro";
+import Star from "@/components/Star.astro";
+import { eventos } from "@/data/eventos";
+import { facts, founderLine, pages } from "@/data/site";
 import Base from "@/layouts/Base.astro";
 
 const page = pages.home;
 const statements = [
-  "Tradição é o que se recebe e se continua.",
-  "Cultura é o que se faz em conjunto, na arte, no encontro e na memória.",
-  "A união luso-brasileira é o motivo do nome.",
+  { n: "I", lead: "Tradição", rest: " é o que se recebe e se continua." },
+  { n: "II", lead: "Cultura", rest: " é o que se faz em conjunto, na arte, no encontro e na memória." },
+  { n: "III", lead: "A união luso-brasileira", rest: " é o motivo do nome." },
 ] as const;
+const areas = [
+  { href: "/associacao/", label: "A associação", text: pages.associacao.description },
+  { href: "/cultura/", label: "Cultura", text: pages.cultura.description },
+  { href: "/portugal-e-brasil/", label: "Portugal e Brasil", text: pages.portugal.description },
+  { href: "/projetos/", label: "Projetos", text: pages.projetos.description },
+  { href: "/noticias/", label: "Notícias", text: pages.noticias.description, soon: true },
+];
+const featured = eventos[0];
 ---
 <Base title={page.title} description={page.description} path={page.path} jsonLd>
   <section class="hero">
-    <div class="site-wrap hero-grid">
-      <div class="hero-copy">
-        <h1>{page.h1}</h1>
-        <p class="lede">{page.paragraphs[0]}</p>
-        <p>{page.paragraphs[1]}</p>
-        <div class="action-row">
-          <ButtonLink href="/associacao/">A associação</ButtonLink>
-          <ButtonLink href={instagramUrl} variant="secondary" external>Instagram</ButtonLink>
+    <div class="hero__pattern" aria-hidden="true"></div>
+    <div class="hero__glow" aria-hidden="true"></div>
+    <div class="site-wrap hero__grid">
+      <div class="hero__copy">
+        <p class="eyebrow eyebrow--light enter" style="--d:0"><Star />Instituto Maria Andreza Sá</p>
+        <h1 class="hero__title enter" style="--d:1">
+          <span>Associação cultural</span>
+          <span><em>e</em> artística</span>
+          <span class="hero__accent">luso-brasileira</span>
+        </h1>
+        <p class="hero__lede enter" style="--d:2">{page.paragraphs[0]}</p>
+        <div class="action-row enter" style="--d:3">
+          <ButtonLink href="/associacao/" variant="ivory" size="lg">Conhecer a associação</ButtonLink>
+          <ButtonLink href="/portugal-e-brasil/" variant="outlineLight" size="lg">Portugal e Brasil</ButtonLink>
         </div>
       </div>
-      <figure class="seal-plate">
-        <img src="/brand/logo.webp" width="340" height="340" alt={logoAlt} fetchpriority="high">
-      </figure>
-    </div>
-  </section>
-
-  <section class="pillars" aria-label="O que a associação afirma">
-    <div class="site-wrap pillar-grid">
-      {statements.map((line) => <p class="pillar">{line}</p>)}
-    </div>
-  </section>
-
-  <section class="band">
-    <div class="site-wrap band-inner">
-      <div class="band-copy">
-        <h2>Portugal e Brasil</h2>
-        <p>{pages.portugal.paragraphs[0]}</p>
+      <div class="hero__seal enter" style="--d:2">
+        <span class="hero__orbit" aria-hidden="true"></span>
+        <Seal size="xl" priority />
       </div>
-      <ButtonLink href="/portugal-e-brasil/" variant="secondary">Portugal e Brasil</ButtonLink>
+    </div>
+    <div class="hero__edge" aria-hidden="true"></div>
+  </section>
+
+  <section class="facts" aria-label="Ficha do instituto">
+    <div class="site-wrap">
+      <dl class="facts__card">
+        {facts.map((f) => <div><dt>{f.term}</dt><dd>{f.value}</dd></div>)}
+      </dl>
     </div>
   </section>
 
-  <section class="split">
-    <div class="site-wrap split-grid">
-      <Card>
-        <CardHeader>
-          <CardTitle>Projetos</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <p>{pages.projetos.paragraphs[0]}</p>
-          <ButtonLink href="/projetos/" variant="outline">Projetos</ButtonLink>
-        </CardContent>
-      </Card>
-      <Card>
-        <CardHeader>
-          <CardTitle>Notícias</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <p>{pages.noticias.paragraphs[0]}</p>
-          <ButtonLink href="/noticias/" variant="outline">Notícias</ButtonLink>
-        </CardContent>
-      </Card>
+  <section class="intro section-pad" aria-labelledby="intro-titulo">
+    <div class="site-wrap intro__grid">
+      <div class="reveal">
+        <p class="eyebrow">Quem somos</p>
+        <h2 id="intro-titulo" class="section-title">A associação</h2>
+      </div>
+      <div class="intro__text reveal">
+        <p class="intro__big">{page.paragraphs[1]}</p>
+        <p class="intro__founder"><Star />{founderLine}</p>
+        <a class="text-link" href="/associacao/">Ler sobre a associação<Arrow /></a>
+      </div>
     </div>
   </section>
 
-  <section class="invite">
-    <div class="site-wrap invite-inner">
-      <p class="founder">{founderLine}</p>
-      <p>{page.paragraphs[2]}</p>
-      <ButtonLink href="/contactos/">Contactos</ButtonLink>
+  {featured && (
+    <section class="featured section-pad" aria-labelledby="destaque-titulo">
+      <div class="site-wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">Em destaque</p>
+          <h2 id="destaque-titulo" class="section-title">Eventos</h2>
+          <p class="section-intro">{page.paragraphs[3]}</p>
+        </div>
+        <div class="reveal">
+          <EventCard evento={featured} />
+        </div>
+        <p class="note"><Star />{page.paragraphs[4]}</p>
+      </div>
+    </section>
+  )}
+
+  <section class="manifesto section-pad" aria-labelledby="principios-titulo">
+    <div class="manifesto__pattern" aria-hidden="true"></div>
+    <div class="site-wrap">
+      <div class="section-head section-head--center reveal">
+        <p class="eyebrow">Princípios</p>
+        <h2 id="principios-titulo" class="section-title">O que nos move</h2>
+        <Divider />
+      </div>
+      <div class="manifesto__grid">
+        {statements.map((s) => (
+          <p class="statement reveal">
+            <span class="statement__n" aria-hidden="true">{s.n}</span>
+            <span class="statement__text"><strong>{s.lead}</strong>{s.rest}</span>
+          </p>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bridge" aria-labelledby="ponte-titulo">
+    <div class="site-wrap bridge__grid">
+      <div class="bridge__art reveal" aria-hidden="true">
+        <span class="bridge__label bridge__label--pt">Portugal</span>
+        <span class="bridge__medal"><Star /></span>
+        <span class="bridge__label bridge__label--br">Brasil</span>
+      </div>
+      <div class="bridge__copy reveal">
+        <p class="eyebrow eyebrow--light">Duas margens, uma língua</p>
+        <h2 id="ponte-titulo" class="section-title">Portugal e Brasil</h2>
+        <p>{pages.portugal.paragraphs[0]}</p>
+        <ButtonLink href="/portugal-e-brasil/" variant="ivory">Ler mais</ButtonLink>
+      </div>
+    </div>
+  </section>
+
+  <section class="areas section-pad" aria-labelledby="areas-titulo">
+    <div class="site-wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Explorar</p>
+        <h2 id="areas-titulo" class="section-title">O site do instituto</h2>
+      </div>
+      <div class="areas__grid">
+        {areas.map((a, i) => (
+          <a class="area reveal" href={a.href}>
+            <span class="area__n" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+            <span class="area__title">{a.label}</span>
+            <span class="area__text">{a.text}</span>
+            <span class="area__foot">
+              {a.soon ? <span class="pill">Em preparação</span> : <span class="pill pill--quiet">Abrir</span>}
+              <Arrow />
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="closing" aria-labelledby="contacto-titulo">
+    <div class="site-wrap">
+      <div class="closing__card reveal">
+        <div class="closing__pattern" aria-hidden="true"></div>
+        <Seal size="md" decorative />
+        <div class="closing__copy">
+          <h2 id="contacto-titulo">Falar com o instituto</h2>
+          <p>{pages.contactos.description}</p>
+        </div>
+        <ButtonLink href="/contactos/" variant="ivory" size="lg">Contactos</ButtonLink>
+      </div>
     </div>
   </section>
 </Base>

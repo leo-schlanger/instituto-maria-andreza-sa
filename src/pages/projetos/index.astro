@@ -1,0 +1,35 @@
+---
+import { ButtonLink } from "@/components/ButtonLink";
+import EmptyState from "@/components/EmptyState.astro";
+import EventCard from "@/components/EventCard.astro";
+import PageHero from "@/components/PageHero.astro";
+import { eventos } from "@/data/eventos";
+import { pages } from "@/data/site";
+import Base from "@/layouts/Base.astro";
+
+const page = pages.projetos;
+---
+<Base title={page.title} description={page.description} path={page.path}>
+  <PageHero h1={page.h1} crumb="Projetos" eyebrow="Iniciativas e eventos" lede={eventos.length > 0 ? undefined : page.paragraphs[0]} />
+  <div class="site-wrap section-pad">
+    {eventos.length > 0 ? (
+      <section class="events" aria-labelledby="eventos-titulo">
+        <div class="section-head reveal">
+          <p class="eyebrow">Realizados</p>
+          <h2 id="eventos-titulo" class="section-title">Eventos</h2>
+        </div>
+        <div class="events__list">
+          {eventos.map((evento) => <div class="reveal"><EventCard evento={evento} /></div>)}
+        </div>
+      </section>
+    ) : (
+      <EmptyState title="Ainda sem lista" label="Sem lista de eventos">
+        <p>{page.paragraphs[0]}</p>
+        <div class="action-row">
+          <ButtonLink href="/contactos/">Contactos</ButtonLink>
+          <ButtonLink href="/associacao/" variant="outline">A associação</ButtonLink>
+        </div>
+      </EmptyState>
+    )}
+  </div>
+</Base>

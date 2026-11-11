@@ -6,16 +6,18 @@ export function ButtonLink({
   children,
   current = false,
   variant = "default",
+  size = "default",
   external = false,
 }: {
   href: string;
   children: string;
   current?: boolean;
-  variant?: "default" | "secondary" | "outline";
+  variant?: "default" | "secondary" | "outline" | "ivory" | "outlineLight";
+  size?: "default" | "lg";
   external?: boolean;
 }) {
   return (
-    <Button asChild variant={variant}>
+    <Button asChild variant={variant} size={size}>
       <a
         href={href}
         aria-current={current ? "page" : undefined}
@@ -23,6 +25,11 @@ export function ButtonLink({
         rel={external ? "noopener" : undefined}
       >
         {children}
+        {external ? (
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M7 17 17 7M9 7h8v8" />
+          </svg>
+        ) : null}
       </a>
     </Button>
   );

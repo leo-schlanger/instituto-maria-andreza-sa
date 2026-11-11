@@ -1,0 +1,62 @@
+---
+import Arrow from "@/components/Arrow.astro";
+import { ButtonLink } from "@/components/ButtonLink";
+import Divider from "@/components/Divider.astro";
+import Gallery from "@/components/Gallery.astro";
+import PageHero from "@/components/PageHero.astro";
+import { fotosPorEvento } from "@/data/eventos-fotos";
+import { eventInstagramLabel } from "@/data/evento-ui";
+import { eventos, type Evento } from "@/data/eventos";
+import Base from "@/layouts/Base.astro";
+
+export function getStaticPaths() {
+  return eventos.map((evento) => ({ params: { slug: evento.slug }, props: { evento } }));
+}
+
+const { evento } = Astro.props as { evento: Evento };
+const path = `/projetos/${evento.slug}/`;
+const ficha = [
+  evento.data && { term: "Data", value: evento.data },
+  evento.local && { term: "Local", value: evento.local },
+].filter(Boolean) as { term: string; value: string }[];
+---
+<Base title={`${evento.titulo} | Maria Andreza Sá`} description={evento.resumo} path={path}>
+  <PageHero h1={evento.titulo} crumb={evento.titulo} eyebrow="Evento" lede={evento.resumo} parent={{ href: "/projetos/", label: "Projetos" }} />
+  <div class="site-wrap page-body">
+    <div class="reading reveal">
+      {evento.corpo.map((p, i) => <p class:list={[i === 0 && evento.corpo.length > 2 && "dropcap"]}>{p}</p>)}
+      <Gallery fotos={fotosPorEvento[evento.slug] ?? []} titulo={evento.titulo} />
+      <Divider />
+      {evento.fontes.length > 0 && (
+        <section class="sources" aria-labelledby="fontes-titulo">
+          <h2 id="fontes-titulo" class="sources__title">Fontes</h2>
+          <ol>
+            {evento.fontes.map((f) => (
+              <li><a href={f.url} target="_blank" rel="noopener">{f.titulo}</a></li>
+            ))}
+          </ol>
+        </section>
+      )}
+    </div>
+    <aside class="page-aside" aria-label="Sobre o evento">
+      {ficha.length > 0 && (
+        <div class="fact-card reveal">
+          <p class="fact-card__title">Ficha</p>
+          <dl>{ficha.map((f) => <div><dt>{f.term}</dt><dd>{f.value}</dd></div>)}</dl>
+        </div>
+      )}
+      {evento.instagramUrl && (
+        <div class="status-note reveal">
+          <p class="related__title">Acompanhar</p>
+          <ButtonLink href={evento.instagramUrl} variant="secondary" external>{eventInstagramLabel(evento)}</ButtonLink>
+        </div>
+      )}
+      <nav class="related reveal" aria-label="Outras secções">
+        <p class="related__title">Continuar a ler</p>
+        <a href="/projetos/">Projetos e eventos<Arrow /></a>
+        <a href="/cultura/">Cultura<Arrow /></a>
+        <a href="/portugal-e-brasil/">Portugal e Brasil<Arrow /></a>
+      </nav>
+    </aside>
+  </div>
+</Base>

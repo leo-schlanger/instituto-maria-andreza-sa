@@ -29,19 +29,27 @@ Distribuição: 50% marfim e branco, 25% bordô, 10% dourado, 10% champanhe, 5% 
 
 Playfair Display nos títulos, cabeçalhos, frases institucionais e destaques. Montserrat no texto, na navegação, nos botões, nos formulários e nas legendas.
 
-## 4. Direção
+## 4. Direção de arte (redesenho de 2026-11-11)
 
-Institucional, editorial, elegante, minimalista, cultural, contemporânea. Linhas finas douradas, bordas discretas, fundos em marfim, padrões subtis de azulejo, elementos botânicos discretos, transições suaves. Sem excesso de ornamentos, sem gradientes pesados, sem sombras pesadas, sem visual de template, sem barroco.
+«Arquivo luso-brasileiro»: uma instituição cultural com voz editorial. Bordô pleno nos cabeçalhos de página, marfim nas áreas de leitura, ouro só em fios e ornamentos. Sem fotografia de banco: o carácter vem da tipografia (Playfair grande, itálico em champanhe), do selo em medalhão e de dois grafismos SVG originais.
+
+- Azulejo (`public/ornaments/azulejo-ouro.svg`, `azulejo-bordo.svg`): ladrilho de 96 px com rosáceas nos cantos, losango e quadrifólio. Sobre bordô a 22–32 % de opacidade com máscara em gradiente; sobre areia a 7–8 %.
+- Onda da calçada (`calcada.svg`, `calcada-ouro.svg`): o padrão do Rossio que foi para Copacabana, a ponte entre os dois países. Dispositivo assinatura em 3 sítios só: painel «Portugal / Brasil» (home e página Portugal e Brasil), filete no fundo do hero e filete no topo do rodapé. Não é a onda em gradiente do guia antigo.
+- Estrela de quatro pontas (`Star.astro`), tirada do selo: marcador de eyebrow, divisor e medalha.
+
+Ritmo da home: hero bordô → ficha institucional (cartão branco a sobrepor o hero) → «A associação» em marfim → evento em destaque em branco → princípios em areia `#F1E9D8` com azulejo → Portugal e Brasil em bordô → índice de secções em cartões → cartão de contacto bordô-escuro → rodapé `#4E0912`.
+
+Páginas interiores: `PageHero` bordô (migalhas, eyebrow, H1 até 72 px, lede) + coluna de leitura (68 ch, capitular quando há mais de 3 parágrafos) + coluna lateral fixa (ficha, continuar a ler). Legais: índice de secções à esquerda, H2 numerados. Vazios: moldura de azulejo tracejada + eyebrow «Em preparação» + ações.
 
 ## 5. Componentes
 
-shadcn/ui (Radix + Tailwind), não HTML cru.
+shadcn/ui (Radix + Tailwind). Botões em pílula (como no guia). Variantes: `default` bordô com fio dourado; `secondary` dourado com texto carvão (600, ≥ 16 px); `outline` branco; `ivory` (marfim com texto bordô, para fundos bordô); `outlineLight` (contorno champanhe, texto branco, só sobre bordô). Links externos levam seta ↗.
 
-Botão principal: fundo `#6D1723`, texto `#FFFFFF`, hover `#8A2733`, borda dourada opcional. Botão secundário: fundo `#B58A3A`, texto `#2D2927`, hover `#DCCBAA`. Cartões brancos ou marfim, borda discreta, cantos ligeiramente arredondados, sombra muito suave.
+Cabeçalho: faixa superior `#4E0912` (só ≥ 900 px), barra marfim translúcida com desfoque, selo 52–60 px, nome em Playfair, subtítulo em versaletes só ≥ 1240 px, menu horizontal só ≥ 1100 px (sublinhado dourado que cresce), botão Contactos. Abaixo de 1100 px: botão «Menu» com Sheet numerado.
 
-Cabeçalho com a logo à esquerda, menu horizontal no desktop, menu no telemóvel, Montserrat, hover subtil em dourado, botão de contacto em destaque.
+Evento (`EventCard.astro`): arte em bordô com azulejo ou, havendo fotos em `src/data/eventos-fotos.ts`, a primeira foto com `object-fit: cover`. Galeria (`Gallery.astro`) aguenta 0 a 20 fotos: 0 não desenha nada; 1 ocupa a largura; com 3 ou mais a primeira é larga e as outras em grelha 2/3 colunas. `srcset` 800w + original, `width/height` do ficheiro, `loading="lazy"`.
 
-## 6. Contraste medido em 10 de novembro de 2026
+## 6. Contraste medido em 10 e 11 de novembro de 2026
 
 | Par | Rácio | Uso |
 | --- | --- | --- |
@@ -58,10 +66,29 @@ Cabeçalho com a logo à esquerda, menu horizontal no desktop, menu no telemóve
 | `#596B50` sobre `#F8F4EA` | 5,25 | Apoio |
 | `#FFFFFF` sobre `#596B50` | 5,76 | Texto sobre oliveira |
 
-O ficheiro da logo é RGB, sem transparência, campo cerca de `#FCF8E9`. O cabeçalho fica em marfim para o selo não aparecer dentro de um quadrado. O bordô entra no rodapé, nos títulos, no botão principal e numa faixa curta.
+| `#DCCBAA` sobre `#6D1723` | 7,33 | Eyebrow e texto secundário em hero bordô |
+| `#DCCBAA` sobre `#4E0912` | 9,60 | Texto do rodapé |
+| `#FFFFFF` sobre `#4E0912` | 15,31 | Links do rodapé |
+| `#A9433D` sobre `#F1E9D8` | 4,89 | Eyebrow em areia (13 px, 600) |
+| `#5C564E` sobre `#FFFFFF` | 7,25 | Texto de apoio em cartões |
+| `#5C564E` sobre `#EFE6D4` | 5,85 | Campo desativado |
+| `#7A726A` sobre `#EFE6D4` | 3,81 | Contorno do campo desativado (UI 3:1) |
+| `#D9CCB4` sobre `#FFFFFF` | 1,59 | Borda decorativa de cartão. Nunca é o único limite de um controlo |
+
+O ficheiro da logo é RGB, sem transparência, campo cerca de `#FCF8E9`. O cabeçalho fica em marfim para o selo não aparecer dentro de um quadrado. O bordô entra no rodapé, nos títulos, no botão principal, no hero da home e no topo de cada página (o brief pede 25 % de bordô e cabeçalho bordô; o cabeçalho com o selo continua marfim).
 
 ## 7. Conteúdo que esta versão não inventa
 
-Não há fotografias de eventos da associação. Não há projetos com nome, data ou descrição confirmados. Não há notícias. Essas zonas usam cartões shadcn em estado vazio e apontam para o Instagram https://www.instagram.com/festasantabarbaralx/
+Não há fotografias próprias da associação. Fotografias do Instagram do evento só entram com autorização do Leo, pelo contrato de `src/data/eventos-fotos.ts`. Não há notícias: estado vazio com moldura de azulejo.
+
+O Instagram https://www.instagram.com/festasantabarbaralx/ é de um evento (Festa de Santa Bárbara), não da associação. Rótulo sempre «Instagram da Festa de Santa Bárbara» e só junto do evento. O Instagram oficial ainda não existe: `instagramOficialUrl` vazia; o rodapé, o menu e os contactos mostram o link só quando tiver valor.
 
 A fundadora, no texto público pedido neste brief, é Maria Andreza Sá. Uma frase, sem biografia inventada. Dados pessoais do registo (documento, morada, e-mail, números) não entram no site nem no git.
+
+## 8. Logo (selo)
+
+`Seal.astro` em todo o lado (cabeçalho, hero, rodapé, cartão de contacto, 404, OG). O selo nunca se estica nem se corta: a imagem fica a 89,3 % de um disco `#FCF8EC` (a cor medida do campo do ficheiro), com `overflow: hidden`. O anel do selo chega a 524 px do centro num ficheiro de 960 px, por isso uma máscara circular do tamanho da imagem come o anel; o disco 1,12× só corta os cantos lisos do quadrado. Tamanhos: 52/60 px (cabeçalho), 96–112 px (rodapé, contacto), até 260 px no hero do telemóvel e 420 px no desktop.
+
+## 9. Movimento
+
+Entrada do hero em cascata (0,9 s, `cubic-bezier(0.22, 1, 0.36, 1)`), órbita tracejada do medalhão roda uma vez (2,4 s), padrão do hero com paralaxe ligada ao scroll e secções a subir ao entrar no ecrã (`animation-timeline: view()`, só onde o browser suporta; sem suporte o conteúdo aparece logo). Tudo dentro de `prefers-reduced-motion: no-preference`; com `reduce` não há animação. Nenhum movimento infinito. Sem JavaScript para animação.

@@ -1,7 +1,15 @@
 ---
 import SimplePage from "@/components/SimplePage.astro";
-import { pages } from "@/data/site";
+import { associationFacts, pages } from "@/data/site";
 
 const page = pages.associacao;
 ---
-<SimplePage title={page.title} description={page.description} path={page.path} h1={page.h1} paragraphs={page.paragraphs} />
+<SimplePage
+  title={page.title}
+  description={page.description}
+  path={page.path}
+  h1={page.h1}
+  eyebrow="Quem somos"
+  paragraphs={page.paragraphs}
+  facts={associationFacts}
+/>

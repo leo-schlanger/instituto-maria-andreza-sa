@@ -1,18 +1,27 @@
 ---
 import { ButtonLink } from "@/components/ButtonLink";
 import { MobileMenu } from "@/components/islands/MobileMenu";
-import { brandName, isCurrent, logoAlt, nav } from "@/data/site";
+import Seal from "@/components/Seal.astro";
+import Star from "@/components/Star.astro";
+import { brandName, instagramOficialUrl, isCurrent, nav } from "@/data/site";
 
 const path = Astro.url.pathname;
 const links = nav.filter((item) => item.href !== "/contactos/");
 ---
+<div class="topbar">
+  <div class="site-wrap topbar-inner">
+    <p>Associação cultural e artística <span aria-hidden="true">·</span> Vila Franca de Xira</p>
+    <p class="topbar-flags"><span>Portugal</span><Star /><span>Brasil</span></p>
+    {instagramOficialUrl && <a href={instagramOficialUrl} target="_blank" rel="noopener">Instagram</a>}
+  </div>
+</div>
 <header class="site-header">
   <div class="site-wrap site-bar">
-    <a class="brand-link" href="/">
-      <img class="brand-mark" src="/brand/logo.webp" width="64" height="64" alt={logoAlt}>
+    <a class="brand-link" href="/" aria-label={`${brandName}, início`}>
+      <Seal size="sm" decorative />
       <span class="brand-copy">
         <span class="brand-name">{brandName}</span>
-        <span class="brand-kicker">Instituto Associativo Cultural & Artístico</span>
+        <span class="brand-kicker">Instituto Cultural &amp; Artístico Luso-Brasileiro</span>
       </span>
     </a>
     <nav class="site-nav" aria-label="Secções">
@@ -21,10 +30,10 @@ const links = nav.filter((item) => item.href !== "/contactos/");
       ))}
     </nav>
     <div class="site-tools">
-      <ButtonLink href="/contactos/" current={isCurrent(path, "/contactos/")}>Contactos</ButtonLink>
-      <div class="site-menu">
-        <MobileMenu client:load items={[...nav]} currentPath={path} />
-      </div>
+      <span class="site-cta"><ButtonLink href="/contactos/" current={isCurrent(path, "/contactos/")}>Contactos</ButtonLink></span>
+      <span class="site-menu">
+        <MobileMenu client:load items={[...nav]} currentPath={path} instagramUrl={instagramOficialUrl} />
+      </span>
     </div>
   </div>
 </header>
