@@ -1248,9 +1248,10 @@ a[data-slot="button"] { text-decoration: none; }
 .sources { margin-top: 8px; }
 .sources__title { font-size: 1.5rem; margin-bottom: 12px; }
 .sources ol { margin: 0; padding-left: 1.5rem; display: grid; gap: 4px; }
-.sources li { font-size: 0.9875rem; line-height: 1.5; }
+/* Padding lives on the li: an inline-block link pins the marker to its last line. */
+.sources li { font-size: 0.9875rem; line-height: 1.6; padding-block: 8px; }
 .sources li::marker { color: #a9433d; font-weight: 600; }
-.sources a { display: inline-block; padding-block: 8px; color: #2d2927; text-decoration-color: #b58a3a; text-underline-offset: 4px; overflow-wrap: anywhere; }
+.sources a { color: #2d2927; text-decoration-color: #b58a3a; text-underline-offset: 4px; overflow-wrap: anywhere; }
 .sources a:hover { color: #6d1723; }
 .section-intro { max-width: 40em; margin-top: 16px; font-size: 1.125rem; }
 .note {
