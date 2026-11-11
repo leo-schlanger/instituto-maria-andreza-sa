@@ -3,6 +3,7 @@ import Arrow from "@/components/Arrow.astro";
 import { ButtonLink } from "@/components/ButtonLink";
 import Divider from "@/components/Divider.astro";
 import Gallery from "@/components/Gallery.astro";
+import OrnamentPanel from "@/components/OrnamentPanel.astro";
 import PageHero from "@/components/PageHero.astro";
 import Star from "@/components/Star.astro";
 import { fotosPorEvento } from "@/data/eventos-fotos";
@@ -70,6 +71,7 @@ const evNode = eventNode(evento, siteUrl + path, fotos);
       )}
     </div>
     <aside class="page-aside" aria-label="Sobre o evento">
+      {fotos.length === 0 && <OrnamentPanel kicker={evento.local} title={evento.data} class="event-poster reveal" />}
       {ficha.length > 0 && (
         <div class="fact-card reveal">
           <p class="fact-card__title">Ficha</p>

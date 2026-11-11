@@ -79,8 +79,11 @@ body {
 
 ::selection { background: #6d1723; color: #fff; }
 
+/* Focus ring colour per surface: bordeaux on light surfaces, ivory on dark ones.
+   Every dark surface sets --focus and --color-ring (list below, checked by tests/focus.test.mjs). */
+:root { --focus: #6d1723; }
 :focus-visible {
-  outline: 2px solid #6d1723;
+  outline: 2px solid var(--focus);
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -107,6 +110,30 @@ body {
 .skip-link:focus { top: 12px; }
 
 .site-main:focus { outline: none; }
+
+/* Dark surfaces: ivory focus ring (#f8f4ea: 10.64:1 on #6d1723, 13.94:1 on #4e0912). */
+.topbar,
+.hero,
+.page-hero,
+.bridge,
+.bridge__medal,
+.twin__seal,
+.closing__card,
+.closing__medal,
+.site-footer,
+.footer-medal,
+.event-card__art,
+.event-card__art--photo,
+.orn,
+.orn__medal,
+.story__quote,
+.pillar__icon,
+.founder__placeholder,
+.channel__icon,
+.contact-side {
+  --focus: #f8f4ea;
+  --color-ring: #f8f4ea;
+}
 
 /* ---------- Type ---------- */
 
@@ -1533,3 +1560,86 @@ a[data-slot="button"] { text-decoration: none; }
 @media (max-width: 399px) {
   .footer-contact { overflow-wrap: anywhere; }
 }
+
+
+/* ---------- 2026-11-11 c: ornament panels instead of photos ---------- */
+.orn {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  min-height: 240px;
+  background: linear-gradient(170deg, #8a2733, #4e0912);
+  color: #f8f4ea;
+}
+.orn__tiles {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: url("/ornaments/azulejo-ouro.svg") center / 72px 72px repeat;
+  opacity: 0.22;
+  -webkit-mask-image: radial-gradient(circle at 50% 42%, transparent 18%, #000 62%);
+  mask-image: radial-gradient(circle at 50% 42%, transparent 18%, #000 62%);
+}
+.orn__waves {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 30%;
+  z-index: -1;
+  background: url("/ornaments/calcada-ouro.svg") 0 0 / 90px 36px repeat;
+  opacity: 0.6;
+  -webkit-mask-image: linear-gradient(to top, #000 30%, transparent);
+  mask-image: linear-gradient(to top, #000 30%, transparent);
+}
+.orn__frame {
+  position: absolute;
+  inset: 14px;
+  border: 1px solid rgb(181 138 58 / 0.7);
+  border-radius: 10px;
+  pointer-events: none;
+}
+.orn--arch .orn__frame { border-radius: 190px 190px 10px 10px; }
+.orn__stack { display: grid; justify-items: center; gap: 16px; padding: 40px 24px; text-align: center; }
+.orn__kicker { color: #dccbaa; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; }
+.orn__medal {
+  display: grid;
+  place-items: center;
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 35%, #8a2733, #6d1723 70%);
+  color: #dccbaa;
+  box-shadow: 0 0 0 6px rgb(248 244 234 / 0.92), 0 0 0 7px #b58a3a, 0 0 0 18px rgb(248 244 234 / 0.07), 0 22px 40px -14px rgb(0 0 0 / 0.6);
+}
+.orn__medal .star { width: 54px; height: 54px; filter: drop-shadow(0 2px 6px rgb(0 0 0 / 0.35)); }
+.orn__title { color: #fff; font-family: var(--font-serif); font-style: italic; font-size: clamp(1.25rem, 1.05rem + 0.8vw, 1.625rem); line-height: 1.25; max-width: 14em; }
+
+/* Founder: arch panel replaces the seal */
+.founder__placeholder.orn { padding: 0; }
+.founder__placeholder .orn__medal { width: 140px; height: 140px; }
+.founder__placeholder .orn__medal .star { width: 66px; height: 66px; }
+
+/* Event card: panel fills the art column */
+.event-card__orn { position: absolute; inset: 0; min-height: 0; }
+.event-card__art .event-card__badge { z-index: 2; }
+.event-poster { border-radius: 18px; min-height: 300px; border: 1px solid #b58a3a; }
+
+/* Medals replacing repeated seals */
+.closing__medal,
+.footer-medal {
+  display: grid;
+  place-items: center;
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: #6d1723;
+  color: #dccbaa;
+  box-shadow: 0 0 0 5px rgb(248 244 234 / 0.9), 0 0 0 6px #b58a3a;
+}
+.closing__medal .star,
+.footer-medal .star { width: 40px; height: 40px; }
+.footer-medal { width: 64px; height: 64px; margin: 6px; }
+.footer-medal .star { width: 30px; height: 30px; }

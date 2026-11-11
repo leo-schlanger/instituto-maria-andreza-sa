@@ -12,7 +12,7 @@ Instagram oficial da associação. Ainda não existe. Fica em `instagramOficialU
 Instagram de um evento, não da associação. Rótulo obrigatório «Instagram da Festa de Santa Bárbara». Só aparece ligado ao evento (`src/data/eventos.ts`).
 https://www.instagram.com/festasantabarbaralx/
 
-Textos atualizados a 2026-11-11 com o texto oficial da presidente (biografia, missão, três pilares, narrativa da festa), que prevalece sobre os blocos de `docs/PESQUISA-ASSOCIACAO.md` §4. Revisão ligeira de português de Portugal e de pontuação. O pilar 1 foi reescrito por parecer jurídico (Lei 10/2024, art. 12.º). A fonte viva é `src/data/site.ts`; este ficheiro espelha-a.
+Textos atualizados a 2026-11-11 com o texto oficial da presidente (biografia, missão, três pilares, narrativa da festa), que prevalece sobre os blocos de `docs/PESQUISA-ASSOCIACAO.md` §4. Revisão ligeira de português de Portugal e de pontuação. O pilar 1 (título e texto) foi reescrito por parecer jurídico (Lei 10/2024, art. 12.º). A fonte viva é `src/data/site.ts`; este ficheiro espelha-a.
 
 Nome público: Instituto Cultural e Artístico Luso-Brasileiro Maria Andreza Sá. O nome registado só onde é legal.
 
@@ -30,7 +30,7 @@ Title
 Instituto Maria Andreza Sá, associação luso-brasileira
 
 Meta description
-Instituto luso-brasileiro que une arte e tradições populares ao apoio jurídico a mulheres vítimas de violência doméstica e à ação social solidária.
+Instituto luso-brasileiro de arte e tradições populares, apoio e encaminhamento de mulheres vítimas de violência doméstica e ação social solidária.
 
 H1
 Associação cultural e artística luso-brasileira
@@ -49,7 +49,7 @@ O Instagram que ligamos neste site é o da Festa de Santa Bárbara.
 Três pilares (bloco na home e em /associacao/)
 A atuação do Instituto assenta em três pilares fundamentais.
 
-Apoio jurídico e defesa contra a violência doméstica
+Apoio e acesso à Justiça contra a violência doméstica
 O Instituto informa, acolhe e encaminha mulheres vítimas de violência doméstica, para que possam romper ciclos de abuso, aceder à Justiça e reconstruir as suas vidas com segurança e dignidade. A orientação jurídica individual é prestada pela Dra. Maria Andreza Sá, advogada inscrita na Ordem dos Advogados.
 
 A mulher como um todo
@@ -79,7 +79,7 @@ A associação
 Corpo
 O Instituto Cultural e Artístico Luso-Brasileiro Maria Andreza Sá nasceu com a missão de estreitar os laços históricos, afetivos e culturais entre Portugal e o Brasil, aliando a promoção da arte e das tradições populares a uma atuação social e jurídica transformadora.
 
-O nome registado é Instituto Associativo Cultural & Artístico Luso Brasileiro Maria Andreza Sá. Foi constituída a 30 de junho de 2025. A atividade registada é a de associação cultural e recreativa.
+O nome registado é Instituto Associativo Cultural & Artístico Luso Brasileiro Maria Andreza Sá. A associação foi constituída a 30 de junho de 2025. A atividade registada é a de associação cultural e recreativa.
 
 A associação organizou a 1.ª Festa de Santa Bárbara em Lisboa. Decorreu em Arroios, de 4 a 6 de setembro de 2026, sem fins lucrativos.
 
@@ -88,7 +88,7 @@ A história escrita da associação, com datas e factos, será publicada aqui pe
 Três pilares (bloco na home e em /associacao/)
 A atuação do Instituto assenta em três pilares fundamentais.
 
-Apoio jurídico e defesa contra a violência doméstica
+Apoio e acesso à Justiça contra a violência doméstica
 O Instituto informa, acolhe e encaminha mulheres vítimas de violência doméstica, para que possam romper ciclos de abuso, aceder à Justiça e reconstruir as suas vidas com segurança e dignidade. A orientação jurídica individual é prestada pela Dra. Maria Andreza Sá, advogada inscrita na Ordem dos Advogados.
 
 A mulher como um todo

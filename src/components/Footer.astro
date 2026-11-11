@@ -1,5 +1,4 @@
 ---
-import Seal from "@/components/Seal.astro";
 import Star from "@/components/Star.astro";
 import { brandName, contactEmail, contactPhone, contactPhoneLabel, instagramOficialUrl, nav, orgName, registeredName } from "@/data/site";
 ---
@@ -7,7 +6,7 @@ import { brandName, contactEmail, contactPhone, contactPhoneLabel, instagramOfic
   <div class="footer-pattern" aria-hidden="true"></div>
   <div class="site-wrap footer-grid">
     <div class="footer-brand">
-      <Seal size="md" decorative />
+      <span class="footer-medal" aria-hidden="true"><Star /></span>
       <div>
         <p class="footer-name">{brandName}</p>
         <p class="footer-org">{orgName}</p>

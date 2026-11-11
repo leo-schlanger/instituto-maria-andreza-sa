@@ -42,7 +42,7 @@ export const pillarsIntro = "A atuação do Instituto assenta em três pilares f
 export const pillars = [
   {
     icon: "justice",
-    title: "Apoio jurídico e defesa contra a violência doméstica",
+    title: "Apoio e acesso à Justiça contra a violência doméstica",
     // Legal review 2026-11-11 (Lei 10/2024, art. 12.º): the association informs and refers; legal advice is given by the lawyer.
     text: "O Instituto informa, acolhe e encaminha mulheres vítimas de violência doméstica, para que possam romper ciclos de abuso, aceder à Justiça e reconstruir as suas vidas com segurança e dignidade. A orientação jurídica individual é prestada pela Dra. Maria Andreza Sá, advogada inscrita na Ordem dos Advogados.",
     safety: true,
@@ -118,7 +118,7 @@ export const pages = {
     path: "/",
     title: "Instituto Maria Andreza Sá, associação luso-brasileira",
     description:
-      "Instituto luso-brasileiro que une arte e tradições populares ao apoio jurídico a mulheres vítimas de violência doméstica e à ação social solidária.",
+      "Instituto luso-brasileiro de arte e tradições populares, apoio e encaminhamento de mulheres vítimas de violência doméstica e ação social solidária.",
     h1: "Associação cultural e artística luso-brasileira",
     paragraphs: [
       mission,
@@ -136,7 +136,7 @@ export const pages = {
     h1: "A associação",
     paragraphs: [
       mission,
-      `O nome registado é ${registeredName}. Foi constituída a 30 de junho de 2025. A atividade registada é a de associação cultural e recreativa.`,
+      `O nome registado é ${registeredName}. A associação foi constituída a 30 de junho de 2025. A atividade registada é a de associação cultural e recreativa.`,
       "A associação organizou a 1.ª Festa de Santa Bárbara em Lisboa. Decorreu em Arroios, de 4 a 6 de setembro de 2026, sem fins lucrativos.",
       "A história escrita da associação, com datas e factos, será publicada aqui pela própria associação.",
     ],

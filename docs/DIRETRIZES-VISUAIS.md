@@ -51,6 +51,8 @@ Evento (`EventCard.astro`): arte em bordô com azulejo ou, havendo fotos em `src
 
 Blocos de 2026-11-11 (conteúdo oficial): `Pillars.astro` (três cartões brancos com fio bordô, ícone em medalha bordô e numeral romano dourado, sobre areia com azulejo), `Founder.astro` (arco 4:5 para o retrato, com placeholder bordô + selo enquanto não há foto; biografia com o 1.º parágrafo em Playfair), `SafetyNote.astro` (aviso 112 / 800 202 148 com fio terracota) e contactos em dois cartões clicáveis (e-mail e telefone) + painel bordô com a fundadora e as áreas de atuação. Ritmo da home: hero, ficha (Constituição, Fundadora e presidente, Atividade registada, NIPC), pilares, fundadora, evento, Portugal e Brasil, índice, contacto.
 
+Foco (2026-11-11, depois do qa): o anel usa `var(--focus)`; bordô `#6D1723` nas superfícies claras e marfim `#F8F4EA` em todas as escuras (10,64:1 sobre `#6D1723`, 13,94:1 sobre `#4E0912`). Cada contentor escuro novo entra na lista de `--focus`/`--color-ring` do `global.css`; `tests/focus.test.mjs` falha se faltar. O selo aparece no máximo 2 vezes por página (cabeçalho e hero/404); onde faltam fotografias usa-se `OrnamentPanel.astro` (azulejo + onda + medalha com estrela).
+
 ## 6. Contraste medido em 10 e 11 de novembro de 2026
 
 | Par | Rácio | Uso |

@@ -6,6 +6,8 @@ Estimativa do projeto: **94%**. O site e o DNS estão feitos. Falta o conteúdo 
 
 ## Feito
 
+- 2026-11-11 (noite), correções do qa: anel de foco claro em todas as superfícies escuras (medido 10,64 a 15,31:1), concordância em /associacao/, selo no máximo 2 vezes por página com painéis de ornamentos no lugar, título do pilar 1 e meta da home segundo o juridico, testes de foco e de linguagem jurídica.
+
 - 2026-11-11 (tarde), conteúdo oficial da presidente: biografia da fundadora em /associacao/#fundadora (resumo na home), três pilares na home e em /associacao/, narrativa da festa antes dos factos da imprensa, nome público novo. Morada da sede e nome da antiga responsável retirados de todo o site e do JSON-LD. Contactos com e-mail e telefone reais, sem formulário. Pilar 1 redigido segundo o parecer jurídico, com 112 e a linha 800 202 148.
 
 - 2026-11-11, SEO: JSON-LD em todas as páginas (associação com sede, constituição e NIPC, site, página, migalhas nas interiores, `Event` da Festa de Santa Bárbara com datas ISO), Open Graph e Twitter completos, `og:type=article` no evento, sitemap com `lastmod` do git, preload das fontes do título e do fundo do hero, selo com `srcset` (o cabeçalho deixou de descarregar 142 KB em cada página), cache de `/ornaments/` e `/brand/`, botão «Ler sobre Portugal e Brasil» em vez de «Ler mais». `tests/seo.test.mjs` com 11 verificações; 21 testes verdes.
@@ -32,7 +34,7 @@ Estimativa do projeto: **94%**. O site e o DNS estão feitos. Falta o conteúdo 
 
 ## Pendente do Leo
 
-- Levar à presidente a frase final do pilar 1 (reescrita por parecer jurídico) e confirmar que aceita.
+- Levar à presidente o título e a frase final do pilar 1 (reescritos por parecer jurídico) e confirmar que aceita.
 - Mandar o retrato da fundadora (lugar já preparado em /associacao/ e na home). Opcional.
 
 - Na Vercel, em Settings → Domains, pôr `www.mariaandrezasa.org` a redirecionar (308) para `mariaandrezasa.org`. Hoje os dois respondem 200 com o mesmo conteúdo. Recomendado: o canonical já aponta ao ápice, mas o redirect junta os sinais num só host. Sem isto não há erro, só sinais repartidos.

@@ -1,0 +1,24 @@
+---
+import Star from "@/components/Star.astro";
+
+// Decorative composition from the brand ornaments (azulejo, calçada wave, star).
+// Stands in for photographs that do not exist yet; never a fake image.
+interface Props {
+  shape?: "arch" | "card";
+  kicker?: string;
+  title?: string;
+  class?: string;
+}
+
+const { shape = "card", kicker, title, class: className } = Astro.props;
+---
+<div class:list={["orn", `orn--${shape}`, className]} aria-hidden="true">
+  <span class="orn__tiles"></span>
+  <span class="orn__waves"></span>
+  <span class="orn__frame"></span>
+  <span class="orn__stack">
+    {kicker && <span class="orn__kicker">{kicker}</span>}
+    <span class="orn__medal"><Star /></span>
+    {title && <span class="orn__title">{title}</span>}
+  </span>
+</div>

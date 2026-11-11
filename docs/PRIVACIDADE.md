@@ -70,15 +70,17 @@ No primeiro contacto, conte só o essencial. Se outra pessoa puder ler o seu e-m
 
 Quando o apoio terminar, apagamos as mensagens, salvo o que a lei obrigar a guardar ou o que nos pedir para guardar.
 
-## O formulário de contacto
-
-O formulário de contacto está visível e está desativado. Preencher os campos não envia a mensagem. Não a guarda. Não a faz chegar a nenhum e-mail. Não espere resposta por esse formulário.
-
 ## Ligações para outros sites
 
-O site tem ligações para sites de terceiros, como o Instagram da Festa de Santa Bárbara e as notícias de imprensa citadas como fontes.
+O site tem ligações para sites de terceiros:
+
+- o Instagram da Festa de Santa Bárbara;
+- as notícias de imprensa e as páginas oficiais citadas como fontes nas páginas de projetos e em Portugal e Brasil;
+- o site de quem desenvolveu este site, no rodapé.
 
 O clique sai deste site. O site não incorpora conteúdos desses sites e não grava cookies desses serviços. A partir do clique, cada serviço trata os dados com as regras dele.
+
+As ligações de e-mail e de telefone abrem a aplicação do seu equipamento. Nada é enviado até decidir enviar ou ligar.
 
 Uma mensagem enviada pelo Instagram do evento passa pelo Instagram e não chega à associação como pedido sobre dados. Não envie cópia do documento de identificação por nenhum canal. Se for preciso confirmar que o pedido é seu, diremos o mínimo necessário, por um meio adequado.
 

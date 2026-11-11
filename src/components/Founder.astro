@@ -1,5 +1,5 @@
 ---
-import Seal from "@/components/Seal.astro";
+import OrnamentPanel from "@/components/OrnamentPanel.astro";
 import Star from "@/components/Star.astro";
 import { founder, founderPortrait } from "@/data/site";
 
@@ -21,9 +21,7 @@ const paragraphs = full ? founder.bio : founder.bio.slice(0, 1);
           <figcaption><Star />{founder.title}</figcaption>
         </>
       ) : (
-        <div class="founder__placeholder" aria-hidden="true">
-          <Seal size="lg" decorative />
-        </div>
+        <OrnamentPanel shape="arch" class="founder__placeholder" />
       )}
     </figure>
     <div class="founder__copy reveal">

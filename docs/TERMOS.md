@@ -37,15 +37,9 @@ Quem aparece numa fotografia tem direito à sua imagem. Se aparece numa fotograf
 
 O direito de autor pertence a quem criou a obra, salvo acordo ou regra da lei em contrário.
 
-## Formulário
-
-O formulário de contacto está visível e está desativado.
-
-Não envia mensagens. Não as guarda.
-
 ## Ligações para outros sites
 
-O site liga para sites de terceiros: o Instagram da Festa de Santa Bárbara, notícias de imprensa citadas como fontes e o Google Maps.
+O site liga para sites de terceiros: o Instagram da Festa de Santa Bárbara, as notícias de imprensa e as páginas oficiais citadas como fontes, e, no rodapé, o site de quem desenvolveu este site.
 
 O clique sai deste site.
 
@@ -69,7 +63,9 @@ A informação do site é geral e institucional.
 
 Não é consulta jurídica nem aconselhamento fiscal ou profissional. Ler o site não cria uma relação de advogado e cliente.
 
-Quando a associação dá orientação jurídica a uma pessoa, essa orientação é prestada por advogado com inscrição em vigor na Ordem dos Advogados, num contacto individual. A representação em tribunal só pode ser feita por advogado.
+O Instituto informa, acolhe e encaminha mulheres vítimas de violência doméstica. Não presta consulta jurídica nem representa ninguém em tribunal.
+
+A orientação jurídica individual é prestada pela Dra. Maria Andreza Sá, advogada inscrita na Ordem dos Advogados, nos termos e com os deveres da sua profissão.
 
 ## Lei e foro
 
