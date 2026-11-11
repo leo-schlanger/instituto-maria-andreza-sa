@@ -6,19 +6,19 @@ Texto de 11 de novembro de 2026.
 
 ## Quem trata os dados
 
-O responsável pelo tratamento é o Instituto Associativo Cultural & Artístico Luso Brasileiro Maria Andreza Sá, associação constituída em 30 de junho de 2025. A sede fica na Rua Soeiro Pereira Gomes, n.º 12, 3.º frente, Quinta da Grinja, 2600-265 Vila Franca de Xira. O site usa a marca Maria Andreza Sá.
+O responsável pelo tratamento é o Instituto Associativo Cultural & Artístico Luso Brasileiro Maria Andreza Sá, associação constituída em 30 de junho de 2025. O site usa a marca Maria Andreza Sá.
 
 O NIPC é 518875270.
 
 ## Como nos contactar sobre os seus dados
 
-Para perguntas sobre privacidade e para exercer os seus direitos, use este contacto:
+Para perguntas sobre privacidade e para exercer os seus direitos, escreva para:
 
-- carta para a sede: Instituto Associativo Cultural & Artístico Luso Brasileiro Maria Andreza Sá, Rua Soeiro Pereira Gomes, n.º 12, 3.º frente, Quinta da Grinja, 2600-265 Vila Franca de Xira.
+- e-mail: institutomariaandrezasa@gmail.com
 
-Escreva «Proteção de dados» no envelope ou no início da carta. Diga o que pede e como prefere receber a resposta.
+Escreva «Proteção de dados» no assunto. Diga o que pede.
 
-A associação ainda não tem e-mail institucional. Quando tiver, o endereço passa a constar desta lista e serve também para estes pedidos.
+A associação também atende pelo telefone +351 968 050 922. Para exercer direitos, pedimos que escreva por e-mail: fica registo do pedido e da data, e a resposta segue por escrito.
 
 O Instagram ligado neste site é o da Festa de Santa Bárbara, um evento. Não é um canal da associação para pedidos sobre dados.
 
@@ -46,17 +46,41 @@ Estes conteúdos ficam publicados enquanto a página documentar o evento.
 
 Se aparece num nome ou numa fotografia e não concorda, peça a correção ou a remoção pelo contacto indicado acima. Diga a página e, se for uma fotografia, qual. Avaliamos o pedido e, quando procede, retiramos ou corrigimos o conteúdo.
 
+## Se nos escrever ou telefonar
+
+Se nos escrever, recebemos o seu nome, o seu endereço de e-mail e o que nos contar. Se telefonar, vemos o seu número. Usamos estes dados só para lhe responder e acompanhar o assunto. A base é o interesse legítimo de responder a quem nos contacta, previsto no artigo 6.º, n.º 1, alínea f), do Regulamento (UE) 2016/679.
+
+As chamadas não são gravadas.
+
+O e-mail da associação funciona no Gmail, da Google. A Google guarda as mensagens nos seus servidores e pode tratá-las fora do Espaço Económico Europeu.
+
+Guardamos as mensagens enquanto o assunto estiver em curso e, depois, até 12 meses. Guardamos mais tempo só o que for preciso para cumprir a lei ou defender um direito.
+
+## Se nos escrever sobre violência doméstica
+
+Em perigo imediato, ligue 112.
+
+O Serviço de Informação a Vítimas de Violência Doméstica é gratuito e funciona sempre: 800 202 148, ou SMS para 3060.
+
+Se escrever à associação sobre uma situação de violência, a sua mensagem é lida só por quem a acompanha e fica sob sigilo. Não a partilhamos com ninguém sem o seu acordo, salvo quando a lei o impõe.
+
+Informação sobre a sua saúde ou a sua vida íntima só a usamos com o seu consentimento expresso, para a finalidade que nos indicar. Pode retirá-lo quando quiser.
+
+No primeiro contacto, conte só o essencial. Se outra pessoa puder ler o seu e-mail ou o seu telemóvel, use um endereço e um equipamento a que só a si tenha acesso e apague a mensagem enviada.
+
+Quando o apoio terminar, apagamos as mensagens, salvo o que a lei obrigar a guardar ou o que nos pedir para guardar.
+
 ## O formulário de contacto
 
 O formulário de contacto está visível e está desativado. Preencher os campos não envia a mensagem. Não a guarda. Não a faz chegar a nenhum e-mail. Não espere resposta por esse formulário.
 
 ## Ligações para outros sites
 
-O site tem ligações para sites de terceiros: o Instagram da Festa de Santa Bárbara, as notícias de imprensa citadas como fontes e o Google Maps com a sede registada.
+O site tem ligações para sites de terceiros, como o Instagram da Festa de Santa Bárbara e as notícias de imprensa citadas como fontes.
 
-O clique sai deste site. O site não incorpora o feed do Instagram, as notícias nem o mapa, e não grava cookies desses serviços. A partir do clique, cada serviço trata os dados com as regras dele.
+O clique sai deste site. O site não incorpora conteúdos desses sites e não grava cookies desses serviços. A partir do clique, cada serviço trata os dados com as regras dele.
 
-Uma mensagem enviada pelo Instagram do evento passa pelo Instagram e não chega à associação como pedido sobre dados. Não envie cópia do documento de identificação por esse canal nem por outro. Se for preciso confirmar que o pedido é seu, diremos o mínimo necessário, por um meio adequado.
+Uma mensagem enviada pelo Instagram do evento passa pelo Instagram e não chega à associação como pedido sobre dados. Não envie cópia do documento de identificação por nenhum canal. Se for preciso confirmar que o pedido é seu, diremos o mínimo necessário, por um meio adequado.
 
 ## Alojamento
 
@@ -66,9 +90,7 @@ Se a Vercel guardar registos técnicos da ligação, esses registos ficam do lad
 
 ## Durante quanto tempo
 
-Não há ficheiro de contactos. Não há mensagens recebidas por este site. Por isso não há prazo de conservação de mensagens.
-
-Uma carta enviada à sede é guardada só o tempo preciso para responder e para provar que respondemos.
+O site não recebe mensagens nem tem ficheiro de contactos. Os prazos das mensagens enviadas por e-mail estão em «Se nos escrever ou telefonar» e em «Se nos escrever sobre violência doméstica».
 
 O site em si não cria uma conta nem um perfil.
 
@@ -104,7 +126,7 @@ A página de cookies deste site explica a ausência de cookies e o que mudaria s
 
 ## Normas consultadas
 
-Regulamento (UE) 2016/679, artigos 6.º, n.º 1, alínea f), 12.º, n.º 3, 13.º, 14.º, 15.º, 16.º, 17.º, 18.º, 20.º, 21.º e 77.º. Texto em português consultado em 11 de novembro de 2026: https://eur-lex.europa.eu/legal-content/PT/TXT/?uri=CELEX:32016R0679
+Regulamento (UE) 2016/679, artigos 6.º, n.º 1, alínea f), 9.º, n.º 2, alínea a), 12.º, n.º 3, 13.º, 14.º, 15.º, 16.º, 17.º, 18.º, 20.º, 21.º e 77.º. Texto em português consultado em 11 de novembro de 2026: https://eur-lex.europa.eu/legal-content/PT/TXT/?uri=CELEX:32016R0679
 
 Contactos da CNPD consultados em 10 de novembro de 2026 em https://www.cnpd.pt/ e em https://www.cnpd.pt/cnpd/atendimento-ao-publico/
 

@@ -12,7 +12,7 @@ Não há notícias. `/noticias/` não leva artigos nem datas.
 
 ## Contactos institucionais
 
-A sede registada está publicada: Rua Soeiro Pereira Gomes, n.º 12, 3.º frente, Quinta da Grinja, 2600-265 Vila Franca de Xira, com ligação para o Google Maps. E-mail e telefone ainda não estão publicados. O outro contacto no site é o Instagram https://www.instagram.com/festasantabarbaralx/
+A morada da sede não se publica (pedido da presidente, 2026-11-11). Contactos públicos: e-mail institutomariaandrezasa@gmail.com e telefone +351 968 050 922. O Instagram https://www.instagram.com/festasantabarbaralx/ é do evento.
 
 O formulário permanece desativado até existir um destino real. Não ligar `action` nem `mailto` antes disso.
 

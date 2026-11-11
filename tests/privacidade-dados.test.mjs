@@ -8,13 +8,18 @@ const roots = ["src", "public", "docs"];
 const binary = new Set([".png", ".jpg", ".jpeg", ".webp", ".gif", ".ico", ".woff", ".woff2", ".ttf", ".otf", ".pdf", ".zip"]);
 const email = /[A-Za-z0-9][A-Za-z0-9._%+-]*@[A-Za-z][A-Za-z0-9.-]*\.[A-Za-z]{2,}/;
 const postal = /(?<!\d)\d{4}-\d{3}(?!\d)/g;
-const allowedPostal = new Set(["1200-651", "2600-265"]);
+// 2600-265 (seat) is no longer published (president's request, 2026-11-11); only the CNPD postcode stays.
+const allowedPostal = new Set(["1200-651"]);
+// Institutional e-mail, public since 2026-11-11.
+const allowedEmails = new Set(["institutomariaandrezasa@gmail.com"]);
 
 function filesIn(dir, out = []) {
   for (const entry of readdirSync(dir)) {
     const full = path.join(dir, entry);
     const rel = path.relative(root, full).split(path.sep).join("/");
     if (rel === "docs/marca" || rel.startsWith("docs/marca/")) continue;
+    // Local research notes, git-ignored and never published.
+    if (rel === "docs/PESQUISA-ASSOCIACAO.md") continue;
     if (statSync(full).isDirectory()) {
       filesIn(full, out);
       continue;
@@ -39,7 +44,9 @@ test("sem e-mail, passaporte, campus ou morada privada", () => {
       const lines = text.split(/\r?\n/);
       lines.forEach((line, index) => {
         const where = `${file.rel}:${index + 1}`;
-        if (email.test(line)) hits.push(`${where} e-mail`);
+        for (const m of line.matchAll(new RegExp(email.source, "g"))) {
+          if (!allowedEmails.has(m[0])) hits.push(`${where} e-mail`);
+        }
         if (/passaporte/i.test(line) && !passaporteAllowed(file.rel, line)) hits.push(`${where} passaporte`);
         if (/campus\.ul\.pt/i.test(line)) hits.push(`${where} campus`);
         for (const code of line.matchAll(postal)) {

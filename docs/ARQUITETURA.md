@@ -49,11 +49,11 @@ Não copiar woff2 de origem solta para o git. Não usar itálico nesta versão. 
 
 **Escolha: `Organization`.** Trocar para `NGO` é uma linha, quando houver confirmação. Não é mudança de arquitetura.
 
-Atualizado a 2026-11-11. A sede e o NIPC passaram a estar publicados, e o JSON-LD acompanha. Continua `Organization`: o site não diz que a associação é sem fins lucrativos (só a festa).
+Atualizado a 2026-11-11. O NIPC está publicado. A morada da sede deixou de ser publicada a pedido da presidente (2026-11-11); o contacto é o e-mail e o telefone institucionais. Continua `Organization`: o site não diz que a associação é sem fins lucrativos (só a festa).
 
 Um bloco `<script type="application/ld+json">` com `@graph` em todas as páginas indexáveis, feito em `src/lib/seo.ts` a partir de `src/data/site.ts` e `src/data/eventos.ts`:
 
-- `Organization` (`@id` `/#organizacao`): `name` e `legalName` = nome registado, `alternateName`, `url`, `logo` (`/brand/logo.webp`, 960×960), `image`, `foundingDate`, `founder`, `taxID` (NIPC), `address` da sede. `sameAs` só com `instagramOficialUrl` preenchido, nunca o Instagram do evento. Sem e-mail nem telefone.
+- `Organization` (`@id` `/#organizacao`): `name` = nome público («Instituto Cultural e Artístico Luso-Brasileiro Maria Andreza Sá»), `legalName` = nome registado, `alternateName`, `url`, `logo` (`/brand/logo.webp`, 960×960), `image`, `foundingDate`, `founder`, `taxID` (NIPC), `email`, `telephone` e `contactPoint`. Sem `address`. `sameAs` só com `instagramOficialUrl` preenchido, nunca o Instagram do evento.
 - `WebSite` (`/#website`), `WebPage` por rota (`AboutPage` em `/associacao/`, `ContactPage` em `/contactos/`, `CollectionPage` em `/projetos/` e `/noticias/`).
 - `BreadcrumbList` nas interiores, com os mesmos nomes das migalhas visíveis do `PageHero`.
 - `Event` em cada página de evento com `inicio`: `startDate`/`endDate` ISO, `EventScheduled`, presencial, `location` com o `local` e a `localidade`, `organizer` = a associação. `image` só quando houver fotos em `eventos-fotos.ts`.

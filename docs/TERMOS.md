@@ -6,7 +6,7 @@ Texto de 11 de novembro de 2026.
 
 ## Quem é o titular
 
-O titular do site é o Instituto Associativo Cultural & Artístico Luso Brasileiro Maria Andreza Sá, associação constituída em 30 de junho de 2025. A sede fica na Rua Soeiro Pereira Gomes, n.º 12, 3.º frente, Quinta da Grinja, 2600-265 Vila Franca de Xira.
+O titular do site é o Instituto Associativo Cultural & Artístico Luso Brasileiro Maria Andreza Sá, associação constituída em 30 de junho de 2025.
 
 A marca é Maria Andreza Sá.
 
@@ -14,9 +14,8 @@ O NIPC é 518875270.
 
 Contacto para estes termos:
 
-- carta para a sede, na morada acima.
-
-A associação ainda não tem e-mail institucional. Quando tiver, o endereço passa a constar desta lista.
+- e-mail: institutomariaandrezasa@gmail.com
+- telefone: +351 968 050 922
 
 ## O que o site é
 
@@ -66,9 +65,11 @@ Se encontrar um erro, escreva pelo contacto acima. Corrigimos o que estiver erra
 
 ## Limite da informação
 
-A informação é institucional.
+A informação do site é geral e institucional.
 
-Não é aconselhamento jurídico, fiscal nem profissional.
+Não é consulta jurídica nem aconselhamento fiscal ou profissional. Ler o site não cria uma relação de advogado e cliente.
+
+Quando a associação dá orientação jurídica a uma pessoa, essa orientação é prestada por advogado com inscrição em vigor na Ordem dos Advogados, num contacto individual. A representação em tribunal só pode ser feita por advogado.
 
 ## Lei e foro
 

@@ -1,20 +1,16 @@
 ---
 import Arrow from "@/components/Arrow.astro";
 import { ButtonLink } from "@/components/ButtonLink";
-import Divider from "@/components/Divider.astro";
 import EventCard from "@/components/EventCard.astro";
+import Founder from "@/components/Founder.astro";
+import Pillars from "@/components/Pillars.astro";
 import Seal from "@/components/Seal.astro";
 import Star from "@/components/Star.astro";
 import { eventos } from "@/data/eventos";
-import { facts, founderLine, pages } from "@/data/site";
+import { facts, pages } from "@/data/site";
 import Base from "@/layouts/Base.astro";
 
 const page = pages.home;
-const statements = [
-  { n: "I", lead: "Tradição", rest: " é o que se recebe e se continua." },
-  { n: "II", lead: "Cultura", rest: " é o que se faz em conjunto, na arte, no encontro e na memória." },
-  { n: "III", lead: "A união luso-brasileira", rest: " é o motivo do nome." },
-] as const;
 const areas = [
   { href: "/associacao/", label: "A associação", text: pages.associacao.description },
   { href: "/cultura/", label: "Cultura", text: pages.cultura.description },
@@ -30,7 +26,7 @@ const featured = eventos[0];
     <div class="hero__glow" aria-hidden="true"></div>
     <div class="site-wrap hero__grid">
       <div class="hero__copy">
-        <p class="eyebrow eyebrow--light enter" style="--d:0"><Star />Instituto Maria Andreza Sá</p>
+        <p class="eyebrow eyebrow--light enter" style="--d:0"><Star />Instituto Cultural e Artístico Luso-Brasileiro</p>
         <h1 class="hero__title enter" style="--d:1">
           <span>Associação cultural</span>
           <span><em>e</em> artística</span>
@@ -39,7 +35,7 @@ const featured = eventos[0];
         <p class="hero__lede enter" style="--d:2">{page.paragraphs[0]}</p>
         <div class="action-row enter" style="--d:3">
           <ButtonLink href="/associacao/" variant="ivory" size="lg">Conhecer a associação</ButtonLink>
-          <ButtonLink href="/portugal-e-brasil/" variant="outlineLight" size="lg">Portugal e Brasil</ButtonLink>
+          <ButtonLink href="#pilares-titulo" variant="outlineLight" size="lg">Os três pilares</ButtonLink>
         </div>
       </div>
       <div class="hero__seal enter" style="--d:2">
@@ -58,19 +54,9 @@ const featured = eventos[0];
     </div>
   </section>
 
-  <section class="intro section-pad" aria-labelledby="intro-titulo">
-    <div class="site-wrap intro__grid">
-      <div class="reveal">
-        <p class="eyebrow">Quem somos</p>
-        <h2 id="intro-titulo" class="section-title">A associação</h2>
-      </div>
-      <div class="intro__text reveal">
-        <p class="intro__big">{page.paragraphs[1]}</p>
-        <p class="intro__founder"><Star />{founderLine}</p>
-        <a class="text-link" href="/associacao/">Ler sobre a associação<Arrow /></a>
-      </div>
-    </div>
-  </section>
+  <Pillars headingId="pilares-titulo" />
+
+  <Founder headingId="fundadora-titulo" />
 
   {featured && (
     <section class="featured section-pad" aria-labelledby="destaque-titulo">
@@ -87,25 +73,6 @@ const featured = eventos[0];
       </div>
     </section>
   )}
-
-  <section class="manifesto section-pad" aria-labelledby="principios-titulo">
-    <div class="manifesto__pattern" aria-hidden="true"></div>
-    <div class="site-wrap">
-      <div class="section-head section-head--center reveal">
-        <p class="eyebrow">Princípios</p>
-        <h2 id="principios-titulo" class="section-title">O que nos move</h2>
-        <Divider />
-      </div>
-      <div class="manifesto__grid">
-        {statements.map((s) => (
-          <p class="statement reveal">
-            <span class="statement__n" aria-hidden="true">{s.n}</span>
-            <span class="statement__text"><strong>{s.lead}</strong>{s.rest}</span>
-          </p>
-        ))}
-      </div>
-    </div>
-  </section>
 
   <section class="bridge" aria-labelledby="ponte-titulo">
     <div class="site-wrap bridge__grid">

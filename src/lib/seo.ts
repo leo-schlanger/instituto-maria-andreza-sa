@@ -2,12 +2,14 @@ import type { Evento } from "@/data/eventos";
 import type { Foto } from "@/data/eventos-fotos";
 import {
   brandName,
+  contactEmail,
+  contactPhone,
   foundingDate,
   instagramOficialUrl,
   nipc,
   orgName,
+  publicName,
   registeredName,
-  seatAddress,
   siteUrl,
 } from "@/data/site";
 
@@ -25,7 +27,7 @@ export function organizationNode(): Node {
   return {
     "@type": "Organization",
     "@id": orgId,
-    name: registeredName,
+    name: publicName,
     legalName: registeredName,
     alternateName: [siteName, orgName],
     url: `${siteUrl}/`,
@@ -37,21 +39,20 @@ export function organizationNode(): Node {
     },
     image: `${siteUrl}/og.jpg`,
     foundingDate,
-    founder: { "@type": "Person", name: brandName },
+    founder: { "@type": "Person", name: brandName, jobTitle: "Presidente" },
     taxID: nipc,
-    address: postalAddress(),
+    // No address: the seat is not published (president's request, 2026-11-11).
+    email: contactEmail,
+    telephone: contactPhone,
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "general",
+      email: contactEmail,
+      telephone: contactPhone,
+      availableLanguage: ["pt-PT", "pt-BR"],
+    },
     // Only the association's own profiles; the event Instagram never goes here.
     ...(instagramOficialUrl ? { sameAs: [instagramOficialUrl] } : {}),
-  };
-}
-
-function postalAddress(): Node {
-  return {
-    "@type": "PostalAddress",
-    streetAddress: seatAddress.street,
-    postalCode: seatAddress.postalCode,
-    addressLocality: seatAddress.locality,
-    addressCountry: seatAddress.country,
   };
 }
 
@@ -127,7 +128,7 @@ export function eventNode(evento: Evento, canonical: string, fotos: Foto[]): Nod
           },
         }
       : {}),
-    organizer: { "@type": "Organization", "@id": orgId, name: registeredName, url: `${siteUrl}/` },
+    organizer: { "@type": "Organization", "@id": orgId, name: publicName, url: `${siteUrl}/` },
     ...(fotos.length > 0 ? { image: fotos.map((f) => siteUrl + f.src) } : {}),
   };
 }

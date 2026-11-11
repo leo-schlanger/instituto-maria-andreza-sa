@@ -6,6 +6,8 @@ Estimativa do projeto: **94%**. O site e o DNS estão feitos. Falta o conteúdo 
 
 ## Feito
 
+- 2026-11-11 (tarde), conteúdo oficial da presidente: biografia da fundadora em /associacao/#fundadora (resumo na home), três pilares na home e em /associacao/, narrativa da festa antes dos factos da imprensa, nome público novo. Morada da sede e nome da antiga responsável retirados de todo o site e do JSON-LD. Contactos com e-mail e telefone reais, sem formulário. Pilar 1 redigido segundo o parecer jurídico, com 112 e a linha 800 202 148.
+
 - 2026-11-11, SEO: JSON-LD em todas as páginas (associação com sede, constituição e NIPC, site, página, migalhas nas interiores, `Event` da Festa de Santa Bárbara com datas ISO), Open Graph e Twitter completos, `og:type=article` no evento, sitemap com `lastmod` do git, preload das fontes do título e do fundo do hero, selo com `srcset` (o cabeçalho deixou de descarregar 142 KB em cada página), cache de `/ornaments/` e `/brand/`, botão «Ler sobre Portugal e Brasil» em vez de «Ler mais». `tests/seo.test.mjs` com 11 verificações; 21 testes verdes.
 - 2026-11-11, redesenho completo: hero bordô com selo em medalhão, ficha institucional, princípios, painel Portugal e Brasil com a onda da calçada, índice de secções, cabeçalhos de página bordô com azulejo, estados vazios com moldura, contactos com canais e formulário desativado, legais com índice, 404 com selo, rodapé completo, OG novo. Movimento só em CSS, com `prefers-reduced-motion`.
 - 2026-11-11, Instagram corrigido: o perfil `festasantabarbaralx` passa a ser do evento. Evento «1.ª Festa de Santa Bárbara em Lisboa» com página própria em `/projetos/festa-de-santa-barbara-lisboa-2026/`, fontes e galeria pronta (0 a 20 fotos). Textos de início, associação, cultura e Portugal e Brasil atualizados com a pesquisa.
@@ -30,12 +32,13 @@ Estimativa do projeto: **94%**. O site e o DNS estão feitos. Falta o conteúdo 
 
 ## Pendente do Leo
 
+- Levar à presidente a frase final do pilar 1 (reescrita por parecer jurídico) e confirmar que aceita.
+- Mandar o retrato da fundadora (lugar já preparado em /associacao/ e na home). Opcional.
+
 - Na Vercel, em Settings → Domains, pôr `www.mariaandrezasa.org` a redirecionar (308) para `mariaandrezasa.org`. Hoje os dois respondem 200 com o mesmo conteúdo. Recomendado: o canonical já aponta ao ápice, mas o redirect junta os sinais num só host. Sem isto não há erro, só sinais repartidos.
 - Google Search Console: adicionar a propriedade de domínio `mariaandrezasa.org` (registo TXT na GoDaddy) e submeter `https://mariaandrezasa.org/sitemap-index.xml`. Opcional, mas é a única forma de ver a indexação e os erros de dados estruturados. Bing Webmaster Tools importa do Search Console. Opcional.
-- Corrigir privacidade e termos: ainda indicam o Instagram do evento como contacto para direitos (passa pelo juridico). Obrigatório antes de divulgar o site; sem isto o contacto legal indicado não é da associação.
 - Enviar as fotos do evento (o contrato e a galeria já estão prontos) e criar o Instagram oficial (preencher `instagramOficialUrl`). Opcional.
 
 - Não apagar mais registos DNS. Têm de ficar os dois A (`216.198.79.1` e `64.29.17.1`) e o CNAME de `www`.
-- Confirmar e-mail e telefone institucionais antes de entrarem no site. A sede registada já está publicada. Se houver atividade económica (quotas, eventos pagos ou patrocínio), o e-mail passa a ser obrigatório.
 - O NIPC 518875270 já está só na privacidade e nos termos. Se algum dígito da declaração estiver mal lido, corrigir.
 - Fechar a lista de projetos e as notícias. As páginas dizem que ainda não há.

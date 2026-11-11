@@ -14,7 +14,7 @@ const pages = [
   },
   {
     file: "associacao/index.html",
-    title: "Associação cultural luso-brasileira em Vila Franca de Xira",
+    title: "A associação e a fundadora | Maria Andreza Sá",
     h1: "A associação",
     canonical: "https://mariaandrezasa.org/associacao/",
   },
@@ -125,19 +125,41 @@ test("404", () => {
   assert.match(html, /href="\/"/);
 });
 
-test("contactos com formulário morto", () => {
+test("contactos com e-mail e telefone, sem formulário", () => {
   const html = readPage("contactos/index.html");
-  assert.match(html, /Este formulário está desativado\. Não envia a mensagem, não a guarda e ninguém a recebe\./);
-  const form = html.match(/<form\b[^>]*>/i);
-  assert.ok(form);
-  assert.doesNotMatch(form[0], /\baction=/i);
-  assert.doesNotMatch(form[0], /\bmethod=/i);
-  assert.match(html, /<fieldset[^>]*\bdisabled\b/);
-  assert.match(html, /<button[^>]*\bdisabled\b[^>]*>Enviar<\/button>|<button[^>]*\bdisabled\b[^>]*>[\s\S]*?Enviar/);
-  assert.match(html, /<label[^>]*for="nome"/);
-  assert.match(html, /<label[^>]*for="email"/);
-  assert.match(html, /<label[^>]*for="mensagem"/);
+  assert.match(html, /href="mailto:institutomariaandrezasa@gmail\.com"/);
+  assert.match(html, /href="tel:\+351968050922"/);
+  assert.ok(html.includes("+351 968 050 922"));
+  assert.match(html, /Em perigo imediato, ligue/);
+  assert.equal(/<form\b/i.test(html), false);
   assert.equal(html.includes("fetch("), false);
+});
+
+test("sem morada da sede nem o nome retirado, em todo o dist", () => {
+  // President's request, 2026-11-11: the seat address and this name must not come back.
+  const banned = [/Soeiro Pereira Gomes/i, /2600-265/, /Quinta da Grinja/i, /\bAline\b/i, /google\.com\/maps/i];
+  const walk = (dir, out = []) => {
+    for (const entry of readdirSync(dir)) {
+      const full = path.join(dir, entry);
+      if (statSync(full).isDirectory()) walk(full, out);
+      else if (/\.(html|xml|txt|json|js|webmanifest)$/.test(entry)) out.push(full);
+    }
+    return out;
+  };
+  const hits = [];
+  for (const file of walk(dist)) {
+    const text = readFileSync(file, "utf8");
+    for (const re of banned) if (re.test(text)) hits.push(`${path.relative(dist, file)} ${re}`);
+  }
+  assert.deepEqual(hits, []);
+});
+
+test("telefone publicado é só o autorizado e o de apoio", () => {
+  for (const page of ["index.html", "contactos/index.html", "associacao/index.html"]) {
+    const html = readPage(page);
+    const tels = [...html.matchAll(/href="tel:([^"]+)"/g)].map((m) => m[1]);
+    for (const t of tels) assert.ok(["+351968050922", "112", "800202148"].includes(t), `${page} ${t}`);
+  }
 });
 
 test("projetos sem lista fictícia", async () => {

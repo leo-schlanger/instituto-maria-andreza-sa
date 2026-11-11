@@ -4,6 +4,7 @@ import { ButtonLink } from "@/components/ButtonLink";
 import Divider from "@/components/Divider.astro";
 import Gallery from "@/components/Gallery.astro";
 import PageHero from "@/components/PageHero.astro";
+import Star from "@/components/Star.astro";
 import { fotosPorEvento } from "@/data/eventos-fotos";
 import { eventInstagramLabel } from "@/data/evento-ui";
 import { eventos, type Evento } from "@/data/eventos";
@@ -21,6 +22,7 @@ const ficha = [
   evento.data && { term: "Data", value: evento.data },
   evento.local && { term: "Local", value: evento.local },
 ].filter(Boolean) as { term: string; value: string }[];
+const narrativa = evento.narrativa ?? [];
 const fotos = fotosPorEvento[evento.slug] ?? [];
 const evNode = eventNode(evento, siteUrl + path, fotos);
 ---
@@ -35,7 +37,25 @@ const evNode = eventNode(evento, siteUrl + path, fotos);
   <PageHero h1={evento.titulo} crumb={evento.titulo} eyebrow="Evento" lede={evento.resumo} parent={{ href: "/projetos/", label: "Projetos" }} />
   <div class="site-wrap page-body">
     <div class="reading reveal">
-      {evento.corpo.map((p, i) => <p class:list={[i === 0 && evento.corpo.length > 2 && "dropcap"]}>{p}</p>)}
+      {narrativa.length > 0 && (
+        <section class="story" aria-labelledby="narrativa-titulo">
+          <p class="eyebrow">Pelo Instituto</p>
+          <h2 id="narrativa-titulo" class="story__title">{evento.narrativaTitulo ?? evento.titulo}</h2>
+          {narrativa.slice(0, -1).map((p, i) => <p class:list={[i === 0 && "dropcap"]}>{p}</p>)}
+          {narrativa.length > 1 && (
+            <div class="story__quote"><Star /><p>{narrativa.at(-1)}</p></div>
+          )}
+        </section>
+      )}
+      {narrativa.length > 0 ? (
+        <section class="press" aria-labelledby="imprensa-titulo">
+          <p class="eyebrow">Factos com fonte</p>
+          <h2 id="imprensa-titulo" class="story__title">O que a imprensa registou</h2>
+          {evento.corpo.map((p) => <p>{p}</p>)}
+        </section>
+      ) : (
+        evento.corpo.map((p, i) => <p class:list={[i === 0 && evento.corpo.length > 2 && "dropcap"]}>{p}</p>)
+      )}
       <Gallery fotos={fotos} titulo={evento.titulo} />
       <Divider />
       {evento.fontes.length > 0 && (

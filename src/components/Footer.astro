@@ -1,7 +1,7 @@
 ---
 import Seal from "@/components/Seal.astro";
 import Star from "@/components/Star.astro";
-import { brandName, instagramOficialUrl, nav, orgName, registeredName, seatLine, seatMapUrl } from "@/data/site";
+import { brandName, contactEmail, contactPhone, contactPhoneLabel, instagramOficialUrl, nav, orgName, registeredName } from "@/data/site";
 ---
 <footer class="site-footer">
   <div class="footer-pattern" aria-hidden="true"></div>
@@ -18,9 +18,10 @@ import { brandName, instagramOficialUrl, nav, orgName, registeredName, seatLine,
       {nav.map((item) => <a href={item.href}>{item.label}</a>)}
     </nav>
     <div class="footer-col">
-      <p class="footer-title">Sede</p>
-      <address>{seatLine}</address>
-      <a href={seatMapUrl} target="_blank" rel="noopener">Ver no mapa</a>
+      <p class="footer-title">Contacto</p>
+      <a class="footer-contact" href={`mailto:${contactEmail}`}>{contactEmail}</a>
+      <a class="footer-contact" href={`tel:${contactPhone}`}>{contactPhoneLabel}</a>
+      <a href="/contactos/">Página de contactos</a>
       {instagramOficialUrl && (
         <a class="footer-social" href={instagramOficialUrl} target="_blank" rel="noopener">Instagram</a>
       )}

@@ -3,16 +3,20 @@ import { ButtonLink } from "@/components/ButtonLink";
 import { MobileMenu } from "@/components/islands/MobileMenu";
 import Seal from "@/components/Seal.astro";
 import Star from "@/components/Star.astro";
-import { brandName, instagramOficialUrl, isCurrent, nav } from "@/data/site";
+import { brandName, contactEmail, contactPhone, contactPhoneLabel, instagramOficialUrl, isCurrent, nav } from "@/data/site";
 
 const path = Astro.url.pathname;
 const links = nav.filter((item) => item.href !== "/contactos/");
 ---
 <div class="topbar">
   <div class="site-wrap topbar-inner">
-    <p>Associação cultural e artística <span aria-hidden="true">·</span> Vila Franca de Xira</p>
     <p class="topbar-flags"><span>Portugal</span><Star /><span>Brasil</span></p>
-    {instagramOficialUrl && <a href={instagramOficialUrl} target="_blank" rel="noopener">Instagram</a>}
+    <p class="topbar-contact">
+      <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
+      <span aria-hidden="true">·</span>
+      <a href={`tel:${contactPhone}`}>{contactPhoneLabel}</a>
+      {instagramOficialUrl && <><span aria-hidden="true">·</span><a href={instagramOficialUrl} target="_blank" rel="noopener">Instagram</a></>}
+    </p>
   </div>
 </div>
 <header class="site-header">

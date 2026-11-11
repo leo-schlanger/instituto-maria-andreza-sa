@@ -1,0 +1,11 @@
+---
+import { safetyNote } from "@/data/site";
+interface Props {
+  class?: string;
+}
+const { class: className } = Astro.props;
+---
+<p class:list={["safety", className]} role="note">
+  <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 3 2.5 20h19L12 3Z" stroke-linejoin="round" /><path d="M12 10v4M12 17h.01" stroke-linecap="round" /></svg>
+  <span>Em perigo imediato, ligue <a href={`tel:${safetyNote.emergency.tel}`}>{safetyNote.emergency.label}</a>. Linha de apoio gratuita: <a href={`tel:${safetyNote.helpline.tel}`}>{safetyNote.helpline.label}</a>.</span>
+</p>

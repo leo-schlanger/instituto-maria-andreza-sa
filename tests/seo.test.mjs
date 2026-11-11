@@ -47,13 +47,13 @@ function jsonLd(html) {
 const byType = (graph, type) => graph.filter((n) => n["@type"] === type);
 
 test("JSON-LD da associação e do site em todas as páginas indexáveis", async () => {
-  const { nipc, instagramOficialUrl, seatAddress, foundingDate, registeredName } = await import("../src/data/site.ts");
+  const { nipc, instagramOficialUrl, foundingDate, registeredName, publicName, contactEmail, contactPhone } = await import("../src/data/site.ts");
   for (const page of pages()) {
     const graph = jsonLd(page.html);
     const [org] = byType(graph, "Organization");
     assert.ok(org, `${page.route} sem Organization`);
     assert.equal(org["@id"], orgId);
-    assert.equal(org.name, registeredName);
+    assert.equal(org.name, publicName);
     assert.equal(org.legalName, registeredName);
     assert.ok(org.alternateName.includes("Instituto Maria Andreza Sá"));
     assert.equal(org.url, `${site}/`);
@@ -61,11 +61,12 @@ test("JSON-LD da associação e do site em todas as páginas indexáveis", async
     assert.equal(org.taxID, nipc);
     assert.equal(org.foundingDate, foundingDate);
     assert.match(org.foundingDate, /^\d{4}-\d{2}-\d{2}$/);
-    assert.deepEqual(
-      [org.address.streetAddress, org.address.postalCode, org.address.addressLocality, org.address.addressCountry],
-      [seatAddress.street, seatAddress.postalCode, seatAddress.locality, seatAddress.country],
-    );
-    for (const key of ["email", "telephone", "contactPoint"]) assert.equal(Object.hasOwn(org, key), false, key);
+    // The seat address is not published (2026-11-11); contact is e-mail and phone.
+    assert.equal(Object.hasOwn(org, "address"), false);
+    assert.equal(org.email, contactEmail);
+    assert.equal(org.telephone, contactPhone);
+    assert.equal(org.contactPoint.email, contactEmail);
+    assert.equal(org.contactPoint.telephone, contactPhone);
     if (instagramOficialUrl) assert.deepEqual(org.sameAs, [instagramOficialUrl]);
     else assert.equal(Object.hasOwn(org, "sameAs"), false);
     assert.equal(JSON.stringify(graph).includes("festasantabarbaralx"), false, page.route);
@@ -84,9 +85,12 @@ test("JSON-LD da associação e do site em todas as páginas indexáveis", async
 });
 
 test("factos do JSON-LD estão visíveis no site", async () => {
-  const { nipc, seatLine } = await import("../src/data/site.ts");
+  const { nipc, contactEmail, publicName } = await import("../src/data/site.ts");
   const assoc = pages().find((p) => p.route === "/associacao/").html;
-  assert.ok(decode(assoc).includes(seatLine));
+  assert.ok(decode(assoc).includes(publicName));
+  const contactos = pages().find((p) => p.route === "/contactos/").html;
+  assert.ok(contactos.includes(contactEmail));
+  assert.ok(contactos.includes("+351 968 050 922"));
   assert.ok(assoc.includes("30 de junho de 2025"));
   const legal = pages().find((p) => p.route === "/privacidade/").html;
   assert.ok(legal.includes(nipc), "NIPC tem de estar na privacidade");

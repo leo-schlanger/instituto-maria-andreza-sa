@@ -49,6 +49,8 @@ Cabeçalho: faixa superior `#4E0912` (só ≥ 900 px), barra marfim translúcida
 
 Evento (`EventCard.astro`): arte em bordô com azulejo ou, havendo fotos em `src/data/eventos-fotos.ts`, a primeira foto com `object-fit: cover`. Galeria (`Gallery.astro`) aguenta 0 a 20 fotos: 0 não desenha nada; 1 ocupa a largura; com 3 ou mais a primeira é larga e as outras em grelha 2/3 colunas. `srcset` 800w + original, `width/height` do ficheiro, `loading="lazy"`.
 
+Blocos de 2026-11-11 (conteúdo oficial): `Pillars.astro` (três cartões brancos com fio bordô, ícone em medalha bordô e numeral romano dourado, sobre areia com azulejo), `Founder.astro` (arco 4:5 para o retrato, com placeholder bordô + selo enquanto não há foto; biografia com o 1.º parágrafo em Playfair), `SafetyNote.astro` (aviso 112 / 800 202 148 com fio terracota) e contactos em dois cartões clicáveis (e-mail e telefone) + painel bordô com a fundadora e as áreas de atuação. Ritmo da home: hero, ficha (Constituição, Fundadora e presidente, Atividade registada, NIPC), pilares, fundadora, evento, Portugal e Brasil, índice, contacto.
+
 ## 6. Contraste medido em 10 e 11 de novembro de 2026
 
 | Par | Rácio | Uso |

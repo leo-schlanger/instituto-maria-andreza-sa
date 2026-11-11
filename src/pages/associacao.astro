@@ -1,16 +1,42 @@
 ---
-import SimplePage from "@/components/SimplePage.astro";
+import Arrow from "@/components/Arrow.astro";
+import Divider from "@/components/Divider.astro";
+import Founder from "@/components/Founder.astro";
+import PageHero from "@/components/PageHero.astro";
+import Pillars from "@/components/Pillars.astro";
 import { associationFacts, pages } from "@/data/site";
+import Base from "@/layouts/Base.astro";
 
 const page = pages.associacao;
+const [lead, ...rest] = page.paragraphs;
 ---
-<SimplePage
-  title={page.title}
-  description={page.description}
-  path={page.path}
-  h1={page.h1}
-  eyebrow="Quem somos"
-  paragraphs={page.paragraphs}
-  facts={associationFacts}
-  pageType="AboutPage"
-/>
+<Base title={page.title} description={page.description} path={page.path} pageType="AboutPage" crumbs={[{ name: page.h1, path: page.path }]}>
+  <PageHero h1={page.h1} crumb={page.h1} eyebrow="Quem somos" lede={lead} />
+
+  <Pillars headingId="pilares-titulo" />
+
+  <Founder headingId="fundadora-titulo" full />
+
+  <section class="identity section-pad" aria-labelledby="identificacao-titulo">
+    <div class="site-wrap page-body page-body--flush">
+      <div class="reading reveal">
+        <p class="eyebrow">Identificação</p>
+        <h2 id="identificacao-titulo" class="section-title">O instituto</h2>
+        {rest.map((p) => <p>{p}</p>)}
+        <Divider />
+      </div>
+      <aside class="page-aside" aria-label="Ficha e outras secções">
+        <div class="fact-card reveal">
+          <p class="fact-card__title">Ficha</p>
+          <dl>{associationFacts.map((f) => <div><dt>{f.term}</dt><dd>{f.value}</dd></div>)}</dl>
+        </div>
+        <nav class="related reveal" aria-label="Outras secções">
+          <p class="related__title">Continuar a ler</p>
+          <a href="/projetos/">Projetos e eventos<Arrow /></a>
+          <a href="/cultura/">Cultura<Arrow /></a>
+          <a href="/contactos/">Contactos<Arrow /></a>
+        </nav>
+      </aside>
+    </div>
+  </section>
+</Base>

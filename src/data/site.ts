@@ -5,15 +5,14 @@ export const instagramOficialUrl = "";
 
 export const registeredName = "Instituto Associativo Cultural & Artístico Luso Brasileiro Maria Andreza Sá";
 
-// Registered seat of the association (public), split for structured data.
-export const seatAddress = {
-  street: "Rua Soeiro Pereira Gomes, n.º 12, 3.º frente, Quinta da Grinja",
-  postalCode: "2600-265",
-  locality: "Vila Franca de Xira",
-  country: "PT",
-} as const;
+// Public name used by the association itself (president's text, 2026-11-11).
+export const publicName = "Instituto Cultural e Artístico Luso-Brasileiro Maria Andreza Sá";
 
-export const seatLine = `${seatAddress.street}, ${seatAddress.postalCode} ${seatAddress.locality}`;
+// The seat address is not published (president's request, 2026-11-11). Contact is e-mail and phone.
+export const contactEmail = "institutomariaandrezasa@gmail.com";
+// Phone given for publication by the president and authorised by Leo on 2026-11-11.
+export const contactPhone = "+351968050922";
+export const contactPhoneLabel = "+351 968 050 922";
 
 // Entity tax number, already published in the legal pages.
 export const nipc = "518875270";
@@ -21,32 +20,78 @@ export const nipc = "518875270";
 // ISO form of the constitution date shown in the facts ("30 de junho de 2025").
 export const foundingDate = "2025-06-30";
 
-export const seatMapUrl = "https://www.google.com/maps/search/?api=1&query=Rua%20Soeiro%20Pereira%20Gomes%2012%203%C2%BA%20frente%202600-265%20Vila%20Franca%20de%20Xira";
-
-export const orgName = "Instituto Associativo Cultural & Artístico Luso-Brasileiro";
+export const orgName = "Instituto Cultural e Artístico Luso-Brasileiro";
 
 export const brandName = "Maria Andreza Sá";
 
-export const founderLine = "A fundadora é Maria Andreza Sá.";
+// Portrait of the founder, still to come. Set src (in public/) with its real width and height.
+export const founderPortrait: { src: string; width: number; height: number; alt: string } | null = null;
+
+export const mission =
+  "O Instituto Cultural e Artístico Luso-Brasileiro Maria Andreza Sá nasceu com a missão de estreitar os laços históricos, afetivos e culturais entre Portugal e o Brasil, aliando a promoção da arte e das tradições populares a uma atuação social e jurídica transformadora.";
+
+// Emergency line shown next to the legal-support pillar and on /contactos/ (legal review 2026-11-11).
+export const safetyNote = {
+  text: "Em perigo imediato, ligue 112. Linha de apoio gratuita: 800 202 148.",
+  emergency: { label: "112", tel: "112" },
+  helpline: { label: "800 202 148", tel: "800202148" },
+} as const;
+
+export const pillarsIntro = "A atuação do Instituto assenta em três pilares fundamentais.";
+
+export const pillars = [
+  {
+    icon: "justice",
+    title: "Apoio jurídico e defesa contra a violência doméstica",
+    // Legal review 2026-11-11 (Lei 10/2024, art. 12.º): the association informs and refers; legal advice is given by the lawyer.
+    text: "O Instituto informa, acolhe e encaminha mulheres vítimas de violência doméstica, para que possam romper ciclos de abuso, aceder à Justiça e reconstruir as suas vidas com segurança e dignidade. A orientação jurídica individual é prestada pela Dra. Maria Andreza Sá, advogada inscrita na Ordem dos Advogados.",
+    safety: true,
+  },
+  {
+    icon: "woman",
+    title: "A mulher como um todo",
+    subtitle: "Autoestima, determinação e foco",
+    text: "Acreditamos que o verdadeiro empoderamento vai além da assistência imediata. O Instituto desenvolve ações voltadas para o resgate da autoestima, da autonomia emocional, da determinação e do foco, incentivando cada mulher a reconhecer o seu valor e a assumir o protagonismo da própria história.",
+  },
+  {
+    icon: "hands",
+    title: "Cultura e ação social solidária",
+    text: "Promovemos o intercâmbio artístico e cultural entre os dois lados do Atlântico e realizamos campanhas solidárias contínuas junto das comunidades locais, como a Campanha Solidária de Dezembro, realizada em parceria com instituições sociais e dedicada à oferta de pijamas e carinho às crianças acolhidas em orfanatos.",
+  },
+] as const;
+
+export const founder = {
+  name: "Maria Andreza Sá",
+  title: "Dra. Maria Andreza Sá",
+  role: "Fundadora e presidente",
+  bio: [
+    "Maria Andreza Sá da Piedade Peres da Silva Gonçalves é advogada luso-brasileira, inscrita na Ordem dos Advogados do Brasil (OAB/BA) e na Ordem dos Advogados de Portugal (Conselho Regional de Lisboa), fundadora e presidente do Instituto Cultural e Artístico Luso-Brasileiro Maria Andreza Sá.",
+    "Com uma trajetória académica e profissional marcada pelo pioneirismo, é mestre em Direito Criminal pela prestigiada e secular Universidade de Coimbra. Fez história há cerca de três décadas, ao tornar-se a primeira mulher negra a ingressar naquela Faculdade para frequentar o mestrado. Foi uma experiência profundamente transformadora, que consolidou a sua ligação académica e afetiva com Portugal e reforçou o seu compromisso com uma Justiça mais inclusiva e humana.",
+    "Nascida no coração do Centro Histórico de Salvador, na Bahia, berço das mais profundas tradições culturais, históricas e religiosas do Brasil, Maria Andreza carrega no próprio nome uma herança de fé, força e ancestralidade. O seu nome é uma homenagem direta à sua avó materna, Maria Andreza de Araújo, mulher de fé inabalável e fervorosa devota de Santa Bárbara.",
+    "Iniciada na religião de matriz africana e filha de Iansã (Oyá), orixá dos ventos, da transformação e da coragem feminina, Maria Andreza construiu uma carreira jurídica de décadas pautada pela defesa incansável da justiça, da dignidade humana e dos direitos das pessoas mais vulneráveis, numa ponte permanente entre o Brasil e Portugal. Ao radicar-se em solo português, transformou a sua vivência académica, jurídica e espiritual num compromisso coletivo, o de criar espaços de acolhimento, defesa jurídica, valorização cultural e fortalecimento da mulher em todas as suas dimensões.",
+  ],
+} as const;
+
+export const founderLine = "A fundadora e presidente é Maria Andreza Sá.";
 
 // Facts already stated in the page texts, shown as a data sheet.
 export const facts = [
   { term: "Constituição", value: "30 de junho de 2025" },
-  { term: "Sede", value: "Vila Franca de Xira" },
+  { term: "Fundadora e presidente", value: "Maria Andreza Sá" },
   { term: "Atividade registada", value: "Associação cultural e recreativa" },
-  { term: "Fundadora", value: "Maria Andreza Sá" },
+  { term: "NIPC", value: nipc },
 ] as const;
 
 export const associationFacts = [
   { term: "Nome registado", value: registeredName },
+  { term: "Nome público", value: publicName },
   { term: "Constituição", value: "30 de junho de 2025" },
   { term: "Atividade registada", value: "Associação cultural e recreativa" },
-  { term: "Sede", value: seatLine },
-  { term: "Fundadora", value: "Maria Andreza Sá" },
-  { term: "Responsável", value: "Aline dos Santos Silva" },
+  { term: "NIPC", value: nipc },
+  { term: "Fundadora e presidente", value: "Maria Andreza Sá" },
 ] as const;
 
-export const logoAlt = "Selo do Instituto Associativo Cultural & Artístico Luso-Brasileiro";
+export const logoAlt = "Selo do Instituto Cultural e Artístico Luso-Brasileiro Maria Andreza Sá";
 
 export const nav = [
   { href: "/", label: "Início" },
@@ -73,11 +118,11 @@ export const pages = {
     path: "/",
     title: "Instituto Maria Andreza Sá, associação luso-brasileira",
     description:
-      "Associação cultural e artística luso-brasileira com sede em Vila Franca de Xira. Organizou a 1.ª Festa de Santa Bárbara em Lisboa, em 2026.",
+      "Instituto luso-brasileiro que une arte e tradições populares ao apoio jurídico a mulheres vítimas de violência doméstica e à ação social solidária.",
     h1: "Associação cultural e artística luso-brasileira",
     paragraphs: [
-      "O Instituto Associativo Cultural & Artístico Luso-Brasileiro Maria Andreza Sá é uma associação cultural e artística. Foi constituída a 30 de junho de 2025 e tem sede em Vila Franca de Xira.",
-      "O trabalho está na cultura que Portugal e o Brasil partilham. A língua é a mesma. As tradições de cada país têm aqui lugar próprio.",
+      mission,
+      pillarsIntro,
       "A associação organizou a 1.ª Festa de Santa Bárbara em Lisboa. Decorreu em Arroios, de 4 a 6 de setembro de 2026, com missa, cortejo e feijoada. A cantora Alcione foi a madrinha.",
       "A festa trouxe a Lisboa uma tradição de Salvador da Bahia. Teve notícia no Público, no DN Brasil e na imprensa baiana.",
       "O Instagram que ligamos neste site é o da Festa de Santa Bárbara.",
@@ -85,18 +130,14 @@ export const pages = {
   },
   associacao: {
     path: "/associacao/",
-    title: "Associação cultural luso-brasileira em Vila Franca de Xira",
+    title: "A associação e a fundadora | Maria Andreza Sá",
     description:
-      "O Instituto Maria Andreza Sá é uma associação cultural e recreativa, constituída em 2025, com sede em Vila Franca de Xira. Cultura de Portugal e do Brasil.",
+      "Missão, três pilares e biografia da fundadora e presidente, a advogada luso-brasileira Maria Andreza Sá. Associação constituída a 30 de junho de 2025.",
     h1: "A associação",
     paragraphs: [
-      `O Instituto Associativo Cultural & Artístico Luso-Brasileiro é uma associação cultural e artística. O nome registado é ${registeredName}.`,
-      "Foi constituída a 30 de junho de 2025. A atividade registada é a de associação cultural e recreativa.",
-      `A sede fica na ${seatLine}.`,
-      "Portugal e o Brasil estão no nome. A associação trabalha a tradição, as artes e o encontro entre as pessoas dos dois países.",
+      mission,
+      `O nome registado é ${registeredName}. Foi constituída a 30 de junho de 2025. A atividade registada é a de associação cultural e recreativa.`,
       "A associação organizou a 1.ª Festa de Santa Bárbara em Lisboa. Decorreu em Arroios, de 4 a 6 de setembro de 2026, sem fins lucrativos.",
-      founderLine,
-      "Aline dos Santos Silva é a responsável pela associação.",
       "A história escrita da associação, com datas e factos, será publicada aqui pela própria associação.",
     ],
   },
@@ -163,14 +204,12 @@ export const pages = {
   contactos: {
     path: "/contactos/",
     title: "Contactos | Maria Andreza Sá",
-    description: "Sede em Vila Franca de Xira. E-mail e telefone ainda não estão publicados.",
+    description:
+      "Contacte o Instituto Maria Andreza Sá pelo e-mail institutomariaandrezasa@gmail.com ou pelo telefone +351 968 050 922.",
     h1: "Contactos",
     paragraphs: [
-      `A sede fica na ${seatLine}.`,
-      "E-mail e telefone institucionais ainda não estão publicados. Entram nesta página quando a associação os confirmar.",
+      "O e-mail e o telefone são os contactos da associação.",
     ],
-    formNotice:
-      "Este formulário está desativado. Não envia a mensagem, não a guarda e ninguém a recebe.",
   },
   privacidade: {
     path: "/privacidade/",

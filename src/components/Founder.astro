@@ -1,0 +1,38 @@
+---
+import Seal from "@/components/Seal.astro";
+import Star from "@/components/Star.astro";
+import { founder, founderPortrait } from "@/data/site";
+
+interface Props {
+  // Full biography on /associacao/; the home shows the first paragraph and a link.
+  full?: boolean;
+  headingId: string;
+}
+
+const { full = false, headingId } = Astro.props;
+const paragraphs = full ? founder.bio : founder.bio.slice(0, 1);
+---
+<section class:list={["founder section-pad", full && "founder--full"]} id={full ? "fundadora" : undefined} aria-labelledby={headingId}>
+  <div class="site-wrap founder__grid">
+    <figure class="founder__portrait reveal">
+      {founderPortrait ? (
+        <>
+          <img src={founderPortrait.src} width={founderPortrait.width} height={founderPortrait.height} alt={founderPortrait.alt} loading="lazy" decoding="async" />
+          <figcaption><Star />{founder.title}</figcaption>
+        </>
+      ) : (
+        <div class="founder__placeholder" aria-hidden="true">
+          <Seal size="lg" decorative />
+        </div>
+      )}
+    </figure>
+    <div class="founder__copy reveal">
+      <p class="eyebrow">{founder.role}</p>
+      <h2 id={headingId} class="section-title">{founder.title}</h2>
+      <div class="founder__bio">
+        {paragraphs.map((p, i) => <p class:list={[i === 0 && "founder__lead"]}>{p}</p>)}
+      </div>
+      {!full && <a class="text-link" href="/associacao/#fundadora">Ler a biografia da fundadora</a>}
+    </div>
+  </div>
+</section>

@@ -5,6 +5,9 @@ export type Evento = {
   slug: string;
   titulo: string;
   resumo: string;
+  // The association's own account of the event, shown before the press facts.
+  narrativaTitulo?: string;
+  narrativa?: string[];
   corpo: string[];
   data?: string;
   // ISO dates (YYYY-MM-DD) matching `data`, for structured data.
@@ -23,8 +26,15 @@ export const eventos: Evento[] = [
     titulo: "1.ª Festa de Santa Bárbara em Lisboa",
     resumo:
       "A associação organizou a 1.ª Festa de Santa Bárbara em Lisboa, em Arroios, de 4 a 6 de setembro de 2026, com missa, cortejo e feijoada.",
+    narrativaTitulo: "Um reencontro histórico e ancestral",
+    narrativa: [
+      "No dia 6 de setembro, Lisboa viveu um momento histórico e profundamente emocionante, a realização da 1.ª Festa de Santa Bárbara em Lisboa, promovida pelo Instituto Cultural e Artístico Luso-Brasileiro Maria Andreza Sá, com ampla repercussão na imprensa e nos meios culturais luso-brasileiros.",
+      "Mais do que uma celebração festiva, este evento representa o fecho de um ciclo secular entre Portugal e a Bahia. Segundo a história, a devoção a Santa Bárbara foi levada de Portugal para Salvador por um casal português, Francisco Lago e Andreza de Araújo.",
+      "Séculos depois, Maria Andreza trouxe essa tradição de volta a solo português. Nasceu no Centro Histórico de Salvador, onde a festa se eternizou, é neta e homónima de Maria Andreza de Araújo, devota de Santa Bárbara, e é filha de Iansã.",
+      "Celebrar Santa Bárbara e Iansã em Lisboa é honrar a memória dos antepassados, celebrar a força do sincretismo religioso, exaltar a cultura afro-baiana e reafirmar o poder da mulher que enfrenta tempestades com coragem, fé e alegria.",
+    ],
     corpo: [
-      "O Instituto Associativo Cultural & Artístico Luso-Brasileiro Maria Andreza Sá organizou a 1.ª Festa de Santa Bárbara em Lisboa, com o nome Os Ventos de Oyá. Decorreu de 4 a 6 de setembro de 2026, na freguesia de Arroios. Segundo o Público e a imprensa baiana, a festa foi idealizada por Maria Andreza Sá, presidente do instituto.",
+      "O Instituto Associativo Cultural & Artístico Luso-Brasileiro Maria Andreza Sá organizou a 1.ª Festa de Santa Bárbara em Lisboa, com o nome Os Ventos de Oyá. Decorreu de 4 a 6 de setembro de 2026, na freguesia de Arroios. Segundo o Público e a imprensa baiana, a festa foi idealizada por Maria Andreza Sá, fundadora e presidente do instituto.",
       "A cantora Alcione foi a madrinha da 1.ª edição. Segundo o Público, o padrinho foi Carlos Marão, e Thales Melo de Ayrá e Milu Ferreira, fundadora da Galeria Arte Livre, foram embaixadores do projeto.",
       "A abertura estava marcada para sexta-feira, 4 de setembro, com uma mesa-redonda na Galeria Arte Livre, na Avenida da Liberdade. No domingo, 6 de setembro, houve missa às 10h na Igreja de Nossa Senhora dos Anjos, em Arroios. Seguiu-se um cortejo pelas ruas do centro até à Praça da Figueira. Uma feijoada na Baixa encerrou a festa.",
       "O programa anunciado incluía também homenagens e rodas de conversa, a exposição Afro Barroco Cachoeira, Recôncavo da Bahia, Religiosidade, com curadoria de Jomar Lima, e a mostra de moda Barafunda, de Conceição Aflitos e Antônio Carlos dos Santos. Estavam anunciados grupos como as Filhas de Gandhy, o Baque do Tejo, o Lisbloco e a Abadá Capoeira.",

@@ -1,57 +1,61 @@
 ---
 import { ButtonLink } from "@/components/ButtonLink";
-import { ContactForm } from "@/components/ContactForm";
 import PageHero from "@/components/PageHero.astro";
-import { instagramOficialUrl, pages, seatLine, seatMapUrl } from "@/data/site";
+import SafetyNote from "@/components/SafetyNote.astro";
+import Seal from "@/components/Seal.astro";
+import Star from "@/components/Star.astro";
+import { contactEmail, contactPhone, contactPhoneLabel, founder, instagramOficialUrl, pages, pillars } from "@/data/site";
 import Base from "@/layouts/Base.astro";
 
 const page = pages.contactos;
 ---
 <Base title={page.title} description={page.description} path={page.path} pageType="ContactPage" crumbs={[{ name: page.h1, path: page.path }]}>
-  <PageHero h1={page.h1} crumb={page.h1} eyebrow="Falar com o instituto" lede={page.description} />
+  <PageHero h1={page.h1} crumb={page.h1} eyebrow="Falar com o instituto" lede={page.paragraphs[0]} />
   <div class="site-wrap section-pad contact-grid">
     <section class="channels" aria-labelledby="canais">
-      <h2 id="canais" class="section-title">Canais</h2>
-      <div class="channel reveal">
-        <div class="channel__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z" /><circle cx="12" cy="9.5" r="2.5" /></svg>
-        </div>
-        <div>
-          <p class="channel__label">Sede <span class="pill pill--ok">Publicada</span></p>
-          <address class="channel__value">{seatLine}</address>
-          <ButtonLink href={seatMapUrl} variant="outline" external>Ver no Google Maps</ButtonLink>
-        </div>
-      </div>
-      <div class="channel reveal">
-        <div class="channel__icon" aria-hidden="true">
+      <h2 id="canais" class="section-title">Escreva ou ligue</h2>
+      <SafetyNote class="safety--wide" />
+      <a class="channel channel--primary reveal" href={`mailto:${contactEmail}`}>
+        <span class="channel__icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></svg>
-        </div>
-        <div>
-          <p class="channel__label">E-mail e telefone <span class="pill">Por publicar</span></p>
-          <p class="channel__value">{page.paragraphs[1]}</p>
-        </div>
-      </div>
+        </span>
+        <span class="channel__body">
+          <span class="channel__label">E-mail</span>
+          <span class="channel__value channel__value--big">{contactEmail}</span>
+          <span class="channel__cta">Enviar e-mail</span>
+        </span>
+      </a>
+      <a class="channel channel--primary reveal" href={`tel:${contactPhone}`}>
+        <span class="channel__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 3h3l2 5-2.5 1.5a11 11 0 0 0 5 5L14 12l5 2v3a2 2 0 0 1-2 2A15 15 0 0 1 3 5a2 2 0 0 1 2-2Z" /></svg>
+        </span>
+        <span class="channel__body">
+          <span class="channel__label">Telefone</span>
+          <span class="channel__value channel__value--big">{contactPhoneLabel}</span>
+          <span class="channel__cta">Ligar</span>
+        </span>
+      </a>
       {instagramOficialUrl && (
         <div class="channel reveal">
-          <div class="channel__icon" aria-hidden="true">
+          <span class="channel__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" /></svg>
-          </div>
-          <div>
-            <p class="channel__label">Instagram</p>
+          </span>
+          <span class="channel__body">
+            <span class="channel__label">Instagram</span>
             <ButtonLink href={instagramOficialUrl} variant="secondary" external>Instagram</ButtonLink>
-          </div>
+          </span>
         </div>
       )}
     </section>
-    <section class="form-card reveal" aria-labelledby="formulario">
-      <h2 id="formulario" class="section-title">Formulário</h2>
-      <form class="dead-form" aria-describedby="form-aviso">
-        <div class="notice" id="form-aviso" role="note">
-          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="9" /><path d="M12 8v5M12 16h.01" stroke-linecap="round" /></svg>
-          <p>{page.formNotice}</p>
-        </div>
-        <ContactForm />
-      </form>
-    </section>
+    <aside class="contact-side reveal" aria-labelledby="temas">
+      <div class="contact-side__pattern" aria-hidden="true"></div>
+      <Seal size="md" decorative />
+      <p class="eyebrow eyebrow--light"><Star />{founder.role}</p>
+      <p class="contact-side__name">{founder.title}</p>
+      <h2 id="temas" class="contact-side__title">Áreas de atuação</h2>
+      <div class="contact-side__list">
+        {pillars.map((p) => <p>{p.title}</p>)}
+      </div>
+    </aside>
   </div>
 </Base>
