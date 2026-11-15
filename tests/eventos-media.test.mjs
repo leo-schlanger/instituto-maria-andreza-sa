@@ -128,6 +128,12 @@ test("vídeo opcional: bloco e VideoObject só com o ficheiro no build", () => {
     assert.equal(vo[0].uploadDate, v.carregadoEm);
     assert.match(vo[0].contentUrl, /^https:\/\/mariaandrezasa\.org\/video\//);
     assert.ok(existsSync(path.join(dist, v.poster)));
+    assert.match(tag, /width="1920" height="1080"/);
+    for (const rel of [`projetos/${evento.slug}/index.html`, "index.html"]) {
+      const h = readDist(rel);
+      assert.equal(/<meta [^>]*(og:image|twitter:image)[^>]*\/video\//.test(h), false, `${rel}: og com o poster`);
+      assert.equal((h.match(/<video\b/g) ?? []).length, 1, rel);
+    }
   }
 });
 

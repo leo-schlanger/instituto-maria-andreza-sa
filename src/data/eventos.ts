@@ -89,8 +89,10 @@ export const eventos: Evento[] = [
     video: {
       ficheiro: "/video/festa-santa-barbara.mp4",
       poster: "/video/festa-santa-barbara-poster.jpg",
-      nome: "1.ª Festa de Santa Bárbara em Lisboa",
-      descricao: "Vídeo do Instituto Maria Andreza Sá sobre a 1.ª Festa de Santa Bárbara em Lisboa, que decorreu em Arroios de 4 a 6 de setembro de 2026.",
+      nome: "A 1.ª Festa de Santa Bárbara em Lisboa, em vídeo",
+      descricao: "Como foi a 1.ª Festa de Santa Bárbara em Lisboa, organizada pelo Instituto Maria Andreza Sá em Arroios, de 4 a 6 de setembro de 2026.",
+      duracao: "PT1M8S",
+      carregadoEm: "2026-11-15",
     },
     fontes: [
       {

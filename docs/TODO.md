@@ -9,7 +9,6 @@ Só há um evento, a 1.ª Festa de Santa Bárbara em Lisboa (`src/data/eventos.t
 ## Festa de Santa Bárbara (2026-11-15)
 
 - 6 fotografias retidas (pessoas reconhecíveis em festa religiosa, art. 9.º RGPD): só entram com autorização escrita de cada pessoa. Ficheiros convertidos fora do repositório.
-- Vídeo institucional: `public/video/festa-santa-barbara.mp4` (1920×1080, H.264/AAC, até 15 MB) e `public/video/festa-santa-barbara-poster.jpg` (1920×1080), mais `duracao` e `carregadoEm` em `eventos.ts`.
 
 ## Notícias
 

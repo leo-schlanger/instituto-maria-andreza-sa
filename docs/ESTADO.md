@@ -1,10 +1,12 @@
 # Estado
 
-Atualizado a 2026-11-15, com as fotografias e o missal da festa. O domínio e o `www` estão verificados na Vercel.
+Atualizado a 2026-11-15, com as fotografias, o missal e o vídeo da festa. O domínio e o `www` estão verificados na Vercel.
 
 Estimativa do projeto: **94%**. O site e o DNS estão feitos. Falta o conteúdo que a associação ainda não fechou.
 
 ## Feito
+
+- 2026-11-15 (tarde): vídeo institucional da festa (68 s) publicado na página do evento e na home, com `VideoObject`; rostos de fundo desfocados nas fotos 04, 07 e 09; foto das bandeiras em /portugal-e-brasil/.
 
 - 2026-11-15, material da presidente sobre a Festa de Santa Bárbara: 8 fotografias publicadas (triagem do juridico) na galeria do evento, no topo da página do evento, no cartão de /projetos/ e no destaque da home; secção «A missa de 6 de setembro» com o programa do missal; lugar para o vídeo institucional (aparece sozinho quando o mp4 entrar em `public/video/`); privacidade e termos atualizados (texto de 15 de novembro). 6 fotografias com pessoas em destaque retidas até autorização escrita. 37 testes verdes.
 
@@ -42,7 +44,6 @@ Estimativa do projeto: **94%**. O site e o DNS estão feitos. Falta o conteúdo 
 - Na Vercel, em Settings → Domains, pôr `www.mariaandrezasa.org` a redirecionar (308) para `mariaandrezasa.org`. Hoje os dois respondem 200 com o mesmo conteúdo. Recomendado: o canonical já aponta ao ápice, mas o redirect junta os sinais num só host. Sem isto não há erro, só sinais repartidos.
 - Google Search Console: adicionar a propriedade de domínio `mariaandrezasa.org` (registo TXT na GoDaddy) e submeter `https://mariaandrezasa.org/sitemap-index.xml`. Opcional, mas é a única forma de ver a indexação e os erros de dados estruturados. Bing Webmaster Tools importa do Search Console. Opcional.
 - Autorizações escritas das pessoas nas 6 fotografias retidas da festa (lista em `~/.cache/imas-fotos/`, fora do git). Opcional: sem elas a galeria fica com as 8 de hoje.
-- Vídeo institucional: quando o editor entregar `festa-santa-barbara.mp4` e o poster, pôr em `public/video/` e preencher `duracao` e `carregadoEm` em `eventos.ts`. Sem isto a página fica sem o bloco de vídeo, sem erro.
 - Criar o Instagram oficial (preencher `instagramOficialUrl`). Opcional.
 
 - Não apagar mais registos DNS. Têm de ficar os dois A (`216.198.79.1` e `64.29.17.1`) e o CNAME de `www`.
