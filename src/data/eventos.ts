@@ -17,7 +17,30 @@ export type Evento = {
   // City of `local`, for the Event address.
   localidade?: string;
   instagramUrl?: string;
+  // The Mass as printed in the official missal (no names of readers or private people).
+  celebracao?: Celebracao;
+  // Institutional video; the page only draws it when `ficheiro` exists in public/ at build time.
+  video?: VideoEvento;
   fontes: Fonte[];
+};
+
+export type Celebracao = {
+  titulo: string;
+  fonte: string;
+  paragrafos: string[];
+  citacao?: string;
+  programa: { parte: string; itens: string }[];
+};
+
+export type VideoEvento = {
+  // Paths under public/ (contract with the video editor).
+  ficheiro: string;
+  poster: string;
+  nome: string;
+  descricao: string;
+  // ISO 8601 duration (PT1M30S) and upload date (YYYY-MM-DD); required once the file exists.
+  duracao?: string;
+  carregadoEm?: string;
 };
 
 export const eventos: Evento[] = [
@@ -46,6 +69,29 @@ export const eventos: Evento[] = [
     local: "Arroios, Lisboa",
     localidade: "Lisboa",
     instagramUrl: "https://www.instagram.com/festasantabarbaralx/",
+    celebracao: {
+      titulo: "A missa de 6 de setembro",
+      fonte: "Missal da celebração, distribuído pela organização a 6 de setembro de 2026.",
+      paragrafos: [
+        "A celebração eucarística em honra de Santa Bárbara decorreu no domingo, 6 de setembro de 2026, às 10h, na Igreja de Nossa Senhora dos Anjos, em Arroios. Presidiu o Padre Paulo Araújo. Maria Andreza Sá foi a comentarista principal.",
+        "A missa abriu com o cortejo de entrada e o acolhimento da imagem de Santa Dulce dos Pobres, trazida de Salvador e oferecida ao pároco. O padrinho e os embaixadores da festa leram preces na oração dos fiéis. Os cânticos juntaram as duas margens, de Roberto Carlos e Maria Bethânia a Amália Rodrigues.",
+        "Antes da bênção final houve um momento de gratidão e homenagens: à madrinha, ao padrinho, aos embaixadores, ao grupo Amigos de Santa Bárbara e Protegidos de Oyá, à Paróquia de Arroios, à Junta de Freguesia de Arroios e a quem veio da Bahia para a festa.",
+      ],
+      citacao: "Esta festa nasce da fé, mas também nasce da memória.",
+      programa: [
+        { parte: "Ritos iniciais", itens: "Cortejo de entrada, saudação, acolhimento da imagem de Santa Dulce dos Pobres, ato penitencial e glória." },
+        { parte: "Liturgia da Palavra", itens: "Ezequiel 33, 7-9; Salmo 94 (95); Romanos 13, 8-10; Evangelho segundo São Mateus 18, 15-20; homilia, credo e oração dos fiéis." },
+        { parte: "Liturgia eucarística", itens: "Apresentação das oferendas e oração eucarística." },
+        { parte: "Ritos de comunhão", itens: "Comunhão, com o cântico «Foi Deus»." },
+        { parte: "Ação de graças e ritos finais", itens: "Momento de gratidão e homenagens, oração de proteção aos filhos e ao lar, bênção final e cântico de envio." },
+      ],
+    },
+    video: {
+      ficheiro: "/video/festa-santa-barbara.mp4",
+      poster: "/video/festa-santa-barbara-poster.jpg",
+      nome: "1.ª Festa de Santa Bárbara em Lisboa",
+      descricao: "Vídeo do Instituto Maria Andreza Sá sobre a 1.ª Festa de Santa Bárbara em Lisboa, que decorreu em Arroios de 4 a 6 de setembro de 2026.",
+    },
     fontes: [
       {
         titulo: "Público Brasil, 17 de junho de 2026",

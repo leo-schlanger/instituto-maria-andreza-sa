@@ -9,15 +9,18 @@ interface Props {
 }
 
 const { foto, sizes, eager = false, class: className } = Astro.props;
+// Photos narrower than 800 px ship one size only (the -800 file is the same width).
+const srcset = foto.largura > 800 ? `${foto.src800} 800w, ${foto.src} ${foto.largura}w` : undefined;
 ---
 <img
   class={className}
   src={foto.src800}
-  srcset={`${foto.src800} 800w, ${foto.src} ${foto.largura}w`}
-  sizes={sizes}
+  srcset={srcset}
+  sizes={srcset && sizes}
   width={foto.largura}
   height={foto.altura}
   alt={foto.alt}
   loading={eager ? "eager" : "lazy"}
+  fetchpriority={eager ? "high" : undefined}
   decoding="async"
 />

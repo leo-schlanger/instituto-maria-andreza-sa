@@ -2,7 +2,7 @@
 
 Esta página explica o que o site https://mariaandrezasa.org faz com dados pessoais. O site é institucional e estático. Não cria conta nem perfil.
 
-Texto de 11 de novembro de 2026.
+Texto de 15 de novembro de 2026.
 
 ## Quem trata os dados
 
@@ -38,13 +38,13 @@ As páginas de projetos contam as atividades da associação. Podem referir o no
 
 Publicamos só o nome e o papel no evento. Não publicamos contactos, moradas nem outros dados dessas pessoas.
 
-Uma página de evento pode ter uma galeria de fotografias. Damos preferência a fotografias de conjunto e de palco. Uma fotografia em que alguém apareça em destaque só é publicada com autorização dessa pessoa, salvo quando a lei a dispensa. Fotografias de crianças em destaque só com autorização de quem exerce as responsabilidades parentais.
+Uma página de evento pode ter uma galeria de fotografias e um vídeo do evento. O vídeo está guardado neste site e não passa por serviços de terceiros. Damos preferência a imagens de conjunto, de palco, de pormenores e de pessoas de costas. Uma imagem em que alguém apareça em destaque só é publicada com autorização dessa pessoa, salvo quando a lei a dispensa. Numa festa religiosa, uma imagem em que se reconheça alguém pode revelar a sua convicção religiosa. Nesses casos, só publicamos pessoas reconhecíveis com a sua autorização escrita. Imagens de crianças em destaque só com autorização de quem exerce as responsabilidades parentais.
 
-A finalidade é documentar e divulgar a atividade cultural da associação. A base é o interesse legítimo da associação nessa divulgação, previsto no artigo 6.º, n.º 1, alínea f), do Regulamento (UE) 2016/679, ou a autorização da pessoa, quando a pedimos.
+A finalidade é documentar e divulgar a atividade cultural da associação. A base é o interesse legítimo da associação nessa divulgação, previsto no artigo 6.º, n.º 1, alínea f), do Regulamento (UE) 2016/679, ou a autorização da pessoa, quando a pedimos. Quando a imagem possa revelar a convicção religiosa de alguém, a base é a autorização expressa dessa pessoa, prevista no artigo 9.º, n.º 2, alínea a), do mesmo regulamento.
 
 Estes conteúdos ficam publicados enquanto a página documentar o evento.
 
-Se aparece num nome ou numa fotografia e não concorda, peça a correção ou a remoção pelo contacto indicado acima. Diga a página e, se for uma fotografia, qual. Avaliamos o pedido e, quando procede, retiramos ou corrigimos o conteúdo.
+Se aparece num nome ou numa fotografia e não concorda, peça a correção ou a remoção pelo contacto indicado acima. Diga a página e, se for uma fotografia, qual; se for o vídeo, o momento aproximado. Avaliamos o pedido e, quando procede, retiramos ou corrigimos o conteúdo.
 
 ## Se nos escrever ou telefonar
 

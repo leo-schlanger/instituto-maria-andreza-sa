@@ -11,6 +11,14 @@ const { fotos, titulo } = Astro.props;
 // Credits repeat per photo when they differ; one shared line when they are all the same.
 const creditos = [...new Set(fotos.map((f) => f.credito).filter(Boolean))] as string[];
 const shared = creditos.length === 1 && fotos.every((f) => f.credito === creditos[0]);
+// Without photographer credits, one line with the shared origin ("Fotografia cedida pela organização").
+const origens = [...new Set(fotos.map((f) => f.origem))];
+const origem = creditos.length === 0 && origens.length === 1 ? origens[0] : undefined;
+// With 3+ photos the grid is 2 columns on phones and 3 from 640 px; the last tile widens so its row has no hole.
+const lead = fotos.length > 2;
+const rest = fotos.length - (lead ? 1 : 0);
+const fill = (i: number) =>
+  lead && i === fotos.length - 1 ? [rest % 2 === 1 && "gallery__item--fill2", rest % 3 === 1 && "gallery__item--fill3", rest % 3 === 2 && "gallery__item--wide3"] : [];
 ---
 {fotos.length > 0 && (
   <section class="gallery" aria-labelledby="galeria-titulo">
@@ -20,7 +28,7 @@ const shared = creditos.length === 1 && fotos.every((f) => f.credito === credito
     </div>
     <div class:list={["gallery__grid", `gallery__grid--${Math.min(fotos.length, 4)}`]}>
       {fotos.map((foto, i) => (
-        <figure class:list={["gallery__item", i === 0 && fotos.length > 2 && "gallery__item--lead"]}>
+        <figure class:list={["gallery__item", i === 0 && lead && "gallery__item--lead", ...fill(i)]}>
           <a href={foto.src} target="_blank" rel="noopener" aria-label={`Abrir fotografia ${i + 1} de ${fotos.length} em tamanho grande`}>
             <Photo foto={foto} sizes={i === 0 ? "(min-width: 1000px) 760px, 100vw" : "(min-width: 1000px) 380px, 50vw"} />
           </a>
@@ -29,5 +37,6 @@ const shared = creditos.length === 1 && fotos.every((f) => f.credito === credito
       ))}
     </div>
     {shared && <p class="gallery__credit">Fotografias: {creditos[0]}. {titulo}.</p>}
+    {origem && <p class="gallery__credit">Origem das imagens: {origem.charAt(0).toLowerCase() + origem.slice(1)}. {titulo}.</p>}
   </section>
 )}

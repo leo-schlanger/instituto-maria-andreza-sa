@@ -130,7 +130,9 @@ body {
 .pillar__icon,
 .founder__placeholder,
 .channel__icon,
-.contact-side {
+.contact-side,
+.event-video video,
+.page-hero__photo {
   --focus: #f8f4ea;
   --color-ring: #f8f4ea;
 }
@@ -1283,7 +1285,7 @@ a[data-slot="button"] { text-decoration: none; }
 
 /* Photos */
 .event-card__art--photo { margin: 0; background: #4e0912; min-height: 240px; }
-.event-card__art--photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.event-card__art--photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; }
 .event-card__art--photo figcaption {
   position: absolute;
   right: 0;
@@ -1309,15 +1311,24 @@ a[data-slot="button"] { text-decoration: none; }
 .gallery__grid--1 .gallery__item a,
 .gallery__item--lead a { aspect-ratio: 3 / 2; }
 .gallery__item--lead { grid-column: 1 / -1; }
+.gallery__item--lead img { object-position: 50% 20%; }
 .gallery__item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s var(--ease-out); }
 .gallery__item a:hover img { transform: scale(1.04); }
 .gallery__item a:focus-visible { outline-offset: -3px; }
 .gallery__item figcaption { padding: 6px 10px; color: #5c564e; font-size: 0.75rem; }
 .gallery__credit { margin-top: 10px; color: #5c564e; font-size: 0.8125rem; }
+.gallery__item--fill2 { grid-column: 1 / -1; }
+.gallery__item--fill2 a { aspect-ratio: 2 / 1; }
 @media (min-width: 640px) {
   .gallery__grid { grid-template-columns: repeat(3, 1fr); }
   .gallery__grid--1 { grid-template-columns: 1fr; }
   .gallery__grid--2 { grid-template-columns: repeat(2, 1fr); }
+  .gallery__item--fill2 { grid-column: auto; }
+  .gallery__item--fill2 a { aspect-ratio: 1; }
+  .gallery__item--fill3 { grid-column: 1 / -1; }
+  .gallery__item--fill3 a { aspect-ratio: 3 / 1; }
+  .gallery__item--wide3 { grid-column: span 2; }
+  .gallery__item--wide3 a { aspect-ratio: 2 / 1; }
 }
 
 /* Review fixes 2026-11-11 */
@@ -1368,6 +1379,33 @@ a[data-slot="button"] { text-decoration: none; }
 .story__quote .star { position: absolute; top: -10px; left: -11px; width: 20px; height: 20px; color: #b58a3a; background: #f8f4ea; border-radius: 50%; }
 .story__quote p { font-family: var(--font-serif); font-style: italic; font-size: clamp(1.25rem, 1.05rem + 0.8vw, 1.625rem); line-height: 1.45; }
 .press { margin-top: 24px; padding-top: 32px; border-top: 1px solid #d9ccb4; }
+
+/* Mass programme from the missal (2026-11-15) */
+.celebration { display: grid; gap: 20px; align-content: start; margin-top: 24px; padding-top: 32px; border-top: 1px solid #d9ccb4; }
+.celebration .eyebrow { margin-bottom: -8px; }
+.celebration > p:not(.eyebrow, .celebration__source) { font-size: 1.125rem; line-height: 1.8; }
+.celebration__sub { font-size: 1.375rem; margin-top: 8px; }
+.celebration__list { list-style: decimal; margin: 0; padding-left: 1.5rem; display: grid; gap: 10px; }
+.celebration__list li { line-height: 1.65; padding-left: 4px; }
+.celebration__list li::marker { color: #a9433d; font-weight: 600; }
+.celebration__list strong { color: #6d1723; }
+.celebration__source { color: #5c564e; font-size: 0.875rem; }
+
+/* Self-hosted event video (drawn only when the file exists at build time) */
+.event-video { display: grid; gap: 12px; min-width: 0; }
+.event-video video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border-radius: 12px; background: #4e0912; }
+.event-video__desc { color: #5c564e; font-size: 0.9375rem; }
+.featured .event-video { margin-top: 32px; max-width: 880px; }
+
+/* Event hero with the cover photo */
+.page-hero__grid { display: grid; gap: 32px; align-items: end; }
+.page-hero__grid > * { min-width: 0; }
+.page-hero__photo { margin: 0; justify-self: start; width: min(100%, 360px); aspect-ratio: 4 / 5; overflow: hidden; border-radius: 200px 200px 18px 18px; border: 1px solid #b58a3a; box-shadow: 0 18px 40px rgb(30 6 10 / 0.45); background: #4e0912; }
+.page-hero__photo > img { width: 100%; height: 100%; object-fit: cover; }
+@media (min-width: 900px) {
+  .page-hero__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 380px); gap: 56px; align-items: center; }
+  .page-hero__photo { justify-self: end; width: 100%; }
+}
 
 /* ---------- 2026-11-11 b: pillars, founder, contacts ---------- */
 

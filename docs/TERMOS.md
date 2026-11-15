@@ -2,7 +2,7 @@
 
 Estas são as regras de utilização do site https://mariaandrezasa.org.
 
-Texto de 11 de novembro de 2026.
+Texto de 15 de novembro de 2026.
 
 ## Quem é o titular
 
@@ -25,7 +25,7 @@ Não é loja. Não há conta. Não há pagamento. Não há área de sócios.
 
 ## Texto, selo e fotografias
 
-O texto, o selo e as fotografias que venham a ser publicadas são da associação, ou são publicados com autorização de quem tem os direitos.
+O texto, o selo, as fotografias e os vídeos publicados são da associação, ou são publicados com autorização de quem tem os direitos.
 
 Pode usá-los para uso pessoal.
 
@@ -33,7 +33,7 @@ A reprodução comercial só com autorização.
 
 Se os direitos forem de outra pessoa, a autorização dessa pessoa também é precisa.
 
-Quem aparece numa fotografia tem direito à sua imagem. Se aparece numa fotografia deste site e quer que seja retirada, escreva pelo contacto acima e diga a página e a fotografia. A política de privacidade explica como tratamos estes pedidos.
+Quem aparece numa fotografia ou num vídeo tem direito à sua imagem. Se aparece numa fotografia ou num vídeo deste site e quer que seja retirado, escreva pelo contacto acima e diga a página e a imagem ou o momento do vídeo. A política de privacidade explica como tratamos estes pedidos.
 
 O direito de autor pertence a quem criou a obra, salvo acordo ou regra da lei em contrário.
 

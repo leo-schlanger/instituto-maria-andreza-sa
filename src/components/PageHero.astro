@@ -11,10 +11,13 @@ interface Props {
 }
 
 const { h1, crumb, eyebrow, lede, pattern = "azulejo", parent } = Astro.props;
+// Optional photo beside the title (event pages with an approved photo).
+const hasMedia = Astro.slots.has("media");
 ---
-<section class:list={["page-hero", `page-hero--${pattern}`]}>
+<section class:list={["page-hero", `page-hero--${pattern}`, hasMedia && "page-hero--media"]}>
   <div class="page-hero__pattern" aria-hidden="true"></div>
-  <div class="site-wrap page-hero__inner">
+  <div class:list={["site-wrap page-hero__inner", hasMedia && "page-hero__grid"]}>
+    <div class="page-hero__copy">
     <nav class="crumbs" aria-label="Localização">
       <a href="/">Início</a>
       <span aria-hidden="true">/</span>
@@ -25,5 +28,7 @@ const { h1, crumb, eyebrow, lede, pattern = "azulejo", parent } = Astro.props;
     <h1>{h1}</h1>
     {lede && <p class="page-hero__lede">{lede}</p>}
     <slot />
+    </div>
+    {hasMedia && <slot name="media" />}
   </div>
 </section>

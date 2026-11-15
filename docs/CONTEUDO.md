@@ -224,6 +224,18 @@ Telefone
 
 Sem formulário desde 2026-11-11.
 
+## Página do evento: missa, galeria e vídeo (2026-11-15)
+
+Fonte: missal da celebração enviado pela presidente (12 páginas). Texto em `src/data/eventos.ts`, campo `celebracao`, com o rótulo «Segundo o missal».
+
+Celebração eucarística em honra de Santa Bárbara no domingo, 6 de setembro de 2026, às 10h, na Igreja de Nossa Senhora dos Anjos, em Arroios. Presidiu o Padre Paulo Araújo; Maria Andreza Sá foi a comentarista principal. Cortejo de entrada com a imagem de Santa Dulce dos Pobres, trazida de Salvador e oferecida ao pároco. Preces lidas pelo padrinho e pelos embaixadores. Momento de gratidão e homenagens antes da bênção final. Programa em cinco partes: ritos iniciais, liturgia da Palavra, liturgia eucarística, ritos de comunhão, ação de graças e ritos finais. Citação da capa: «Esta festa nasce da fé, mas também nasce da memória.»
+
+Fora do site, de propósito: os nomes dos leitores, a lista de agradecimentos, quem ofereceu a imagem, a homenagem pessoal da presidente a um familiar, o telefone do Brasil, o e-mail pessoal e o Instagram pessoal da contracapa. `tests/eventos-media.test.mjs` guarda os nomes como hash e falha se aparecerem no `dist/`.
+
+Galeria: 8 fotografias aprovadas pelo juridico (imagem da santa, andor visto de costas, carrinha, interior da igreja recortado acima da assembleia, bandeiras, cesto). Origem «Fotografia cedida pela organização». As 6 com pessoas reconhecíveis em destaque ficam retidas até autorização escrita, fora de `public/` e do git.
+
+Vídeo: bloco pronto em `/projetos/festa-de-santa-barbara-lisboa-2026/` e na home, desenhado só quando `public/video/festa-santa-barbara.mp4` existe no build. Nome e descrição em `eventos.ts` (`video`); falta pôr `duracao` (ISO, ex. `PT2M30S`) e `carregadoEm` quando o ficheiro chegar, senão o build para com a mensagem do que falta.
+
 ## Não publicar
 
 Este bloco não vai para o site. Lista o que fica de fora de qualquer página. Exceção desde 2026-11-11: os factos da 1.ª Festa de Santa Bárbara em Lisboa com fonte citada (programa, exposição, lema, nomes aprovados pelo Leo), em `src/data/eventos.ts` e nas páginas que o citam.

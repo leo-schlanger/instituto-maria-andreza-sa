@@ -1,5 +1,6 @@
 import type { Evento } from "@/data/eventos";
 import type { Foto } from "@/data/eventos-fotos";
+import type { VideoPronto } from "@/lib/video";
 import {
   brandName,
   contactEmail,
@@ -130,6 +131,21 @@ export function eventNode(evento: Evento, canonical: string, fotos: Foto[]): Nod
       : {}),
     organizer: { "@type": "Organization", "@id": orgId, name: publicName, url: `${siteUrl}/` },
     ...(fotos.length > 0 ? { image: fotos.map((f) => siteUrl + f.src) } : {}),
+  };
+}
+
+export function videoNode(video: VideoPronto, canonical: string): Node {
+  return {
+    "@type": "VideoObject",
+    "@id": `${canonical}#video`,
+    name: video.nome,
+    description: video.descricao,
+    thumbnailUrl: siteUrl + video.poster,
+    contentUrl: siteUrl + video.ficheiro,
+    uploadDate: video.carregadoEm,
+    duration: video.duracao,
+    inLanguage: "pt-PT",
+    publisher: { "@id": orgId },
   };
 }
 

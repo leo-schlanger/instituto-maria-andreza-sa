@@ -2,6 +2,7 @@
 import Arrow from "@/components/Arrow.astro";
 import { ButtonLink } from "@/components/ButtonLink";
 import EventCard from "@/components/EventCard.astro";
+import EventVideo from "@/components/EventVideo.astro";
 import Founder from "@/components/Founder.astro";
 import Pillars from "@/components/Pillars.astro";
 import Seal from "@/components/Seal.astro";
@@ -9,6 +10,7 @@ import Star from "@/components/Star.astro";
 import { eventos } from "@/data/eventos";
 import { facts, pages } from "@/data/site";
 import Base from "@/layouts/Base.astro";
+import { videoDoEvento } from "@/lib/video";
 
 const page = pages.home;
 const areas = [
@@ -19,6 +21,7 @@ const areas = [
   { href: "/noticias/", label: "Notícias", text: pages.noticias.description, soon: true },
 ];
 const featured = eventos[0];
+const featuredVideo = videoDoEvento(featured);
 ---
 <Base title={page.title} description={page.description} path={page.path}>
   <section class="hero">
@@ -69,6 +72,11 @@ const featured = eventos[0];
         <div class="reveal">
           <EventCard evento={featured} />
         </div>
+        {featuredVideo && (
+          <div class="reveal">
+            <EventVideo video={featuredVideo} headingId="video-destaque-titulo" titulo={`Vídeo: ${featured.titulo}`} />
+          </div>
+        )}
         <p class="note"><Star />{page.paragraphs[4]}</p>
       </div>
     </section>

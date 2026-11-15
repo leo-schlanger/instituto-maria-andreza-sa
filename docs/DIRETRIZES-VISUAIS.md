@@ -83,7 +83,7 @@ O ficheiro da logo é RGB, sem transparência, campo cerca de `#FCF8E9`. O cabe�
 
 ## 7. Conteúdo que esta versão não inventa
 
-Não há fotografias próprias da associação. Fotografias do Instagram do evento só entram com autorização do Leo, pelo contrato de `src/data/eventos-fotos.ts`. Não há notícias: estado vazio com moldura de azulejo.
+Desde 2026-11-15 há fotografias da Festa de Santa Bárbara cedidas pela organização, só as aprovadas pelo juridico (sem pessoas reconhecíveis em destaque), pelo contrato de `src/data/eventos-fotos.ts`. A primeira é a capa: cartão do evento (home e /projetos/) e arco 4:5 no topo da página do evento (`PageHero` com slot `media`, mesmo arco do retrato da fundadora). Na galeria, a última foto alarga para a linha não ficar com buraco (2 colunas no telemóvel, 3 a partir de 640 px). Não há notícias: estado vazio com moldura de azulejo.
 
 O Instagram https://www.instagram.com/festasantabarbaralx/ é de um evento (Festa de Santa Bárbara), não da associação. Rótulo sempre «Instagram da Festa de Santa Bárbara» e só junto do evento. O Instagram oficial ainda não existe: `instagramOficialUrl` vazia; o rodapé, o menu e os contactos mostram o link só quando tiver valor.
 

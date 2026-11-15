@@ -2,15 +2,18 @@
 import Arrow from "@/components/Arrow.astro";
 import { ButtonLink } from "@/components/ButtonLink";
 import Divider from "@/components/Divider.astro";
+import EventVideo from "@/components/EventVideo.astro";
 import Gallery from "@/components/Gallery.astro";
 import OrnamentPanel from "@/components/OrnamentPanel.astro";
 import PageHero from "@/components/PageHero.astro";
+import Photo from "@/components/Photo.astro";
 import Star from "@/components/Star.astro";
 import { fotosPorEvento } from "@/data/eventos-fotos";
 import { eventInstagramLabel } from "@/data/evento-ui";
 import { eventos, type Evento } from "@/data/eventos";
 import Base from "@/layouts/Base.astro";
-import { eventNode } from "@/lib/seo";
+import { eventNode, videoNode } from "@/lib/seo";
+import { videoDoEvento } from "@/lib/video";
 import { siteUrl } from "@/data/site";
 
 export function getStaticPaths() {
@@ -26,6 +29,10 @@ const ficha = [
 const narrativa = evento.narrativa ?? [];
 const fotos = fotosPorEvento[evento.slug] ?? [];
 const evNode = eventNode(evento, siteUrl + path, fotos);
+const capa = fotos[0];
+const video = videoDoEvento(evento);
+const celebracao = evento.celebracao;
+const nodes = [evNode, video && videoNode(video, siteUrl + path)].filter(Boolean) as Record<string, unknown>[];
 ---
 <Base
   title={`${evento.titulo} | Maria Andreza Sá`}
@@ -33,9 +40,15 @@ const evNode = eventNode(evento, siteUrl + path, fotos);
   path={path}
   ogType="article"
   crumbs={[{ name: "Projetos", path: "/projetos/" }, { name: evento.titulo, path }]}
-  structuredData={evNode ? [evNode] : []}
+  structuredData={nodes}
 >
-  <PageHero h1={evento.titulo} crumb={evento.titulo} eyebrow="Evento" lede={evento.resumo} parent={{ href: "/projetos/", label: "Projetos" }} />
+  <PageHero h1={evento.titulo} crumb={evento.titulo} eyebrow="Evento" lede={evento.resumo} parent={{ href: "/projetos/", label: "Projetos" }}>
+    {capa && (
+      <figure slot="media" class="page-hero__photo">
+        <Photo foto={capa} sizes="(min-width: 900px) 420px, 90vw" eager />
+      </figure>
+    )}
+  </PageHero>
   <div class="site-wrap page-body">
     <div class="reading reveal">
       {narrativa.length > 0 && (
@@ -48,6 +61,7 @@ const evNode = eventNode(evento, siteUrl + path, fotos);
           )}
         </section>
       )}
+      {video && <EventVideo video={video} headingId="video-titulo" titulo="Vídeo da festa" />}
       {narrativa.length > 0 ? (
         <section class="press" aria-labelledby="imprensa-titulo">
           <p class="eyebrow">Factos com fonte</p>
@@ -56,6 +70,23 @@ const evNode = eventNode(evento, siteUrl + path, fotos);
         </section>
       ) : (
         evento.corpo.map((p, i) => <p class:list={[i === 0 && evento.corpo.length > 2 && "dropcap"]}>{p}</p>)
+      )}
+      {celebracao && (
+        <section class="celebration" aria-labelledby="celebracao-titulo">
+          <p class="eyebrow">Segundo o missal</p>
+          <h2 id="celebracao-titulo" class="story__title">{celebracao.titulo}</h2>
+          {celebracao.paragrafos.map((p) => <p>{p}</p>)}
+          {celebracao.citacao && (
+            <div class="story__quote"><Star /><p>«{celebracao.citacao}»</p></div>
+          )}
+          <h3 class="celebration__sub">Programa da celebração</h3>
+          <ol class="celebration__list">
+            {celebracao.programa.map((item) => (
+              <li><strong>{item.parte}.</strong> {item.itens}</li>
+            ))}
+          </ol>
+          <p class="celebration__source">Fonte: {celebracao.fonte}</p>
+        </section>
       )}
       <Gallery fotos={fotos} titulo={evento.titulo} />
       <Divider />
