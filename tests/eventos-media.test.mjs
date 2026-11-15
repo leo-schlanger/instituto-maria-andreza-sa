@@ -214,3 +214,34 @@ test("galeria sem buraco na última linha (2 e 3 colunas)", () => {
     }
   }
 });
+
+test("enquadramento por foto e referências bíblicas sem quebra", () => {
+  for (const evento of eventos) {
+    const html = pageOf(evento.slug);
+    for (const foto of (fotosPorEvento[evento.slug] ?? []).filter((f) => f.posicao)) {
+      const imgs = [...html.matchAll(/<img\b[^>]*>/g)].map((m) => m[0]).filter((t) => t.includes(`src="${foto.src800}"`));
+      assert.ok(imgs.length > 0 && imgs.every((t) => t.includes(`object-position: ${foto.posicao}`)), foto.src);
+    }
+    if (evento.celebracao) {
+      const refs = evento.celebracao.programa.flatMap((p) => p.itens.match(/\d+, \d+(?:-\d+)?/g) ?? []);
+      assert.ok(refs.length > 0);
+      for (const r of refs) assert.ok(html.includes(`<span class="celebration__ref">${r}</span>`), r);
+    }
+  }
+});
+
+test("Portugal e Brasil: foto das bandeiras emoldurada, nunca a capa do evento", () => {
+  const html = readDist("portugal-e-brasil/index.html");
+  const fig = html.match(/<figure class="frame-photo"[^>]*>([\s\S]*?)<\/figure>/);
+  assert.ok(fig, "sem a foto");
+  const img = fig[1].match(/<img\b[^>]*>/)[0];
+  const foto = fotosPorEvento["festa-de-santa-barbara-lisboa-2026"].find((f) => f.src.endsWith("/05.webp"));
+  assert.ok(img.includes(`src="${foto.src800}"`));
+  assert.ok(foto.largura <= 800 && !img.includes("srcset"), "sem srcset falso numa foto estreita");
+  assert.match(img, /loading="lazy"/);
+  const alt = decode(img.match(/alt="([^"]*)"/)[1]);
+  assert.ok(alt.length >= 30 && alt !== foto.alt, "alt próprio");
+  assert.match(fig[1], /<figcaption>[\s\S]*href="\/projetos\/festa-de-santa-barbara-lisboa-2026\/"/);
+  const capa = fotosPorEvento["festa-de-santa-barbara-lisboa-2026"][0];
+  assert.equal(html.includes(capa.src800) || html.includes(capa.src), false, "repete a capa do evento");
+});

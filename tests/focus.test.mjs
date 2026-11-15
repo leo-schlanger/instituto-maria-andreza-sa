@@ -68,3 +68,13 @@ test("o anel de foco global usa a variável", () => {
   assert.match(css, /:focus-visible\{[^}]*outline:2px solid var\(--focus\)/);
   assert.match(css, /:root\{[^}]*--focus:#6d1723/);
 });
+
+test("anel de foco nunca desenhado por dentro (por cima de fotos)", () => {
+  const css = siteCss();
+  // A negative offset puts the ring over the content; over a photo it drops below 3:1 (qa 2026-11-15).
+  assert.deepEqual(css.match(/outline-offset:\s*-[^;}]*/g) ?? [], []);
+  const gallery = css.match(/\.gallery__item:has\(a:focus-visible\)\{([^}]*)\}/);
+  assert.ok(gallery, "galeria sem anel no figure");
+  assert.match(gallery[1], /outline:2px solid var\(--focus\)/);
+  assert.match(gallery[1], /outline-offset:[1-9]/);
+});

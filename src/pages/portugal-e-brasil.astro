@@ -1,9 +1,20 @@
 ---
+import Arrow from "@/components/Arrow.astro";
+import Photo from "@/components/Photo.astro";
 import SimplePage from "@/components/SimplePage.astro";
 import Star from "@/components/Star.astro";
+import { eventos } from "@/data/eventos";
+import { fotosPorEvento } from "@/data/eventos-fotos";
 import { pages } from "@/data/site";
 
 const page = pages.portugal;
+// Flags photo from the festa (no people). Not the event cover, so the pages do not repeat it.
+const festa = eventos.find((e) => e.slug === "festa-de-santa-barbara-lisboa-2026");
+const bandeiras = festa && fotosPorEvento[festa.slug]?.find((f) => f.src.endsWith("/05.webp"));
+const foto = bandeiras && {
+  ...bandeiras,
+  alt: "Bandeira do Brasil ao lado da bandeira da Bahia, presas ao cimo de um camião enfeitado durante o cortejo da 1.ª Festa de Santa Bárbara em Lisboa.",
+};
 ---
 <SimplePage
   title={page.title}
@@ -20,4 +31,12 @@ const page = pages.portugal;
     <span class="twin__seal"><Star /></span>
     <span class="twin__side twin__side--br">Brasil</span>
   </div>
+  {foto && festa && (
+    <figure class="frame-photo" slot="figure">
+      <Photo foto={foto} sizes="(min-width: 900px) 260px, 90vw" />
+      <figcaption>
+        Bandeiras do Brasil e da Bahia no cortejo de Arroios. <a href={`/projetos/${festa.slug}/`}>Ver a festa<Arrow /></a>
+      </figcaption>
+    </figure>
+  )}
 </SimplePage>

@@ -232,7 +232,9 @@ Celebração eucarística em honra de Santa Bárbara no domingo, 6 de setembro d
 
 Fora do site, de propósito: os nomes dos leitores, a lista de agradecimentos, quem ofereceu a imagem, a homenagem pessoal da presidente a um familiar, o telefone do Brasil, o e-mail pessoal e o Instagram pessoal da contracapa. `tests/eventos-media.test.mjs` guarda os nomes como hash e falha se aparecerem no `dist/`.
 
-Galeria: 8 fotografias aprovadas pelo juridico (imagem da santa, andor visto de costas, carrinha, interior da igreja recortado acima da assembleia, bandeiras, cesto). Origem «Fotografia cedida pela organização». As 6 com pessoas reconhecíveis em destaque ficam retidas até autorização escrita, fora de `public/` e do git.
+Galeria: 8 fotografias aprovadas pelo juridico (imagem da santa, andor visto de costas, carrinha, interior da igreja recortado acima da assembleia, bandeiras, cesto). Origem «Fotografia cedida pela organização». Rostos pequenos ao fundo (passeio, motorista, perfil de quem leva o andor) desfocados a 2026-11-15, depois do qa.
+
+Portugal e Brasil: a foto das bandeiras do Brasil e da Bahia (05) fica emoldurada ao lado do texto sobre a festa, com a legenda «Bandeiras do Brasil e da Bahia no cortejo de Arroios. Ver a festa» (ligação à página do evento). Não repete a capa do evento. As 6 com pessoas reconhecíveis em destaque ficam retidas até autorização escrita, fora de `public/` e do git.
 
 Vídeo: bloco pronto em `/projetos/festa-de-santa-barbara-lisboa-2026/` e na home, desenhado só quando `public/video/festa-santa-barbara.mp4` existe no build. Nome e descrição em `eventos.ts` (`video`); falta pôr `duracao` (ISO, ex. `PT2M30S`) e `carregadoEm` quando o ficheiro chegar, senão o build para com a mensagem do que falta.
 

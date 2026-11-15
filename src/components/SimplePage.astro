@@ -28,7 +28,16 @@ const related = nav.filter((item) => item.href !== "/" && item.href !== path).sl
   <div class="site-wrap page-body">
     <div class="reading reveal">
       <slot name="before" />
-      {rest.map((paragraph, i) => <p class:list={[i === 0 && rest.length > 2 && "dropcap"]}>{paragraph}</p>)}
+      {Astro.slots.has("figure") ? (
+        <div class="reading-figure">
+          <div class="reading-figure__text">
+            {rest.map((paragraph, i) => <p class:list={[i === 0 && rest.length > 2 && "dropcap"]}>{paragraph}</p>)}
+          </div>
+          <slot name="figure" />
+        </div>
+      ) : (
+        rest.map((paragraph, i) => <p class:list={[i === 0 && rest.length > 2 && "dropcap"]}>{paragraph}</p>)
+      )}
       <slot />
       <Divider />
       {sources && sources.length > 0 && (

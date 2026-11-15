@@ -82,7 +82,7 @@ const nodes = [evNode, video && videoNode(video, siteUrl + path)].filter(Boolean
           <h3 class="celebration__sub">Programa da celebração</h3>
           <ol class="celebration__list">
             {celebracao.programa.map((item) => (
-              <li><strong>{item.parte}.</strong> {item.itens}</li>
+              <li><strong>{item.parte}.</strong> {item.itens.split(/(\d+, \d+(?:-\d+)?)/).map((t, i) => (i % 2 ? <span class="celebration__ref">{t}</span> : t))}</li>
             ))}
           </ol>
           <p class="celebration__source">Fonte: {celebracao.fonte}</p>
