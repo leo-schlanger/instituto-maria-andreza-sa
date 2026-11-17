@@ -25,7 +25,12 @@ export const orgName = "Instituto Cultural e Artístico Luso-Brasileiro";
 export const brandName = "Maria Andreza Sá";
 
 // Portrait of the founder, still to come. Set src (in public/) with its real width and height.
-export const founderPortrait: { src: string; width: number; height: number; alt: string } | null = null;
+export const founderPortrait: { src: string; width: number; height: number; alt: string } | null = {
+  src: "/fundadora.webp",
+  width: 800,
+  height: 1000,
+  alt: "Dra. Maria Andreza Sá, fundadora e presidente do Instituto",
+};
 
 export const mission =
   "O Instituto Cultural e Artístico Luso-Brasileiro Maria Andreza Sá nasceu com a missão de estreitar os laços históricos, afetivos e culturais entre Portugal e o Brasil, aliando a promoção da arte e das tradições populares a uma atuação social e jurídica transformadora.";
@@ -150,7 +155,6 @@ export const pages = {
     paragraphs: [
       "Esta página reúne as atividades culturais da associação. A arte, a música, a fé popular e a cozinha de Portugal e do Brasil cabem aqui.",
       "A primeira atividade com registo público é a Festa de Santa Bárbara em Lisboa, que a associação organizou em setembro de 2026. No domingo, 6 de setembro, houve missa na Igreja de Nossa Senhora dos Anjos, em Arroios, e depois um cortejo pelas ruas do centro até à Praça da Figueira.",
-      "O programa anunciado juntava grupos afro-brasileiros, capoeira e percussão, a exposição «Afro Barroco Cachoeira, Recôncavo da Bahia, Religiosidade», com curadoria de Jomar Lima, uma mostra de moda e gastronomia baiana.",
       "As próximas atividades entram nesta página com data e lugar, quando a associação as anunciar.",
     ],
   },

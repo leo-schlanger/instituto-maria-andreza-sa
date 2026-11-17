@@ -60,7 +60,6 @@ export const eventos: Evento[] = [
       "O Instituto Associativo Cultural & Artístico Luso-Brasileiro Maria Andreza Sá organizou a 1.ª Festa de Santa Bárbara em Lisboa, com o nome Os Ventos de Oyá. Decorreu de 4 a 6 de setembro de 2026, na freguesia de Arroios. Segundo o Público e a imprensa baiana, a festa foi idealizada por Maria Andreza Sá, fundadora e presidente do instituto.",
       "A cantora Alcione foi a madrinha da 1.ª edição. Segundo o Público, o padrinho foi Carlos Marão, e Thales Melo de Ayrá e Milu Ferreira, fundadora da Galeria Arte Livre, foram embaixadores do projeto.",
       "A abertura estava marcada para sexta-feira, 4 de setembro, com uma mesa-redonda na Galeria Arte Livre, na Avenida da Liberdade. No domingo, 6 de setembro, houve missa às 10h na Igreja de Nossa Senhora dos Anjos, em Arroios. Seguiu-se um cortejo pelas ruas do centro até à Praça da Figueira. Uma feijoada na Baixa encerrou a festa.",
-      "O programa anunciado incluía também homenagens e rodas de conversa, a exposição Afro Barroco Cachoeira, Recôncavo da Bahia, Religiosidade, com curadoria de Jomar Lima, e a mostra de moda Barafunda, de Conceição Aflitos e Antônio Carlos dos Santos. Estavam anunciados grupos como as Filhas de Gandhy, o Baque do Tejo, o Lisbloco e a Abadá Capoeira.",
       "Em Salvador da Bahia, a Festa de Santa Bárbara faz-se a 4 de dezembro, no Centro Histórico, e é Património Imaterial da Bahia desde 2008. No candomblé, a santa é homenageada como Iansã, também chamada Oyá.",
     ],
     data: "4 a 6 de setembro de 2026",
@@ -71,15 +70,15 @@ export const eventos: Evento[] = [
     instagramUrl: "https://www.instagram.com/festasantabarbaralx/",
     celebracao: {
       titulo: "A missa de 6 de setembro",
-      fonte: "Missal da celebração, distribuído pela organização a 6 de setembro de 2026.",
+      fonte: "Missal da celebração, distribuído a 6 de setembro de 2026. O cortejo, os cânticos e os agradecimentos foram corrigidos pela presidente a 17 de novembro de 2026.",
       paragrafos: [
         "A celebração eucarística em honra de Santa Bárbara decorreu no domingo, 6 de setembro de 2026, às 10h, na Igreja de Nossa Senhora dos Anjos, em Arroios. Presidiu o Padre Paulo Araújo. Maria Andreza Sá foi a comentarista principal.",
-        "A missa abriu com o cortejo de entrada e o acolhimento da imagem de Santa Dulce dos Pobres, trazida de Salvador e oferecida ao pároco. O padrinho e os embaixadores da festa leram preces na oração dos fiéis. Os cânticos juntaram as duas margens, de Roberto Carlos e Maria Bethânia a Amália Rodrigues.",
-        "Antes da bênção final houve um momento de gratidão e homenagens: à madrinha, ao padrinho, aos embaixadores, ao grupo Amigos de Santa Bárbara e Protegidos de Oyá, à Paróquia de Arroios, à Junta de Freguesia de Arroios e a quem veio da Bahia para a festa.",
+        "A missa abriu com o cortejo de entrada, com Santa Bárbara e a imagem de Santa Dulce dos Pobres, que veio de Salvador através de Laura Tanure, que faz parte dos Amigos de Dulce. Os cânticos juntaram as duas margens: Roberto Carlos, Maria Bethânia e Amália Rodrigues.",
+        "Antes da bênção final houve um momento de gratidão à madrinha, ao padrinho e aos embaixadores, e ao grupo Amigos de Bárbara Protegidos por Oyá, que, de uma forma ou de outra, contribuíram para o brilho da festa. Seguiram-se os agradecimentos aos Guardiões da Ancestralidade, babalorixás e yalorixás, representantes da religião de matriz africana, à Paróquia de Arroios e aos amigos que vieram de Salvador.",
       ],
       citacao: "Esta festa nasce da fé, mas também nasce da memória.",
       programa: [
-        { parte: "Ritos iniciais", itens: "Cortejo de entrada, saudação, acolhimento da imagem de Santa Dulce dos Pobres, ato penitencial e glória." },
+        { parte: "Ritos iniciais", itens: "Cortejo de entrada com Santa Bárbara e a imagem de Santa Dulce dos Pobres, saudação, ato penitencial e glória." },
         { parte: "Liturgia da Palavra", itens: "Ezequiel 33, 7-9; Salmo 94 (95); Romanos 13, 8-10; Evangelho segundo São Mateus 18, 15-20; homilia, credo e oração dos fiéis." },
         { parte: "Liturgia eucarística", itens: "Apresentação das oferendas e oração eucarística." },
         { parte: "Ritos de comunhão", itens: "Comunhão, com o cântico «Foi Deus»." },

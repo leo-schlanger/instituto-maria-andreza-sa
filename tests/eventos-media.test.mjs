@@ -170,8 +170,9 @@ test("CSP deixa tocar vídeo do próprio site", () => {
 
 // Private data from the missal that must never reach the site: readers, thanks list, private
 // phone and handles. Stored as sha256 prefixes so the names themselves are not in git.
+// 2026-11-17: one 2-gram left this set. The president asked to name who brought Santa Dulce's image.
 const PRIVATE = new Set([
-  "677d1b35ed8feac4", "f8e618234b063505", "6c30e363fcb4d3a4", "e8c7dc6adbd22102", "cce17a716991a896",
+  "677d1b35ed8feac4", "f8e618234b063505", "6c30e363fcb4d3a4", "e8c7dc6adbd22102",
   "01b24f64bc23e7a2", "7a582ec491f9c908", "2c7acdb4d7b2f4e1", "8c71304f53f8c396",
 ]);
 const words = (s) => s.normalize("NFD").replace(/\p{M}/gu, "").toLowerCase().split(/[^a-z0-9]+/).filter(Boolean);

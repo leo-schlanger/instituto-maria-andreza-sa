@@ -1,10 +1,12 @@
 # Estado
 
-Atualizado a 2026-11-15, com as fotografias, o missal e o vídeo da festa. O domínio e o `www` estão verificados na Vercel.
+Atualizado a 2026-11-17, com a correção da missa pedida pela presidente e o retrato da fundadora. O domínio e o `www` estão verificados na Vercel.
 
 Estimativa do projeto: **94%**. O site e o DNS estão feitos. Falta o conteúdo que a associação ainda não fechou.
 
 ## Feito
+
+- 2026-11-17: a presidente corrigiu a missa. Saiu o programa anunciado que não se realizou (exposição, moda, grupos até à Abadá Capoeira), na página do evento e em /cultura/. O cortejo passou a incluir Santa Bárbara e a imagem de Santa Dulce, trazida de Salvador por Laura Tanure. O padrinho e os embaixadores deixaram de aparecer como presentes na missa e continuam no agradecimento. Saíram a Junta de Freguesia. Entraram os Guardiões da Ancestralidade e os amigos vindos de Salvador. Retrato da fundadora em /associacao/ e na home (`public/fundadora.webp`). A campanha de pijamas de dezembro e as notícias do livro e da Sorbonne ficaram de fora: a campanha ainda não ocorreu; livro e colóquio sem fonte suficiente para notícia com foto.
 
 - 2026-11-15 (tarde): vídeo institucional da festa (68 s) publicado na página do evento e na home, com `VideoObject`; rostos de fundo desfocados nas fotos 04, 07 e 09; foto das bandeiras em /portugal-e-brasil/.
 
@@ -39,7 +41,7 @@ Estimativa do projeto: **94%**. O site e o DNS estão feitos. Falta o conteúdo 
 ## Pendente do Leo
 
 - Levar à presidente o título e a frase final do pilar 1 (reescritos por parecer jurídico) e confirmar que aceita.
-- Mandar o retrato da fundadora (lugar já preparado em /associacao/ e na home). Opcional.
+- O retrato da fundadora entrou a 17 de novembro de 2026. Se ela quiser outro enquadramento, substitui-se `public/fundadora.webp` (800×1000).
 
 - Na Vercel, em Settings → Domains, pôr `www.mariaandrezasa.org` a redirecionar (308) para `mariaandrezasa.org`. Hoje os dois respondem 200 com o mesmo conteúdo. Recomendado: o canonical já aponta ao ápice, mas o redirect junta os sinais num só host. Sem isto não há erro, só sinais repartidos.
 - Google Search Console: adicionar a propriedade de domínio `mariaandrezasa.org` (registo TXT na GoDaddy) e submeter `https://mariaandrezasa.org/sitemap-index.xml`. Opcional, mas é a única forma de ver a indexação e os erros de dados estruturados. Bing Webmaster Tools importa do Search Console. Opcional.

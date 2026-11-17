@@ -132,8 +132,6 @@ Esta página reúne as atividades culturais da associação. A arte, a música, 
 
 A primeira atividade com registo público é a Festa de Santa Bárbara em Lisboa, que a associação organizou em setembro de 2026. No domingo, 6 de setembro, houve missa na Igreja de Nossa Senhora dos Anjos, em Arroios, e depois um cortejo pelas ruas do centro até à Praça da Figueira.
 
-O programa anunciado juntava grupos afro-brasileiros, capoeira e percussão, a exposição «Afro Barroco Cachoeira, Recôncavo da Bahia, Religiosidade», com curadoria de Jomar Lima, uma mostra de moda e gastronomia baiana.
-
 As próximas atividades entram nesta página com data e lugar, quando a associação as anunciar.
 
 ## Portugal e Brasil
@@ -226,11 +224,15 @@ Sem formulário desde 2026-11-11.
 
 ## Página do evento: missa, galeria e vídeo (2026-11-15)
 
-Fonte: missal da celebração enviado pela presidente (12 páginas). Texto em `src/data/eventos.ts`, campo `celebracao`, com o rótulo «Segundo o missal».
+Fonte: missal da celebração enviado pela presidente (12 páginas), corrigido por ela a 17 de novembro de 2026. Texto em `src/data/eventos.ts`, campo `celebracao`, com o rótulo «A celebração».
 
-Celebração eucarística em honra de Santa Bárbara no domingo, 6 de setembro de 2026, às 10h, na Igreja de Nossa Senhora dos Anjos, em Arroios. Presidiu o Padre Paulo Araújo; Maria Andreza Sá foi a comentarista principal. Cortejo de entrada com a imagem de Santa Dulce dos Pobres, trazida de Salvador e oferecida ao pároco. Preces lidas pelo padrinho e pelos embaixadores. Momento de gratidão e homenagens antes da bênção final. Programa em cinco partes: ritos iniciais, liturgia da Palavra, liturgia eucarística, ritos de comunhão, ação de graças e ritos finais. Citação da capa: «Esta festa nasce da fé, mas também nasce da memória.»
+Celebração eucarística em honra de Santa Bárbara no domingo, 6 de setembro de 2026, às 10h, na Igreja de Nossa Senhora dos Anjos, em Arroios. Presidiu o Padre Paulo Araújo; Maria Andreza Sá foi a comentarista principal. A missa abriu com o cortejo de entrada, com Santa Bárbara e a imagem de Santa Dulce dos Pobres, trazida de Salvador por Laura Tanure, dos Amigos de Dulce. Os cânticos juntaram Roberto Carlos, Maria Bethânia e Amália Rodrigues. Antes da bênção final, gratidão à madrinha, ao padrinho, aos embaixadores e ao grupo Amigos de Bárbara Protegidos por Oyá. Depois, agradecimento aos Guardiões da Ancestralidade (babalorixás e yalorixás), à Paróquia de Arroios e aos amigos que vieram de Salvador. Programa em cinco partes. Citação da capa: «Esta festa nasce da fé, mas também nasce da memória.»
 
-Fora do site, de propósito: os nomes dos leitores, a lista de agradecimentos, quem ofereceu a imagem, a homenagem pessoal da presidente a um familiar, o telefone do Brasil, o e-mail pessoal e o Instagram pessoal da contracapa. `tests/eventos-media.test.mjs` guarda os nomes como hash e falha se aparecerem no `dist/`.
+Correção de 17 de novembro de 2026, pedida pela presidente: o programa anunciado (exposição, mostra de moda e grupos até à Abadá Capoeira) não se realizou e saiu da página do evento e de /cultura/. O padrinho e os embaixadores não leram as preces, porque não puderam vir; continuam no agradecimento. A Junta de Freguesia de Arroios saiu dos agradecimentos. O rótulo da secção passou de «Segundo o missal» a «A celebração». A fonte diz que o cortejo, os cânticos e os agradecimentos foram corrigidos nessa data.
+
+Fora do site, de propósito: os nomes dos leitores, a lista de agradecimentos que a presidente não mandou publicar, a homenagem pessoal da presidente a um familiar, o telefone do Brasil, o e-mail pessoal e o Instagram pessoal da contracapa. Quem trouxe a imagem de Santa Dulce passou a ser nomeada a pedido da presidente (17 de novembro de 2026). `tests/eventos-media.test.mjs` guarda os nomes que continuam privados como hash e falha se aparecerem no `dist/`.
+
+Retrato da fundadora (17 de novembro de 2026): `public/fundadora.webp`, 800×1000, recorte 4:5 do retrato que ela enviou, só ela. As outras fotografias do mesmo envio não entram no site.
 
 Galeria: 8 fotografias aprovadas pelo juridico (imagem da santa, andor visto de costas, carrinha, interior da igreja recortado acima da assembleia, bandeiras, cesto). Origem «Fotografia cedida pela organização». Rostos pequenos ao fundo (passeio, motorista, perfil de quem leva o andor) desfocados a 2026-11-15, depois do qa.
 
