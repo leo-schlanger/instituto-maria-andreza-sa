@@ -1,10 +1,12 @@
 # Estado
 
-Atualizado a 2026-11-17, com três notícias (livro, fórum e prémios), a correção da missa e o retrato da fundadora. O domínio e o `www` estão verificados na Vercel.
+Atualizado a 2026-11-17, com a secção de parceiros (Comadres de Cascais), três notícias, a correção da missa e o retrato da fundadora. O domínio e o `www` estão verificados na Vercel.
 
 Estimativa do projeto: **95%**. O site e o DNS estão feitos. Falta o que a associação ainda não fechou.
 
 ## Feito
+
+- 2026-11-17 (parceiros): secção na home, entre Portugal e Brasil e o índice do site. A primeira é a Associação Comadres de Cascais, com o logótipo dela e a ligação para comadresdecascais.com. A campanha de pijamas de dezembro continua por publicar.
 
 - 2026-11-17 (notícias): três páginas em /noticias/. Livro Entrelinhas, com a fotografia dela e o livro. XIII Fórum de Lisboa, presença de 2 a 4 de julho de 2025, crachá de imprensa, sem a tratar como oradora. Prémios Embaixadores 2025, presença no painel da edição e homenagem na categoria Justiça só como anúncio de fevereiro, para 24 de maio. Fora: Sorbonne (só o letreiro), o pódio de outubro sem sala identificada, a frase «dois congressos em perspectiva», o troféu com texto ilegível e a parceria dos pijamas.
 

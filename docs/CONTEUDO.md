@@ -46,6 +46,19 @@ A festa trouxe a Lisboa uma tradição de Salvador da Bahia. Teve notícia no P�
 
 O Instagram que ligamos neste site é o da Festa de Santa Bárbara.
 
+Parceiros (bloco na home, fonte `src/data/parceiros.ts`)
+Em conjunto
+
+Parceiros
+
+Associações com quem o instituto partilha trabalho.
+
+Associação Comadres de Cascais
+Sem fins lucrativos, apoia pessoas em situação de vulnerabilidade e aproxima as comunidades brasileira e portuguesa em Cascais e arredores.
+https://comadresdecascais.com/
+
+A campanha de pijamas de dezembro não entra neste bloco enquanto não acontecer.
+
 Três pilares (bloco na home e em /associacao/)
 A atuação do Instituto assenta em três pilares fundamentais.
 

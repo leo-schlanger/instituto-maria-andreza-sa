@@ -828,6 +828,87 @@ a[data-slot="button"] { text-decoration: none; }
   .area:nth-child(5) { grid-column: span 3; }
 }
 
+/* Partners. One entry is a wide plate; more entries share the same card in a grid. */
+.partners { background: #fff; border-block: 1px solid #ebe1cd; }
+.partners__list {
+  display: grid;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.partners__list > li { display: grid; }
+.partners__list:not(.partners__list--solo) { grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); }
+.partner {
+  display: grid;
+  gap: 8px;
+  height: 100%;
+  padding: 18px;
+  border: 1px solid #d9ccb4;
+  border-left: 3px solid #b58a3a;
+  border-radius: 18px;
+  background: #fff;
+  color: #2d2927;
+  text-decoration: none;
+  transition: border-color 0.25s;
+}
+.partner:hover { border-color: #b58a3a; }
+.partner__mark {
+  display: grid;
+  place-items: center;
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: #f8f4ea;
+}
+.partner__mark > img {
+  display: block;
+  width: auto;
+  max-width: min(220px, 100%);
+  max-height: 168px;
+  height: auto;
+}
+.partner__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 12px 8px 8px;
+}
+.partner__name { font-size: clamp(1.625rem, 1.3rem + 0.8vw, 2.25rem); line-height: 1.15; }
+.partner__text {
+  margin-top: 10px;
+  max-width: 38em;
+  color: #5c564e;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+.partner__go {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  margin-top: 16px;
+  color: #6d1723;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: #b58a3a;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 6px;
+}
+.partner__go svg { width: 18px; height: 18px; transition: transform 0.25s var(--ease-out); }
+.partner:hover .partner__go { text-decoration-thickness: 2px; }
+.partner:hover .partner__go svg { transform: translate(2px, -2px); }
+@media (min-width: 800px) {
+  .partners__list--solo .partner {
+    grid-template-columns: minmax(220px, 280px) 1fr;
+    align-items: center;
+    gap: 12px 36px;
+    padding: 22px 40px 22px 22px;
+  }
+  .partners__list--solo .partner__mark { min-height: 240px; }
+  .partners__list--solo .partner__mark > img { max-height: 200px; }
+  .partners__list--solo .partner__body { padding: 12px 8px; }
+}
+
 /* Closing card */
 .closing { padding-bottom: var(--section); }
 .closing__card {

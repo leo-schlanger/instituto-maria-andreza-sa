@@ -1,0 +1,45 @@
+---
+import { parceiros, parceirosIntro } from "@/data/parceiros";
+
+interface Props {
+  headingId?: string;
+}
+
+const { headingId = "parceiros-titulo" } = Astro.props;
+const solo = parceiros.length === 1;
+---
+
+{
+  parceiros.length > 0 && (
+    <section class="partners section-pad" aria-labelledby={headingId}>
+      <div class="site-wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">Em conjunto</p>
+          <h2 id={headingId} class="section-title">Parceiros</h2>
+          <p class="section-intro">{parceirosIntro}</p>
+        </div>
+        <ul class:list={["partners__list", solo && "partners__list--solo"]}>
+          {parceiros.map((p) => (
+            <li class="reveal">
+              <a class="partner" href={p.url} target="_blank" rel="noopener">
+                <span class="partner__mark">
+                  <img src={p.logo.src} width={p.logo.width} height={p.logo.height} alt="" />
+                </span>
+                <span class="partner__body">
+                  <h3 class="partner__name">{p.nome}</h3>
+                  <p class="partner__text">{p.texto}</p>
+                  <span class="partner__go">
+                    Visitar o site
+                    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M7 17 17 7M9 7h8v8" />
+                    </svg>
+                  </span>
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )
+}
