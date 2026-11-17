@@ -1,0 +1,68 @@
+---
+import Arrow from "@/components/Arrow.astro";
+import Divider from "@/components/Divider.astro";
+import OrnamentPanel from "@/components/OrnamentPanel.astro";
+import PageHero from "@/components/PageHero.astro";
+import { noticias, type Noticia } from "@/data/noticias";
+import Base from "@/layouts/Base.astro";
+
+export function getStaticPaths() {
+  return noticias.map((noticia) => ({ params: { slug: noticia.slug }, props: { noticia } }));
+}
+
+const { noticia } = Astro.props as { noticia: Noticia };
+const path = `/noticias/${noticia.slug}/`;
+---
+<Base
+  title={`${noticia.titulo} | Maria Andreza Sá`}
+  description={noticia.resumo}
+  path={path}
+  ogType="article"
+  crumbs={[{ name: "Notícias", path: "/noticias/" }, { name: noticia.titulo, path }]}
+>
+  <PageHero h1={noticia.titulo} crumb={noticia.titulo} eyebrow="Notícia" lede={noticia.resumo} parent={{ href: "/noticias/", label: "Notícias" }} />
+  <div class="site-wrap page-body">
+    <div class="reading reveal">
+      {noticia.foto && (
+        <figure class="news-figure">
+          <img src={noticia.foto.src} width={noticia.foto.width} height={noticia.foto.height} alt={noticia.foto.alt} />
+          <figcaption>Fotografia enviada pela presidente.</figcaption>
+        </figure>
+      )}
+      <section class="press" aria-labelledby="noticia-corpo">
+        <p class="eyebrow">O que a imprensa registou</p>
+        <h2 id="noticia-corpo" class="story__title">{noticia.corpoTitulo}</h2>
+        {noticia.paragrafos.map((p, i) => <p class:list={[i === 0 && noticia.paragrafos.length > 2 && "dropcap"]}>{p}</p>)}
+      </section>
+      <Divider />
+      <section class="sources" aria-labelledby="fontes-titulo">
+        <h2 id="fontes-titulo" class="sources__title">Fontes</h2>
+        <ol>
+          {noticia.fontes.map((f) => (
+            <li><a href={f.url} target="_blank" rel="noopener">{f.titulo}</a></li>
+          ))}
+        </ol>
+      </section>
+    </div>
+    <aside class="page-aside" aria-label="Sobre a notícia">
+      <OrnamentPanel kicker={noticia.etiqueta} title={noticia.data} class="event-poster reveal" />
+      <div class="fact-card reveal">
+        <p class="fact-card__title">Ficha</p>
+        <dl>
+          {noticia.ficha.map((f) => (
+            <div>
+              <dt>{f.term}</dt>
+              <dd>{f.term.startsWith("Data") ? <time datetime={noticia.dataIso}>{f.value}</time> : f.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+      <nav class="related reveal" aria-label="Outras secções">
+        <p class="related__title">Continuar a ler</p>
+        <a href="/noticias/">Notícias<Arrow /></a>
+        <a href="/associacao/">A associação<Arrow /></a>
+        <a href="/cultura/">Cultura<Arrow /></a>
+      </nav>
+    </aside>
+  </div>
+</Base>

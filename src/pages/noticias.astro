@@ -1,8 +1,10 @@
 ---
 import { ButtonLink } from "@/components/ButtonLink";
 import EmptyState from "@/components/EmptyState.astro";
+import NewsCard from "@/components/NewsCard.astro";
 import PageHero from "@/components/PageHero.astro";
 import { eventos } from "@/data/eventos";
+import { noticias } from "@/data/noticias";
 import { pages } from "@/data/site";
 import Base from "@/layouts/Base.astro";
 
@@ -10,18 +12,30 @@ const page = pages.noticias;
 const latest = eventos[0];
 ---
 <Base title={page.title} description={page.description} path={page.path} pageType="CollectionPage" crumbs={[{ name: "Notícias", path: page.path }]}>
-  <PageHero h1={page.h1} crumb="Notícias" eyebrow="Arquivo" lede={page.paragraphs[0]} />
+  <PageHero h1={page.h1} crumb="Notícias" eyebrow="Arquivo" lede={noticias.length > 0 ? undefined : page.paragraphs[0]} />
   <div class="site-wrap section-pad">
-    <EmptyState title="Ainda sem notícias" label="Sem notícias publicadas">
-      <p>Cada notícia entra aqui com a data real da atividade.</p>
-      <div class="action-row">
-        {latest ? (
-          <ButtonLink href={`/projetos/${latest.slug}/`}>{latest.titulo}</ButtonLink>
-        ) : (
-          <ButtonLink href="/projetos/">Projetos</ButtonLink>
-        )}
-        <ButtonLink href="/contactos/" variant="outline">Contactos</ButtonLink>
-      </div>
-    </EmptyState>
+    {noticias.length > 0 ? (
+      <section class="events" aria-labelledby="noticias-titulo">
+        <div class="section-head reveal">
+          <p class="eyebrow">Publicadas</p>
+          <h2 id="noticias-titulo" class="section-title">Notícias publicadas</h2>
+        </div>
+        <div class="events__list">
+          {noticias.map((noticia) => <div class="reveal"><NewsCard noticia={noticia} /></div>)}
+        </div>
+      </section>
+    ) : (
+      <EmptyState title="Ainda sem notícias" label="Sem notícias publicadas">
+        <p>Cada notícia entra aqui com a data real da atividade.</p>
+        <div class="action-row">
+          {latest ? (
+            <ButtonLink href={`/projetos/${latest.slug}/`}>{latest.titulo}</ButtonLink>
+          ) : (
+            <ButtonLink href="/projetos/">Projetos</ButtonLink>
+          )}
+          <ButtonLink href="/contactos/" variant="outline">Contactos</ButtonLink>
+        </div>
+      </EmptyState>
+    )}
   </div>
 </Base>

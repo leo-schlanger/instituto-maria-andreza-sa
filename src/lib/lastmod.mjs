@@ -20,7 +20,11 @@ export function sourcesFor(pathname) {
   if (pathname.startsWith("/projetos/") && pathname !== "/projetos/") {
     return ["src/data/eventos.ts", "src/data/eventos-fotos.ts", "src/pages/projetos/[slug].astro"];
   }
+  if (pathname.startsWith("/noticias/") && pathname !== "/noticias/") {
+    return ["src/data/noticias.ts", "src/pages/noticias/[slug].astro"];
+  }
   if (pathname === "/projetos/") return [pageFile[pathname], "src/data/eventos.ts", ...shared];
+  if (pathname === "/noticias/") return [pageFile[pathname], "src/data/noticias.ts", ...shared];
   return [pageFile[pathname], ...shared].filter(Boolean);
 }
 

@@ -199,6 +199,28 @@ test("sitemap inclui páginas de eventos", async () => {
   for (const evento of eventos) assert.ok(xml.includes(`/projetos/${evento.slug}/`), evento.slug);
 });
 
+test("notícia do livro com data anunciada e sem o que a imprensa não liga a ela", async () => {
+  const { noticias } = await import("../src/data/noticias.ts");
+  assert.ok(noticias.length > 0);
+  const html = readPage("noticias/index.html");
+  assert.equal(html.includes('aria-label="Sem notícias publicadas"'), false);
+  assert.equal((html.match(/data-noticia="/g) || []).length, noticias.length);
+  const home = readPage("index.html");
+  assert.equal(home.includes("Em preparação"), false);
+  const xml = readFileSync(path.join(dist, "sitemap-0.xml"), "utf8");
+  for (const noticia of noticias) {
+    const page = readPage(`noticias/${noticia.slug}/index.html`);
+    assert.equal(innerText(page, "h1"), noticia.titulo, noticia.slug);
+    assert.ok(page.includes(`rel="canonical" href="https://mariaandrezasa.org/noticias/${noticia.slug}/"`), noticia.slug);
+    assert.ok(page.includes(noticia.data), noticia.slug);
+    assert.ok(page.includes(`datetime="${noticia.dataIso}"`), noticia.slug);
+    for (const fonte of noticia.fontes) assert.ok(page.includes(`href="${fonte.url}"`), fonte.url);
+    if (noticia.foto) assert.ok(page.includes(noticia.foto.src), noticia.slug);
+    assert.equal(/Marcelo|Sorbonne|abuso|escola de elite|pijama|Comadres/i.test(page), false, noticia.slug);
+    assert.ok(xml.includes(`/noticias/${noticia.slug}/`), noticia.slug);
+  }
+});
+
 test("scripts externos e sem fontes de terceiros", () => {
   const files = [];
   const walk = (dir) => {

@@ -1297,6 +1297,11 @@ a[data-slot="button"] { text-decoration: none; }
   font-size: 0.75rem;
 }
 .event-card__art--photo .event-card__badge { z-index: 1; }
+.event-card__art--frame { background: #f1e9d8; }
+.event-card__art--frame img { object-fit: contain; object-position: center; }
+.news-figure { margin: 0; }
+.news-figure img { width: 100%; height: auto; }
+.news-figure figcaption { font-size: 0.9375rem; line-height: 1.5; color: #5c564e; }
 @media (min-width: 900px) {
   .event-card__art--photo { min-height: 380px; }
 }

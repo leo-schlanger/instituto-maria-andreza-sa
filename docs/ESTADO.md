@@ -1,12 +1,14 @@
 # Estado
 
-Atualizado a 2026-11-17, com a correção da missa pedida pela presidente e o retrato da fundadora. O domínio e o `www` estão verificados na Vercel.
+Atualizado a 2026-11-17, com três notícias (livro, fórum e prémios), a correção da missa e o retrato da fundadora. O domínio e o `www` estão verificados na Vercel.
 
-Estimativa do projeto: **94%**. O site e o DNS estão feitos. Falta o conteúdo que a associação ainda não fechou.
+Estimativa do projeto: **95%**. O site e o DNS estão feitos. Falta o que a associação ainda não fechou.
 
 ## Feito
 
-- 2026-11-17: a presidente corrigiu a missa. Saiu o programa anunciado que não se realizou (exposição, moda, grupos até à Abadá Capoeira), na página do evento e em /cultura/. O cortejo passou a incluir Santa Bárbara e a imagem de Santa Dulce, trazida de Salvador por Laura Tanure. O padrinho e os embaixadores deixaram de aparecer como presentes na missa e continuam no agradecimento. Saíram a Junta de Freguesia. Entraram os Guardiões da Ancestralidade e os amigos vindos de Salvador. Retrato da fundadora em /associacao/ e na home (`public/fundadora.webp`). A campanha de pijamas de dezembro e as notícias do livro e da Sorbonne ficaram de fora: a campanha ainda não ocorreu; livro e colóquio sem fonte suficiente para notícia com foto.
+- 2026-11-17 (notícias): três páginas em /noticias/. Livro Entrelinhas, com a fotografia dela e o livro. XIII Fórum de Lisboa, presença de 2 a 4 de julho de 2025, crachá de imprensa, sem a tratar como oradora. Prémios Embaixadores 2025, presença no painel da edição e homenagem na categoria Justiça só como anúncio de fevereiro, para 24 de maio. Fora: Sorbonne (só o letreiro), o pódio de outubro sem sala identificada, a frase «dois congressos em perspectiva», o troféu com texto ilegível e a parceria dos pijamas.
+
+- 2026-11-17: a presidente corrigiu a missa. Saiu o programa anunciado que não se realizou (exposição, moda, grupos até à Abadá Capoeira), na página do evento e em /cultura/. O cortejo passou a incluir Santa Bárbara e a imagem de Santa Dulce, trazida de Salvador por Laura Tanure. O padrinho e os embaixadores deixaram de aparecer como presentes na missa e continuam no agradecimento. Saíram a Junta de Freguesia. Entraram os Guardiões da Ancestralidade e os amigos vindos de Salvador. Retrato da fundadora em /associacao/ e na home (`public/fundadora.webp`). A campanha de pijamas de dezembro ficou de fora: ainda não ocorreu. O livro entrou nas notícias no mesmo dia, com fotografia. A Sorbonne continua de fora.
 
 - 2026-11-15 (tarde): vídeo institucional da festa (68 s) publicado na página do evento e na home, com `VideoObject`; rostos de fundo desfocados nas fotos 04, 07 e 09; foto das bandeiras em /portugal-e-brasil/.
 
@@ -50,4 +52,4 @@ Estimativa do projeto: **94%**. O site e o DNS estão feitos. Falta o conteúdo 
 
 - Não apagar mais registos DNS. Têm de ficar os dois A (`216.198.79.1` e `64.29.17.1`) e o CNAME de `www`.
 - O NIPC 518875270 já está só na privacidade e nos termos. Se algum dígito da declaração estiver mal lido, corrigir.
-- Fechar a lista de projetos e as notícias. As páginas dizem que ainda não há.
+- Fechar a lista de projetos. /projetos/ continua a dizer que não há mais eventos. As notícias do livro, do fórum e dos prémios já estão publicadas.

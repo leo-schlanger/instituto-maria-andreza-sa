@@ -187,15 +187,17 @@ Title
 Notícias | Maria Andreza Sá
 
 Meta description
-Novidades do instituto. Ainda não há notícias publicadas.
+Notícias do Instituto Maria Andreza Sá: o livro Entrelinhas, o XIII Fórum de Lisboa e os Prémios Embaixadores.
 
 H1
 Notícias
 
 Corpo
-Ainda não há notícias publicadas. Esta página fica para a cobertura das atividades, quando elas acontecem.
+Com notícias em `src/data/noticias.ts`, a página mostra os cartões. Cada notícia tem página própria em /noticias/<slug>/, com a fotografia enviada pela presidente, o que a imprensa registou, a ficha e as fontes.
 
-O estado vazio aponta para a página do evento mais recente, quando existir.
+Publicadas, da mais recente para a mais antiga: presença no XIII Fórum de Lisboa (2 a 4 de julho de 2025, crachá de imprensa, sem oradora), presença nos Prémios Embaixadores 2025 (homenagem na categoria Justiça anunciada para 24 de maio, sem dizer que venceu) e o livro Entrelinhas (lançamento anunciado para 19 de outubro de 2024).
+
+O estado vazio, se a lista ficar sem itens, ainda diz que não há notícias e aponta para o evento mais recente.
 
 ## Contactos
 

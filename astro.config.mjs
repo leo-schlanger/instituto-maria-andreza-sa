@@ -35,7 +35,7 @@ export default defineConfig({
     sitemap({
       filter: (page) => {
         const p = new URL(page).pathname;
-        return indexable.has(p) || /^\/projetos\/[a-z0-9-]+\/$/.test(p);
+        return indexable.has(p) || /^\/projetos\/[a-z0-9-]+\/$/.test(p) || /^\/noticias\/[a-z0-9-]+\/$/.test(p);
       },
       namespaces: { news: false, xhtml: false, image: false, video: false },
       serialize: (item) => ({ ...item, lastmod: lastModified(new URL(item.url).pathname) }),

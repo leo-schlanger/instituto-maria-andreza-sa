@@ -1,0 +1,43 @@
+---
+import Arrow from "@/components/Arrow.astro";
+import OrnamentPanel from "@/components/OrnamentPanel.astro";
+import type { Noticia } from "@/data/noticias";
+
+interface Props {
+  noticia: Noticia;
+  headingLevel?: 2 | 3;
+}
+
+const { noticia, headingLevel = 3 } = Astro.props;
+const Heading = `h${headingLevel}` as "h2" | "h3";
+---
+<article class="event-card" id={noticia.slug} data-noticia={noticia.slug}>
+  {noticia.foto ? (
+    <figure class="event-card__art event-card__art--photo event-card__art--frame">
+      <img
+        src={noticia.foto.src}
+        width={noticia.foto.width}
+        height={noticia.foto.height}
+        alt={noticia.foto.alt}
+      />
+      <span class="event-card__badge" aria-hidden="true">Notícia</span>
+    </figure>
+  ) : (
+    <div class="event-card__art">
+      <OrnamentPanel kicker={noticia.etiqueta} title={noticia.data} class="event-card__orn" />
+      <span class="event-card__badge" aria-hidden="true">Notícia</span>
+    </div>
+  )}
+  <div class="event-card__body">
+    <p class="event-card__meta">
+      {noticia.etiqueta} · <time datetime={noticia.dataIso}>{noticia.data}</time>
+    </p>
+    <Heading class="event-card__title">
+      <a href={`/noticias/${noticia.slug}/`}>{noticia.titulo}</a>
+    </Heading>
+    <p class="event-card__summary">{noticia.resumo}</p>
+    <div class="event-card__actions">
+      <a class="event-card__link" href={`/noticias/${noticia.slug}/`}>Ler a notícia<Arrow /></a>
+    </div>
+  </div>
+</article>
