@@ -5,7 +5,7 @@ import test from "node:test";
 
 const root = path.resolve(".");
 const roots = ["src", "public", "docs"];
-const binary = new Set([".png", ".jpg", ".jpeg", ".webp", ".gif", ".ico", ".woff", ".woff2", ".ttf", ".otf", ".pdf", ".zip"]);
+const binary = new Set([".png", ".jpg", ".jpeg", ".webp", ".gif", ".ico", ".woff", ".woff2", ".ttf", ".otf", ".pdf", ".zip", ".mp3", ".mp4"]);
 const email = /[A-Za-z0-9][A-Za-z0-9._%+-]*@[A-Za-z][A-Za-z0-9.-]*\.[A-Za-z]{2,}/;
 const postal = /(?<!\d)\d{4}-\d{3}(?!\d)/g;
 // 2600-265 (seat) is no longer published (president's request, 2026-11-11); only the CNPD postcode stays.

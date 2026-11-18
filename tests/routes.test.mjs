@@ -250,3 +250,16 @@ test("scripts externos e sem fontes de terceiros", () => {
     }
   }
 });
+
+test("música de fundo auto-hospedada com controlos de tocar/parar e volume", () => {
+  const audioFile = path.join(dist, "audio", "santa-barbara.mp3");
+  assert.ok(existsSync(audioFile), "falta dist/audio/santa-barbara.mp3");
+  assert.ok(statSync(audioFile).size > 100_000, "ficheiro de áudio vazio ou truncado");
+  for (const page of pages) {
+    const html = readPage(page.file);
+    assert.match(html, /data-ambient-player/, page.file);
+    assert.match(html, /src="\/audio\/santa-barbara\.mp3"/, page.file);
+    assert.match(html, /data-ambient-toggle/, page.file);
+    assert.match(html, /data-ambient-volume[^>]*value="22"/, page.file);
+  }
+});

@@ -132,7 +132,8 @@ body {
 .channel__icon,
 .contact-side,
 .event-video video,
-.page-hero__photo {
+.page-hero__photo,
+.ambient-player__disc {
   --focus: #f8f4ea;
   --color-ring: #f8f4ea;
 }
@@ -1783,3 +1784,165 @@ a[data-slot="button"] { text-decoration: none; }
 .footer-medal .star { width: 40px; height: 40px; }
 .footer-medal { width: 64px; height: 64px; margin: 6px; }
 .footer-medal .star { width: 30px; height: 30px; }
+
+/* ---------- Ambient background audio player ---------- */
+.ambient-player {
+  position: fixed;
+  right: max(14px, var(--gutter));
+  bottom: 16px;
+  z-index: 38;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px 5px 5px;
+  border: 1px solid #b58a3a;
+  border-radius: 999px;
+  background: rgb(248 244 234 / 0.96);
+  backdrop-filter: saturate(1.2) blur(10px);
+  color: #2d2927;
+  box-shadow: 0 12px 28px -10px rgb(45 41 39 / 0.28), 0 0 0 1px rgb(248 244 234 / 0.65);
+  transition: border-color 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out);
+}
+.ambient-player:hover {
+  box-shadow: 0 16px 32px -10px rgb(109 23 35 / 0.32), 0 0 0 1px rgb(181 138 58 / 0.45);
+}
+.ambient-player__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 4px 0 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+.ambient-player__disc {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #6d1723;
+  color: #f8f4ea;
+  box-shadow: 0 0 0 1px #b58a3a;
+  flex: none;
+  transition: background-color 0.2s, color 0.2s, transform 0.2s var(--ease-out);
+}
+.ambient-player[data-state="stopped"] .ambient-player__disc {
+  background: #f1e9d8;
+  color: #6d1723;
+}
+.ambient-player__btn:hover .ambient-player__disc {
+  background: #8a2733;
+  color: #f8f4ea;
+}
+.ambient-player__icon {
+  width: 15px;
+  height: 15px;
+}
+.ambient-player[data-state="playing"] .ambient-player__icon--play,
+.ambient-player[data-state="stopped"] .ambient-player__icon--stop {
+  display: none;
+}
+.ambient-player__meta {
+  display: grid;
+  gap: 1px;
+  line-height: 1.15;
+}
+.ambient-player__title {
+  color: #6d1723;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.ambient-player__status {
+  color: #5c564e;
+  font-family: var(--font-sans);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.ambient-player__vol {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding-left: 8px;
+  border-left: 1px solid #d9ccb4;
+}
+.ambient-player__mute {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #6d1723;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+.ambient-player__mute:hover {
+  background: #efe6d4;
+}
+.ambient-player__vol-icon {
+  width: 15px;
+  height: 15px;
+}
+.ambient-player[data-muted="true"] .ambient-player__vol-icon--on,
+.ambient-player:not([data-muted="true"]) .ambient-player__vol-icon--off {
+  display: none;
+}
+.ambient-player__slider {
+  width: 58px;
+  height: 4px;
+  margin: 0;
+  appearance: none;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #b58a3a var(--vol, 22%), #dccbaa var(--vol, 22%));
+  cursor: pointer;
+}
+.ambient-player__slider::-webkit-slider-thumb {
+  width: 12px;
+  height: 12px;
+  appearance: none;
+  border-radius: 50%;
+  border: 1.5px solid #f8f4ea;
+  background: var(--color-primary);
+  box-shadow: 0 0 0 1px #b58a3a;
+  transition: transform 0.15s var(--ease-out);
+}
+.ambient-player__slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+.ambient-player__slider::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1.5px solid #f8f4ea;
+  background: var(--color-primary);
+  box-shadow: 0 0 0 1px #b58a3a;
+  transition: transform 0.15s var(--ease-out);
+}
+@media (max-width: 420px) {
+  .ambient-player {
+    right: 12px;
+    bottom: 12px;
+    padding: 4px 10px 4px 4px;
+    gap: 6px;
+  }
+  .ambient-player__slider {
+    width: 46px;
+  }
+}
+@media print {
+  .ambient-player {
+    display: none;
+  }
+}

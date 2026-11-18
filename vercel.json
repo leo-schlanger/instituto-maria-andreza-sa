@@ -15,7 +15,7 @@
       ]
     },
     {
-      "source": "/(ornaments|brand|parceiros)/(.*)",
+      "source": "/(ornaments|brand|parceiros|audio)/(.*)",
       "headers": [
         {
           "key": "Cache-Control",

@@ -3,6 +3,7 @@ import "@/styles/global.css";
 // Above-the-fold faces: Playfair 500 (H1, brand name) and Montserrat 400 (lede, body).
 import serifH1 from "@fontsource/playfair-display/files/playfair-display-latin-500-normal.woff2?url";
 import sansBody from "@fontsource/montserrat/files/montserrat-latin-400-normal.woff2?url";
+import AmbientAudio from "@/components/AmbientAudio.astro";
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
 import { siteUrl } from "@/data/site";
@@ -109,5 +110,6 @@ const jsonLd = noindex
 <slot />
 </main>
 <Footer />
+<AmbientAudio />
 </body>
 </html>

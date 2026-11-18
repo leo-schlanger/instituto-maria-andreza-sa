@@ -1,0 +1,305 @@
+<aside class="ambient-player" data-ambient-player data-state="stopped" aria-label="Música de fundo">
+  <audio
+    data-ambient-audio
+    src="/audio/santa-barbara.mp3"
+    loop
+    preload="auto"
+  ></audio>
+  <button
+    type="button"
+    class="ambient-player__btn"
+    data-ambient-toggle
+    aria-label="Tocar música de fundo: Santa Bárbara"
+    aria-pressed="false"
+  >
+    <span class="ambient-player__disc" aria-hidden="true">
+      <svg class="ambient-player__icon ambient-player__icon--play" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M8.5 6.8v10.4L17.5 12 8.5 6.8z" />
+      </svg>
+      <svg class="ambient-player__icon ambient-player__icon--stop" viewBox="0 0 24 24" fill="currentColor">
+        <rect x="7.25" y="7.25" width="9.5" height="9.5" rx="1.75" />
+      </svg>
+    </span>
+    <span class="ambient-player__meta">
+      <span class="ambient-player__title">Santa Bárbara</span>
+      <span class="ambient-player__status" data-ambient-status>Tocar</span>
+    </span>
+  </button>
+  <div class="ambient-player__vol" role="group" aria-label="Controlo de volume">
+    <button
+      type="button"
+      class="ambient-player__mute"
+      data-ambient-mute
+      aria-label="Silenciar música"
+      aria-pressed="false"
+    >
+      <svg class="ambient-player__vol-icon ambient-player__vol-icon--on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M11 5L6 9H3v6h3l5 4V5z" />
+        <path d="M15.5 8.5a5 5 0 0 1 0 7" />
+      </svg>
+      <svg class="ambient-player__vol-icon ambient-player__vol-icon--off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M11 5L6 9H3v6h3l5 4V5z" />
+        <path d="M21 9l-5 6M16 9l5 6" />
+      </svg>
+    </button>
+    <input
+      type="range"
+      class="ambient-player__slider"
+      data-ambient-volume
+      min="0"
+      max="100"
+      step="1"
+      value="22"
+      style="--vol: 22%"
+      aria-label="Volume da música de fundo"
+    />
+  </div>
+</aside>
+
+<script>
+  const KEY_STOPPED = "imas_bgm_stopped";
+  const KEY_VOLUME = "imas_bgm_vol";
+  const KEY_TIME = "imas_bgm_time";
+  const DEFAULT_VOL = 0.22;
+
+  const root = document.querySelector<HTMLElement>("[data-ambient-player]");
+  const audio = document.querySelector<HTMLAudioElement>("[data-ambient-audio]");
+  const toggleBtn = document.querySelector<HTMLButtonElement>("[data-ambient-toggle]");
+  const statusEl = document.querySelector<HTMLElement>("[data-ambient-status]");
+  const muteBtn = document.querySelector<HTMLButtonElement>("[data-ambient-mute]");
+  const slider = document.querySelector<HTMLInputElement>("[data-ambient-volume]");
+
+  if (root && audio && toggleBtn && statusEl && muteBtn && slider) {
+    const readStore = (key: string): string | null => {
+      try {
+        return window.sessionStorage.getItem(key);
+      } catch {
+        return null;
+      }
+    };
+
+    const writeStore = (key: string, val: string): void => {
+      try {
+        window.sessionStorage.setItem(key, val);
+      } catch {
+        // Ignore storage errors in private mode.
+      }
+    };
+
+    const savedVolRaw = Number.parseFloat(readStore(KEY_VOLUME) ?? "");
+    let targetVol = Number.isFinite(savedVolRaw) && savedVolRaw >= 0 && savedVolRaw <= 1 ? savedVolRaw : DEFAULT_VOL;
+    let lastNonZeroVol = targetVol > 0.02 ? targetVol : DEFAULT_VOL;
+    let userStopped = readStore(KEY_STOPPED) === "1";
+    let fadeTimer: number | undefined;
+
+    const clearFade = () => {
+      if (fadeTimer !== undefined) {
+        window.clearInterval(fadeTimer);
+        fadeTimer = undefined;
+      }
+    };
+
+    const syncSliderUi = (vol: number, muted: boolean) => {
+      const effective = muted ? 0 : Math.round(vol * 100);
+      slider.value = String(effective);
+      slider.style.setProperty("--vol", `${effective}%`);
+      const isMuted = muted || effective === 0;
+      root.dataset.muted = isMuted ? "true" : "false";
+      muteBtn.setAttribute("aria-pressed", isMuted ? "true" : "false");
+      muteBtn.setAttribute("aria-label", isMuted ? "Ativar som da música" : "Silenciar música");
+    };
+
+    const syncPlayUi = (playing: boolean) => {
+      root.dataset.state = playing ? "playing" : "stopped";
+      toggleBtn.setAttribute("aria-pressed", playing ? "true" : "false");
+      toggleBtn.setAttribute(
+        "aria-label",
+        playing ? "Parar música de fundo: Santa Bárbara" : "Tocar música de fundo: Santa Bárbara",
+      );
+      statusEl.textContent = playing ? "Parar" : "Tocar";
+    };
+
+    syncSliderUi(targetVol, audio.muted);
+    syncPlayUi(false);
+
+    const savedTime = Number.parseFloat(readStore(KEY_TIME) ?? "");
+    const applySavedTime = () => {
+      if (Number.isFinite(savedTime) && savedTime > 0 && (!Number.isFinite(audio.duration) || savedTime < audio.duration - 1)) {
+        try {
+          audio.currentTime = savedTime;
+        } catch {
+          // Wait for metadata if needed.
+        }
+      }
+    };
+
+    if (audio.readyState >= 1) {
+      applySavedTime();
+    } else {
+      audio.addEventListener("loadedmetadata", applySavedTime, { once: true });
+    }
+
+    const fadeInTo = (dest: number) => {
+      clearFade();
+      if (dest <= 0.02) {
+        audio.volume = Math.max(0, dest);
+        return;
+      }
+      let current = Math.min(0.02, dest);
+      audio.volume = current;
+      const step = (dest - current) / 14;
+      fadeTimer = window.setInterval(() => {
+        current = Math.min(dest, current + step);
+        audio.volume = current;
+        if (current >= dest - 0.002) {
+          audio.volume = dest;
+          clearFade();
+        }
+      }, 60);
+    };
+
+    const gestureEvents = ["pointerdown", "keydown", "touchstart", "click"] as const;
+    let listeningForGesture = false;
+
+    const removeGestureListeners = () => {
+      if (!listeningForGesture) return;
+      listeningForGesture = false;
+      for (const ev of gestureEvents) {
+        window.removeEventListener(ev, onFirstGesture, true);
+      }
+    };
+
+    const attemptAutoplay = (withFade = true) => {
+      if (userStopped) return;
+      if (withFade) {
+        audio.volume = Math.min(0.02, targetVol);
+      } else {
+        audio.volume = targetVol;
+      }
+      const promise = audio.play();
+      if (promise !== undefined) {
+        promise
+          .then(() => {
+            removeGestureListeners();
+            syncPlayUi(true);
+            if (withFade) fadeInTo(targetVol);
+          })
+          .catch(() => {
+            clearFade();
+            audio.volume = targetVol;
+            syncPlayUi(false);
+            addGestureListeners();
+          });
+      }
+    };
+
+    function onFirstGesture(e: Event) {
+      if (userStopped) {
+        removeGestureListeners();
+        return;
+      }
+      const target = e.target as Node | null;
+      if (target && toggleBtn && toggleBtn.contains(target)) {
+        return;
+      }
+      attemptAutoplay(true);
+    }
+
+    function addGestureListeners() {
+      if (listeningForGesture || userStopped) return;
+      listeningForGesture = true;
+      for (const ev of gestureEvents) {
+        window.addEventListener(ev, onFirstGesture, { capture: true, passive: true });
+      }
+    }
+
+    toggleBtn.addEventListener("click", () => {
+      removeGestureListeners();
+      if (!audio.paused) {
+        clearFade();
+        userStopped = true;
+        writeStore(KEY_STOPPED, "1");
+        writeStore(KEY_TIME, "0");
+        audio.pause();
+        try {
+          audio.currentTime = 0;
+        } catch {
+          // Ignore if metadata not loaded.
+        }
+        syncPlayUi(false);
+      } else {
+        userStopped = false;
+        writeStore(KEY_STOPPED, "0");
+        if (audio.muted || targetVol === 0) {
+          audio.muted = false;
+          targetVol = lastNonZeroVol;
+          writeStore(KEY_VOLUME, String(targetVol));
+          syncSliderUi(targetVol, false);
+        }
+        fadeInTo(targetVol);
+        audio.play().then(() => {
+          syncPlayUi(true);
+        }).catch(() => {
+          syncPlayUi(false);
+        });
+      }
+    });
+
+    slider.addEventListener("input", () => {
+      clearFade();
+      const raw = Number.parseInt(slider.value, 10);
+      const next = Number.isFinite(raw) ? Math.max(0, Math.min(100, raw)) / 100 : DEFAULT_VOL;
+      targetVol = next;
+      if (next > 0.02) lastNonZeroVol = next;
+      audio.muted = next === 0;
+      audio.volume = next;
+      writeStore(KEY_VOLUME, String(next));
+      syncSliderUi(next, audio.muted);
+    });
+
+    muteBtn.addEventListener("click", () => {
+      clearFade();
+      if (audio.muted || targetVol === 0) {
+        audio.muted = false;
+        targetVol = lastNonZeroVol > 0.02 ? lastNonZeroVol : DEFAULT_VOL;
+        audio.volume = targetVol;
+      } else {
+        audio.muted = true;
+      }
+      writeStore(KEY_VOLUME, String(audio.muted ? 0 : targetVol));
+      syncSliderUi(targetVol, audio.muted);
+    });
+
+    audio.addEventListener("play", () => syncPlayUi(true));
+    audio.addEventListener("pause", () => syncPlayUi(false));
+
+    audio.addEventListener("timeupdate", () => {
+      if (!audio.paused && Number.isFinite(audio.currentTime)) {
+        writeStore(KEY_TIME, audio.currentTime.toFixed(1));
+      }
+    });
+
+    window.addEventListener("pagehide", () => {
+      if (!audio.paused && Number.isFinite(audio.currentTime)) {
+        writeStore(KEY_TIME, audio.currentTime.toFixed(1));
+      }
+    });
+
+    // Pause background music automatically if an event video starts playing on the page.
+    document.addEventListener(
+      "play",
+      (e) => {
+        if (e.target instanceof HTMLVideoElement && e.target !== (audio as unknown) && !audio.paused) {
+          clearFade();
+          audio.pause();
+          syncPlayUi(false);
+        }
+      },
+      true,
+    );
+
+    if (!userStopped) {
+      attemptAutoplay(true);
+    }
+  }
+</script>
