@@ -14,7 +14,7 @@ const { noticia } = Astro.props as { noticia: Noticia };
 const path = `/noticias/${noticia.slug}/`;
 ---
 <Base
-  title={`${noticia.titulo} | Maria Andreza Sá`}
+  title={`${noticia.metaTitle ?? noticia.titulo} | Maria Andreza Sá`}
   description={noticia.resumo}
   path={path}
   ogType="article"
@@ -60,6 +60,7 @@ const path = `/noticias/${noticia.slug}/`;
       <nav class="related reveal" aria-label="Outras secções">
         <p class="related__title">Continuar a ler</p>
         <a href="/noticias/">Notícias<Arrow /></a>
+        {noticia.ligacao && <a href={noticia.ligacao.href}>{noticia.ligacao.label}<Arrow /></a>}
         <a href="/associacao/">A associação<Arrow /></a>
         <a href="/cultura/">Cultura<Arrow /></a>
       </nav>

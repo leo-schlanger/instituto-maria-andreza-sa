@@ -14,7 +14,7 @@ import { eventos, type Evento } from "@/data/eventos";
 import Base from "@/layouts/Base.astro";
 import { eventNode, videoNode } from "@/lib/seo";
 import { videoDoEvento } from "@/lib/video";
-import { siteUrl } from "@/data/site";
+import { contactEmail, contactPhone, contactPhoneLabel, publicName, siteUrl } from "@/data/site";
 
 export function getStaticPaths() {
   return eventos.map((evento) => ({ params: { slug: evento.slug }, props: { evento } }));
@@ -32,6 +32,7 @@ const evNode = eventNode(evento, siteUrl + path, fotos);
 const capa = fotos[0];
 const video = videoDoEvento(evento);
 const celebracao = evento.celebracao;
+const janela = evento.janela;
 const nodes = [evNode, video && videoNode(video, siteUrl + path)].filter(Boolean) as Record<string, unknown>[];
 ---
 <Base
@@ -88,7 +89,33 @@ const nodes = [evNode, video && videoNode(video, siteUrl + path)].filter(Boolean
           <p class="celebration__source">Fonte: {celebracao.fonte}</p>
         </section>
       )}
-      <Gallery fotos={fotos} titulo={evento.titulo} />
+      {janela && (
+        <section class="groups" aria-labelledby="grupos-titulo">
+          <p class="eyebrow">O grupo</p>
+          <h2 id="grupos-titulo" class="story__title">{janela.titulo}</h2>
+          <figure class="frame-photo">
+            <Photo foto={janela.foto} sizes="(min-width: 1000px) 640px, 100vw" />
+            <figcaption>Maria Andreza Sá na Igreja de Nossa Senhora dos Anjos, a 6 de setembro de 2026. Fotografia enviada pela presidente.</figcaption>
+          </figure>
+          {janela.intro.map((p) => <p>{p}</p>)}
+          <p>{janela.chamada}</p>
+          <ul class="groups__list">
+            {janela.grupos.map((item) => <li>{item}</li>)}
+          </ul>
+          {janela.fecho.map((p) => <p>{p}</p>)}
+          <div class="story__quote"><Star /><p>{janela.saudacao}</p></div>
+          <h3 class="celebration__sub">{janela.adesaoTitulo}</h3>
+          {janela.adesao.map((p) => <p>{p}</p>)}
+          <h3 class="celebration__sub">Contactos</h3>
+          <p>Projeto e produção: {publicName}.</p>
+          <ul class="groups__contacts">
+            <li><a href={`mailto:${contactEmail}`}>{contactEmail}</a></li>
+            <li><a href={`tel:${contactPhone}`}>{contactPhoneLabel}</a></li>
+            <li><a href="/">mariaandrezasa.org</a></li>
+          </ul>
+        </section>
+      )}
+      <Gallery fotos={fotos} titulo={evento.titulo} legenda={janela?.legendaGaleria} />
       <Divider />
       {evento.fontes.length > 0 && (
         <section class="sources" aria-labelledby="fontes-titulo">

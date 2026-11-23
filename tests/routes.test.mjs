@@ -155,7 +155,7 @@ test("sem morada da sede nem o nome retirado, em todo o dist", () => {
 });
 
 test("telefone publicado é só o autorizado e o de apoio", () => {
-  for (const page of ["index.html", "contactos/index.html", "associacao/index.html"]) {
+  for (const page of ["index.html", "contactos/index.html", "associacao/index.html", "projetos/festa-de-santa-barbara-lisboa-2026/index.html"]) {
     const html = readPage(page);
     const tels = [...html.matchAll(/href="tel:([^"]+)"/g)].map((m) => m[1]);
     for (const t of tels) assert.ok(["+351968050922", "112", "800202148"].includes(t), `${page} ${t}`);
@@ -216,7 +216,8 @@ test("notícia do livro com data anunciada e sem o que a imprensa não liga a el
     assert.ok(page.includes(`datetime="${noticia.dataIso}"`), noticia.slug);
     for (const fonte of noticia.fontes) assert.ok(page.includes(`href="${fonte.url}"`), fonte.url);
     if (noticia.foto) assert.ok(page.includes(noticia.foto.src), noticia.slug);
-    assert.equal(/Marcelo|Sorbonne|abuso|escola de elite|pijama|Comadres/i.test(page), false, noticia.slug);
+    if (noticia.ligacao) assert.ok(page.includes(`href="${noticia.ligacao.href}"`), noticia.slug);
+    assert.equal(/Marcelo|Sorbonne|abuso|escola de elite|pijama|Comadres|Abadá|Barafunda|Filhas de Gandhy/i.test(page), false, noticia.slug);
     assert.ok(xml.includes(`/noticias/${noticia.slug}/`), noticia.slug);
   }
 });

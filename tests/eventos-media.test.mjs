@@ -193,6 +193,31 @@ test("dados privados do missal fora do site", () => {
   assert.deepEqual(hits, []);
 });
 
+test("janela dos grupos com o texto da presidente, sem WhatsApp e com a foto fora da galeria", () => {
+  const evento = eventos.find((e) => e.janela);
+  assert.ok(evento?.janela, "janela em falta");
+  const html = pageOf(evento.slug);
+  const text = decode(html.replace(/<[^>]+>/g, " ")).replace(/\s+/g, " ");
+  assert.ok(text.includes(evento.janela.titulo));
+  for (const parte of [...evento.janela.intro, evento.janela.chamada, ...evento.janela.grupos, ...evento.janela.fecho, evento.janela.saudacao, ...evento.janela.adesao, evento.janela.legendaGaleria]) {
+    assert.ok(text.includes(parte), parte.slice(0, 48));
+  }
+  assert.equal(/WhatsApp/i.test(html), false);
+  assert.equal(html.includes("festasantabarbaralx"), true);
+  assert.match(html, /Instagram da Festa de Santa Bárbara/);
+  assert.ok(html.includes(evento.janela.foto.src));
+  assert.equal(evento.janela.foto.src.includes("/eventos/"), false);
+  assert.ok(html.includes("mailto:institutomariaandrezasa@gmail.com"));
+  assert.ok(html.includes('href="tel:+351968050922"'));
+  for (const dir of [path.join(root, "public"), dist]) {
+    const big = webpInfo(path.join(dir, evento.janela.foto.src.slice(1)));
+    const small = webpInfo(path.join(dir, evento.janela.foto.src800.slice(1)));
+    assert.deepEqual([big.width, big.height], [evento.janela.foto.largura, evento.janela.foto.altura]);
+    assert.equal(small.width, 800);
+    for (const info of [big, small]) assert.deepEqual(info.chunks.filter((c) => ["EXIF", "XMP ", "ICCP"].includes(c)), []);
+  }
+});
+
 test("celebração do missal publicada com data, hora, igreja e programa", () => {
   for (const evento of eventos.filter((e) => e.celebracao)) {
     const text = decode(pageOf(evento.slug).replace(/<[^>]+>/g, " ")).replace(/\s+/g, " ");

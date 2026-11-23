@@ -1,4 +1,6 @@
 // Facts only from the sources listed per event (checked 2026-11-11). Research and pending items: docs/PESQUISA-ASSOCIACAO.md.
+import type { Foto } from "./eventos-fotos";
+
 export type Fonte = { titulo: string; url: string };
 
 export type Evento = {
@@ -21,7 +23,22 @@ export type Evento = {
   celebracao?: Celebracao;
   // Institutional video; the page only draws it when `ficheiro` exists in public/ at build time.
   video?: VideoEvento;
+  // One window in the association's voice (president's text). Not a press fact.
+  janela?: JanelaGrupos;
   fontes: Fonte[];
+};
+
+export type JanelaGrupos = {
+  titulo: string;
+  intro: string[];
+  chamada: string;
+  grupos: string[];
+  fecho: string[];
+  saudacao: string;
+  adesaoTitulo: string;
+  adesao: string[];
+  legendaGaleria: string;
+  foto: Foto;
 };
 
 export type Celebracao = {
@@ -60,6 +77,7 @@ export const eventos: Evento[] = [
       "O Instituto Associativo Cultural & Artístico Luso-Brasileiro Maria Andreza Sá organizou a 1.ª Festa de Santa Bárbara em Lisboa, com o nome Os Ventos de Oyá. Decorreu de 4 a 6 de setembro de 2026, na freguesia de Arroios. Segundo o Público e a imprensa baiana, a festa foi idealizada por Maria Andreza Sá, fundadora e presidente do instituto.",
       "A cantora Alcione foi a madrinha da 1.ª edição. Segundo o Público, o padrinho foi Carlos Marão, e Thales Melo de Ayrá e Milu Ferreira, fundadora da Galeria Arte Livre, foram embaixadores do projeto.",
       "A abertura estava marcada para sexta-feira, 4 de setembro, com uma mesa-redonda na Galeria Arte Livre, na Avenida da Liberdade. No domingo, 6 de setembro, houve missa às 10h na Igreja de Nossa Senhora dos Anjos, em Arroios. Seguiu-se um cortejo pelas ruas do centro até à Praça da Figueira. Uma feijoada na Baixa encerrou a festa.",
+      "A 7 de setembro de 2026, o Portal Turismo Total publicou a reportagem «Primeira Festa de Santa Bárbara/Oyá na Europa agitou Lisboa».",
       "Em Salvador da Bahia, a Festa de Santa Bárbara faz-se a 4 de dezembro, no Centro Histórico, e é Património Imaterial da Bahia desde 2008. No candomblé, a santa é homenageada como Iansã, também chamada Oyá.",
     ],
     data: "4 a 6 de setembro de 2026",
@@ -93,6 +111,38 @@ export const eventos: Evento[] = [
       duracao: "PT1M8S",
       carregadoEm: "2026-11-15",
     },
+    janela: {
+      titulo: "Quem Somos: Os Amigos de Santa Bárbara, Protegidos por Oyá e os Guardiões da Ancestralidade",
+      intro: [
+        "A nossa história é feita de fé, gratidão e do reencontro de duas margens do Atlântico. Nascemos da união e do propósito de celebrar a espiritualidade e honrar as nossas raízes através da 1.ª Festa de Santa Bárbara em Lisboa, realizada no dia 6 de setembro de 2026, com uma emocionante missa na Igreja de Nossa Senhora dos Anjos, em Arroios.",
+        "Este marco histórico nasceu como projeto e produção do Instituto Cultural e Artístico Luso-Brasileiro Maria Andreza Sá, trazido a Lisboa como um gesto profundo de agradecimento ao povo português. A devoção a Santa Bárbara, celebrada há 384 anos em Salvador da Bahia, chegou a terras baianas pelas mãos de um casal português: Francisco Lago e Andreza de Araújo — nome que, por desígnio e bênção da vida, é também o da avó materna da fundadora deste projeto. Trazer esta festa para Portugal é devolver em forma de amor, cultura e fé uma herança que atravessou séculos.",
+      ],
+      chamada: "É neste espírito de irmandade que se ergue o nosso grupo:",
+      grupos: [
+        "Os Amigos de Santa Bárbara somos todos nós: homens e mulheres movidos pela fé, pela gratidão e pelo desejo de partilhar luz e esperança, reunindo as comunidades brasileira e portuguesa de coração aberto.",
+        "Os Guardiões da Ancestralidade representam o pilar sagrado da nossa Religião de Matriz Africana. Celebramos, reverenciamos e louvamos Oyá — essa Mulher forte, guerreira e imbatível, senhora dos ventos e das tempestades, que transforma e abre caminhos. Honramos profundamente os nossos Babás e herdeiros dessa tradição, que guardam os segredos, o axé e a magia da transformação, comprometidos com o cuidado e o destino de tantos que batem à sua porta em busca de amparo e renovação.",
+      ],
+      fecho: [
+        "Em Lisboa, celebramos esta ponte viva entre a Bahia e Portugal, entre a tradição católica e a força ancestral africana, num símbolo de respeito, resistência e união.",
+        "Que os ventos de Oyá e a proteção de Santa Bárbara continuem a guiar os nossos passos e a abençoar esta caminhada!",
+      ],
+      saudacao: "Eparrey Oyá! Salve Santa Bárbara!",
+      adesaoTitulo: "Junte-se a nós nas próximas edições!",
+      adesao: [
+        "A nossa caminhada está apenas a começar e as portas estão abertas para todos os que desejam partilhar esta energia de fé, cultura e irmandade. Se sente o chamado de Santa Bárbara, a força dos ventos de Oyá ou simplesmente deseja apoiar e participar na 2.ª Festa de Santa Bárbara em Lisboa (2027) e nas atividades do nosso grupo, venha fazer parte desta família!",
+        "Seja como devoto, voluntário, apoiante cultural ou membro da comunidade, a sua presença fortalece a nossa ponte entre a Bahia e Portugal.",
+      ],
+      legendaGaleria:
+        "Registos da 1.ª Festa de Santa Bárbara em Lisboa, no dia 6 de setembro de 2026. Da emocionante celebração na Igreja de Nossa Senhora dos Anjos ao cortejo pelas ruas de Arroios até ao Largo de Santa Bárbara, onde a fé, a cultura baiana e a ancestralidade se uniram num abraço histórico entre o Brasil e Portugal.",
+      foto: {
+        src: "/festa/maria-andreza-igreja-dos-anjos.webp",
+        src800: "/festa/maria-andreza-igreja-dos-anjos-800.webp",
+        alt: "Maria Andreza Sá na Igreja de Nossa Senhora dos Anjos, de vestido vermelho com a imagem de Santa Bárbara, na 1.ª Festa de Santa Bárbara em Lisboa.",
+        largura: 1200,
+        altura: 1600,
+        origem: "Fotografia enviada pela presidente",
+      },
+    },
     fontes: [
       {
         titulo: "Público Brasil, 17 de junho de 2026",
@@ -123,7 +173,7 @@ export const eventos: Evento[] = [
         url: "https://portalturismototal.com.br/index.php/2026/09/03/a-fe-e-tradicao-de-santa-barbara-de-salvador-da-bahia-para-lisboa/",
       },
       {
-        titulo: "Portal Turismo Total, reportagem, 7 de setembro de 2026",
+        titulo: "Portal Turismo Total, 7 de setembro de 2026 — Primeira Festa de Santa Bárbara/Oyá na Europa agitou Lisboa",
         url: "https://portalturismototal.com.br/index.php/2026/09/07/primeira-festa-de-santa-barbara-oya-na-europa-agitou-lisboa/",
       },
       {

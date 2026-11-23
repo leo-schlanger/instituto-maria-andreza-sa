@@ -10,6 +10,8 @@ export type FotoNoticia = {
 export type Noticia = {
   slug: string;
   titulo: string;
+  // Document title when `titulo` is too long for the 60-character SERP limit. The h1 stays `titulo`.
+  metaTitle?: string;
   data: string;
   dataIso: string;
   resumo: string;
@@ -19,10 +21,42 @@ export type Noticia = {
   ficha: readonly { term: string; value: string }[];
   fontes: readonly Fonte[];
   foto?: FotoNoticia;
+  ligacao?: { href: string; label: string };
 };
 
 // Newest first. A fact needs a named, dated source, or it has to be visible in a photo she sent.
 export const noticias: readonly Noticia[] = [
+  {
+    slug: "primeira-festa-de-santa-barbara-oya-na-europa",
+    titulo: "Primeira Festa de Santa Bárbara/Oyá na Europa agitou Lisboa",
+    metaTitle: "Festa de Santa Bárbara/Oyá agitou Lisboa",
+    data: "7 de setembro de 2026",
+    dataIso: "2026-09-07",
+    etiqueta: "Imprensa",
+    corpoTitulo: "A reportagem",
+    resumo:
+      "O Portal Turismo Total publicou, a 7 de setembro de 2026, uma reportagem sobre a 1.ª Festa de Santa Bárbara em Lisboa.",
+    paragrafos: [
+      "A 7 de setembro de 2026, o Portal Turismo Total publicou a reportagem «Primeira Festa de Santa Bárbara/Oyá na Europa agitou Lisboa».",
+      "A festa decorreu de 4 a 6 de setembro de 2026, em Arroios, organizada pelo Instituto Cultural e Artístico Luso-Brasileiro Maria Andreza Sá. No domingo, 6 de setembro, houve missa na Igreja de Nossa Senhora dos Anjos.",
+      "O relato da associação, as fotografias e as restantes fontes estão na página da festa.",
+    ],
+    ficha: [
+      { term: "Data da reportagem", value: "7 de setembro de 2026" },
+      { term: "Festa", value: "4 a 6 de setembro de 2026" },
+      { term: "Local", value: "Arroios, Lisboa" },
+    ],
+    fontes: [
+      {
+        titulo: "Portal Turismo Total, 7 de setembro de 2026",
+        url: "https://portalturismototal.com.br/index.php/2026/09/07/primeira-festa-de-santa-barbara-oya-na-europa-agitou-lisboa/",
+      },
+    ],
+    ligacao: {
+      href: "/projetos/festa-de-santa-barbara-lisboa-2026/",
+      label: "1.ª Festa de Santa Bárbara em Lisboa",
+    },
+  },
   {
     slug: "xiii-forum-de-lisboa-2025",
     titulo: "Maria Andreza Sá no XIII Fórum de Lisboa",

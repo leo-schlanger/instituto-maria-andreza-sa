@@ -1391,6 +1391,7 @@ a[data-slot="button"] { text-decoration: none; }
 .gallery { margin-top: 12px; }
 .gallery__head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
 .gallery__count { color: #5c564e; font-size: 0.875rem; }
+.gallery__legend { margin: -4px 0 16px; color: #3f392f; font-size: 1.0625rem; line-height: 1.6; }
 .gallery__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
 .gallery__grid--1 { grid-template-columns: 1fr; }
 .gallery__item { margin: 0; position: relative; overflow: hidden; border-radius: 10px; background: #efe6d4; }
@@ -1480,6 +1481,17 @@ a[data-slot="button"] { text-decoration: none; }
 .celebration__list li::marker { color: #a9433d; font-weight: 600; }
 .celebration__list strong { color: #6d1723; }
 .celebration__source { color: #5c564e; font-size: 0.875rem; }
+
+/* Groups window on the festa page (president's text, 2026-11-23). One block, not two. */
+.groups { display: grid; gap: 20px; align-content: start; margin-top: 24px; padding-top: 32px; border-top: 1px solid #d9ccb4; }
+.groups .eyebrow { margin-bottom: -8px; }
+.groups > p { font-size: 1.125rem; line-height: 1.8; }
+.groups__list { list-style: disc; margin: 0; padding-left: 1.25rem; display: grid; gap: 14px; }
+.groups__list li { line-height: 1.7; padding-left: 4px; }
+.groups__list li::marker { color: #a9433d; }
+.groups__contacts { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.groups__contacts a { color: #6d1723; text-underline-offset: 3px; }
+.groups .frame-photo { max-width: 100%; }
 
 /* Text with a framed photo beside it (photo never wider than its file) */
 .reading-figure { display: grid; gap: 28px; }
