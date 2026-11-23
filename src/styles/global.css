@@ -1273,7 +1273,8 @@ a[data-slot="button"] { text-decoration: none; }
 .footer-base {
   display: grid;
   gap: 10px;
-  padding-block: 20px 28px;
+  /* Bottom room for the fixed .ambient-player (62px tall incl. offset) so no footer link sits under it. */
+  padding-block: 20px 84px;
   border-top: 1px solid rgb(220 203 170 / 0.25);
   color: #dccbaa;
   font-size: 0.8125rem;

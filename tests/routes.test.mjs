@@ -286,3 +286,14 @@ test("música de fundo: Santa Bárbara só na festa, Maria Maria no resto do sit
     assert.doesNotMatch(html, /santa-barbara\.mp3/, file);
   }
 });
+
+// qa 2026-11-23: the fixed player covered the footer credit. Footer bottom room must exceed
+// the player's bottom offset + height (16px + 46px), with margin.
+test("rodapé deixa espaço para o player fixo", () => {
+  const css = readFileSync(path.resolve("src/styles/global.css"), "utf8");
+  const base = css.match(/\.footer-base \{[^}]*padding-block:\s*(\d+)px\s+(\d+)px/);
+  assert.ok(base, "falta padding-block em .footer-base");
+  const player = css.match(/\.ambient-player \{[^}]*bottom:\s*(\d+)px/);
+  assert.ok(player, "falta bottom em .ambient-player");
+  assert.ok(Number(base[2]) >= Number(player[1]) + 46 + 10, `padding-bottom ${base[2]}px insuficiente`);
+});

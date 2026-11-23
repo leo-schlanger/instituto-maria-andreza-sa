@@ -21,7 +21,7 @@ export type Evento = {
   celebracao?: Celebracao;
   // Institutional video; the page only draws it when `ficheiro` exists in public/ at build time.
   video?: VideoEvento;
-  // Self-hosted background track for this event page; other pages get the YouTube click-to-load player.
+  // Self-hosted background track for this event page; every other page plays maria-maria.mp3 (Base.astro).
   musica?: "santa-barbara";
   fontes: Fonte[];
 };
