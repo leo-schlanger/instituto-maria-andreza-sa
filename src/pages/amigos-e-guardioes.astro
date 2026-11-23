@@ -1,0 +1,67 @@
+---
+import Arrow from "@/components/Arrow.astro";
+import PageHero from "@/components/PageHero.astro";
+import Photo from "@/components/Photo.astro";
+import Star from "@/components/Star.astro";
+import { eventInstagramLabel } from "@/data/evento-ui";
+import { eventos } from "@/data/eventos";
+import { grupos } from "@/data/grupos";
+import { contactEmail, contactPhone, contactPhoneLabel, pages, publicName } from "@/data/site";
+import Base from "@/layouts/Base.astro";
+
+const page = pages.amigos;
+const festa = eventos.find((evento) => evento.slug === "festa-de-santa-barbara-lisboa-2026");
+if (!festa) throw new Error("falta a página da festa");
+const festaPath = `/projetos/${festa.slug}/`;
+---
+<Base title={page.title} description={page.description} path={page.path} crumbs={[{ name: "Amigos e Guardiões", path: page.path }]}>
+  <PageHero h1={grupos.titulo} crumb="Amigos e Guardiões" eyebrow="O grupo" titleSize="long" />
+  <div class="site-wrap page-body">
+    <div class="reading reveal">
+      <section class="groups" aria-label="O grupo">
+        <figure class="frame-photo">
+          <Photo foto={grupos.foto} sizes="(min-width: 1000px) 640px, 100vw" eager />
+          <figcaption>Maria Andreza Sá na Igreja de Nossa Senhora dos Anjos, a 6 de setembro de 2026. Fotografia enviada pela presidente.</figcaption>
+        </figure>
+        {grupos.intro.map((p) => <p>{p}</p>)}
+        <p>{grupos.chamada}</p>
+        <ul class="groups__list">
+          {grupos.grupos.map((item) => <li>{item}</li>)}
+        </ul>
+        {grupos.fecho.map((p) => <p>{p}</p>)}
+        <div class="story__quote"><Star /><p>{grupos.saudacao}</p></div>
+        <h2 class="celebration__sub">{grupos.memoriasTitulo}</h2>
+        <p>{grupos.memorias}</p>
+        <p><a class="text-link" href={`${festaPath}#galeria-titulo`}>Ver as fotografias da festa<Arrow /></a></p>
+        <h2 class="celebration__sub">{grupos.adesaoTitulo}</h2>
+        {grupos.adesao.map((p) => <p>{p}</p>)}
+        <h2 class="celebration__sub">Contactos</h2>
+        <p>Projeto e produção: {publicName}.</p>
+        <ul class="groups__contacts">
+          <li><a href={`mailto:${contactEmail}`}>{contactEmail}</a></li>
+          <li><a href={`tel:${contactPhone}`}>{contactPhoneLabel}</a></li>
+          {festa.instagramUrl && (
+            <li><a href={festa.instagramUrl} target="_blank" rel="noopener">{eventInstagramLabel(festa)}</a></li>
+          )}
+          <li><a href="/">mariaandrezasa.org</a></li>
+        </ul>
+      </section>
+    </div>
+    <aside class="page-aside" aria-label="Sobre o grupo">
+      <div class="fact-card reveal">
+        <p class="fact-card__title">Ficha</p>
+        <dl>
+          <div><dt>Data</dt><dd>6 de setembro de 2026</dd></div>
+          <div><dt>Igreja</dt><dd>Igreja de Nossa Senhora dos Anjos</dd></div>
+          <div><dt>Lugar</dt><dd>Arroios, Lisboa</dd></div>
+        </dl>
+      </div>
+      <nav class="related reveal" aria-label="Outras secções">
+        <p class="related__title">Continuar a ler</p>
+        <a href={festaPath}>1.ª Festa de Santa Bárbara em Lisboa<Arrow /></a>
+        <a href="/noticias/">Notícias<Arrow /></a>
+        <a href="/associacao/">A associação<Arrow /></a>
+      </nav>
+    </aside>
+  </div>
+</Base>

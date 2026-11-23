@@ -11,6 +11,7 @@ const pageFile = {
   "/cultura/": "src/pages/cultura.astro",
   "/portugal-e-brasil/": "src/pages/portugal-e-brasil.astro",
   "/projetos/": "src/pages/projetos/index.astro",
+  "/amigos-e-guardioes/": "src/pages/amigos-e-guardioes.astro",
   "/noticias/": "src/pages/noticias.astro",
   "/contactos/": "src/pages/contactos.astro",
 };
@@ -23,6 +24,7 @@ export function sourcesFor(pathname) {
   if (pathname.startsWith("/noticias/") && pathname !== "/noticias/") {
     return ["src/data/noticias.ts", "src/pages/noticias/[slug].astro"];
   }
+  if (pathname === "/amigos-e-guardioes/") return [pageFile[pathname], "src/data/grupos.ts", ...shared];
   if (pathname === "/projetos/") return [pageFile[pathname], "src/data/eventos.ts", ...shared];
   if (pathname === "/noticias/") return [pageFile[pathname], "src/data/noticias.ts", ...shared];
   return [pageFile[pathname], ...shared].filter(Boolean);

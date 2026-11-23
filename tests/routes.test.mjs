@@ -37,6 +37,12 @@ const pages = [
     canonical: "https://mariaandrezasa.org/projetos/",
   },
   {
+    file: "amigos-e-guardioes/index.html",
+    title: "Amigos e Guardiões | Maria Andreza Sá",
+    h1: "Quem Somos: Os Amigos de Santa Bárbara, Protegidos por Oyá e os Guardiões da Ancestralidade",
+    canonical: "https://mariaandrezasa.org/amigos-e-guardioes/",
+  },
+  {
     file: "noticias/index.html",
     title: "Notícias | Maria Andreza Sá",
     h1: "Notícias",
@@ -155,7 +161,7 @@ test("sem morada da sede nem o nome retirado, em todo o dist", () => {
 });
 
 test("telefone publicado é só o autorizado e o de apoio", () => {
-  for (const page of ["index.html", "contactos/index.html", "associacao/index.html", "projetos/festa-de-santa-barbara-lisboa-2026/index.html"]) {
+  for (const page of ["index.html", "contactos/index.html", "associacao/index.html", "projetos/festa-de-santa-barbara-lisboa-2026/index.html", "amigos-e-guardioes/index.html"]) {
     const html = readPage(page);
     const tels = [...html.matchAll(/href="tel:([^"]+)"/g)].map((m) => m[1]);
     for (const t of tels) assert.ok(["+351968050922", "112", "800202148"].includes(t), `${page} ${t}`);
@@ -185,7 +191,7 @@ test("projetos sem lista fictícia", async () => {
 });
 
 test("Instagram do evento nunca aparece como da associação", () => {
-  for (const file of ["index.html", "contactos/index.html", "noticias/index.html", "projetos/index.html"]) {
+  for (const file of ["index.html", "contactos/index.html", "noticias/index.html", "projetos/index.html", "amigos-e-guardioes/index.html"]) {
     const html = readPage(file);
     for (const a of html.matchAll(/<a\b[^>]*festasantabarbaralx[^>]*>([\s\S]*?)<\/a>/g)) {
       assert.match(a[1], /Festa de Santa Bárbara|evento/, file);

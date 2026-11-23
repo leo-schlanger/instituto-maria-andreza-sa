@@ -16,6 +16,7 @@ const indexable = new Set([
   "/cultura/",
   "/portugal-e-brasil/",
   "/projetos/",
+  "/amigos-e-guardioes/",
   "/noticias/",
   "/contactos/",
   "/privacidade/",

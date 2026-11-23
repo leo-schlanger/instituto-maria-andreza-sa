@@ -104,6 +104,7 @@ export const nav = [
   { href: "/cultura/", label: "Cultura" },
   { href: "/portugal-e-brasil/", label: "Portugal e Brasil" },
   { href: "/projetos/", label: "Projetos" },
+  { href: "/amigos-e-guardioes/", label: "Amigos e Guardiões" },
   { href: "/noticias/", label: "Notícias" },
   { href: "/contactos/", label: "Contactos" },
 ] as const;
@@ -186,6 +187,13 @@ export const pages = {
         url: "https://aloalobahia.com/noticias/2026/08/28/alcione-sera-madrinha-da-primeira-festa-de-santa-barbara-realizada-em-lisboa/",
       },
     ],
+  },
+  amigos: {
+    path: "/amigos-e-guardioes/",
+    title: "Amigos e Guardiões | Maria Andreza Sá",
+    description:
+      "Os Amigos de Santa Bárbara, Protegidos por Oyá, e os Guardiões da Ancestralidade. O grupo da 1.ª Festa de Santa Bárbara em Lisboa.",
+    h1: "Quem Somos: Os Amigos de Santa Bárbara, Protegidos por Oyá e os Guardiões da Ancestralidade",
   },
   projetos: {
     path: "/projetos/",

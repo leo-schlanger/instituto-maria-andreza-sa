@@ -5,10 +5,9 @@ import type { Foto } from "@/data/eventos-fotos";
 interface Props {
   fotos: Foto[];
   titulo: string;
-  legenda?: string;
 }
 
-const { fotos, titulo, legenda } = Astro.props;
+const { fotos, titulo } = Astro.props;
 // Credits repeat per photo when they differ; one shared line when they are all the same.
 const creditos = [...new Set(fotos.map((f) => f.credito).filter(Boolean))] as string[];
 const shared = creditos.length === 1 && fotos.every((f) => f.credito === creditos[0]);
@@ -27,7 +26,6 @@ const fill = (i: number) =>
       <h2 id="galeria-titulo" class="sources__title">Galeria</h2>
       <p class="gallery__count">{fotos.length} {fotos.length === 1 ? "fotografia" : "fotografias"}</p>
     </div>
-    {legenda && <p class="gallery__legend">{legenda}</p>}
     <div class:list={["gallery__grid", `gallery__grid--${Math.min(fotos.length, 4)}`]}>
       {fotos.map((foto, i) => (
         <figure class:list={["gallery__item", i === 0 && lead && "gallery__item--lead", ...fill(i)]}>

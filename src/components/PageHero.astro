@@ -8,13 +8,15 @@ interface Props {
   lede?: string;
   pattern?: "azulejo" | "calcada";
   parent?: { href: string; label: string };
+  // Long titles stay readable. The default size is for a short page name.
+  titleSize?: "long";
 }
 
-const { h1, crumb, eyebrow, lede, pattern = "azulejo", parent } = Astro.props;
+const { h1, crumb, eyebrow, lede, pattern = "azulejo", parent, titleSize } = Astro.props;
 // Optional photo beside the title (event pages with an approved photo).
 const hasMedia = Astro.slots.has("media");
 ---
-<section class:list={["page-hero", `page-hero--${pattern}`, hasMedia && "page-hero--media"]}>
+<section class:list={["page-hero", `page-hero--${pattern}`, hasMedia && "page-hero--media", titleSize === "long" && "page-hero--long"]}>
   <div class="page-hero__pattern" aria-hidden="true"></div>
   <div class:list={["site-wrap page-hero__inner", hasMedia && "page-hero__grid"]}>
     <div class="page-hero__copy">
