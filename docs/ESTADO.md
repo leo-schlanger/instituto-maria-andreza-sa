@@ -6,6 +6,8 @@ Estimativa do projeto: **95%**. O site e o DNS estão feitos. Falta o que a asso
 
 ## Feito
 
+- 2026-11-23 (música): a música de fundo do Santa Bárbara passou a tocar só na página da festa. O resto do site toca «Maria Maria», de Milton Nascimento, com o mesmo controlo discreto. A gravação é da Universal e não tem licença: foi decisão do Leo, que assumiu o risco (nota no CLAUDE.md).
+
 - 2026-11-23: página própria `/amigos-e-guardioes/` com o texto da presidente sobre os Amigos de Santa Bárbara, Protegidos por Oyá e os Guardiões da Ancestralidade. Não fica no meio da página da festa: lá há um apontador. Sem lista de nomes. A homenagem ao marido não entrou: não veio texto. Fotografia dela na Igreja de Nossa Senhora dos Anjos em `public/festa/`, inteira, sem desfoque, por indicação dela e do Leo. Notícia com a reportagem do Portal Turismo Total de 7 de setembro de 2026, sem o programa que não se realizou. Convite à 2.ª festa em 2027, sem dia marcado.
 
 - 2026-11-17 (parceiros): secção na home, entre Portugal e Brasil e o índice do site. A primeira é a Associação Comadres de Cascais, com o logótipo dela e a ligação para comadresdecascais.com. A campanha de pijamas de dezembro continua por publicar.

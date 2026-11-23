@@ -258,15 +258,31 @@ test("scripts externos e sem fontes de terceiros", () => {
   }
 });
 
-test("música de fundo auto-hospedada com controlos de tocar/parar e volume", () => {
-  const audioFile = path.join(dist, "audio", "santa-barbara.mp3");
-  assert.ok(existsSync(audioFile), "falta dist/audio/santa-barbara.mp3");
-  assert.ok(statSync(audioFile).size > 100_000, "ficheiro de áudio vazio ou truncado");
-  for (const page of pages) {
-    const html = readPage(page.file);
-    assert.match(html, /data-ambient-player/, page.file);
-    assert.match(html, /src="\/audio\/santa-barbara\.mp3"/, page.file);
-    assert.match(html, /data-ambient-toggle/, page.file);
-    assert.match(html, /data-ambient-volume[^>]*value="22"/, page.file);
+test("música de fundo: Santa Bárbara só na festa, Maria Maria no resto do site", () => {
+  for (const name of ["santa-barbara.mp3", "maria-maria.mp3"]) {
+    const audioFile = path.join(dist, "audio", name);
+    assert.ok(existsSync(audioFile), `falta dist/audio/${name}`);
+    assert.ok(statSync(audioFile).size > 100_000, `${name} vazio ou truncado`);
+  }
+  const player = (html, file, mp3, title) => {
+    assert.equal(html.match(/data-ambient-player/g)?.length, 1, file);
+    assert.match(html, new RegExp(`src="/audio/${mp3}"`), file);
+    assert.match(html, new RegExp(`class="ambient-player__title">${title}<`), file);
+    assert.match(html, /data-ambient-toggle/, file);
+    assert.match(html, /data-ambient-volume[^>]*value="22"/, file);
+  };
+  const festaFile = "projetos/festa-de-santa-barbara-lisboa-2026/index.html";
+  const festa = readPage(festaFile);
+  player(festa, festaFile, "santa-barbara\\.mp3", "Santa Bárbara");
+  assert.doesNotMatch(festa, /maria-maria\.mp3/);
+  // Every other page in dist, including 404 and news articles.
+  const others = readdirSync(dist, { recursive: true })
+    .map(String)
+    .filter((f) => f.endsWith(".html") && f !== festaFile);
+  assert.ok(others.length >= pages.length, `só ${others.length} páginas`);
+  for (const file of others) {
+    const html = readPage(file);
+    player(html, file, "maria-maria\\.mp3", "Maria Maria");
+    assert.doesNotMatch(html, /santa-barbara\.mp3/, file);
   }
 });

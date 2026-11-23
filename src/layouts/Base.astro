@@ -29,6 +29,8 @@ interface Props {
   // Trail after "Início", same labels as the visible crumbs.
   crumbs?: Crumb[];
   structuredData?: Record<string, unknown>[];
+  // Santa Bárbara mp3 only on its event page; the rest of the site plays Maria Maria.
+  music?: "santa-barbara" | "maria-maria";
 }
 
 const {
@@ -40,6 +42,7 @@ const {
   pageType = "WebPage",
   crumbs = [],
   structuredData = [],
+  music = "maria-maria",
 } = Astro.props;
 const canonical = siteUrl + path;
 const image = `${siteUrl}/og.jpg`;
@@ -110,6 +113,8 @@ const jsonLd = noindex
 <slot />
 </main>
 <Footer />
-<AmbientAudio />
+{music === "santa-barbara"
+  ? <AmbientAudio id="santa-barbara" src="/audio/santa-barbara.mp3" title="Santa Bárbara" />
+  : <AmbientAudio id="maria-maria" src="/audio/maria-maria.mp3" title="Maria Maria" />}
 </body>
 </html>

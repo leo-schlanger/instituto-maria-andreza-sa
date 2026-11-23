@@ -21,6 +21,8 @@ export type Evento = {
   celebracao?: Celebracao;
   // Institutional video; the page only draws it when `ficheiro` exists in public/ at build time.
   video?: VideoEvento;
+  // Self-hosted background track for this event page; other pages get the YouTube click-to-load player.
+  musica?: "santa-barbara";
   fontes: Fonte[];
 };
 
@@ -46,6 +48,7 @@ export type VideoEvento = {
 export const eventos: Evento[] = [
   {
     slug: "festa-de-santa-barbara-lisboa-2026",
+    musica: "santa-barbara",
     titulo: "1.ª Festa de Santa Bárbara em Lisboa",
     resumo:
       "A associação organizou a 1.ª Festa de Santa Bárbara em Lisboa, em Arroios, de 4 a 6 de setembro de 2026, com missa, cortejo e feijoada.",

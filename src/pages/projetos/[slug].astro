@@ -41,6 +41,7 @@ const nodes = [evNode, video && videoNode(video, siteUrl + path)].filter(Boolean
   ogType="article"
   crumbs={[{ name: "Projetos", path: "/projetos/" }, { name: evento.titulo, path }]}
   structuredData={nodes}
+  music={evento.musica ?? "maria-maria"}
 >
   <PageHero h1={evento.titulo} crumb={evento.titulo} eyebrow="Evento" lede={evento.resumo} parent={{ href: "/projetos/", label: "Projetos" }}>
     {capa && (

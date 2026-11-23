@@ -1,7 +1,17 @@
-<aside class="ambient-player" data-ambient-player data-state="stopped" aria-label="Música de fundo">
+---
+// One background track per page: Santa Bárbara on its event page, Maria Maria elsewhere (Base.astro).
+interface Props {
+  // Track id, used for the per-track playback position in sessionStorage.
+  id: string;
+  src: string;
+  title: string;
+}
+const { id, src, title } = Astro.props;
+---
+<aside class="ambient-player" data-ambient-player data-track={id} data-title={title} data-state="stopped" aria-label="Música de fundo">
   <audio
     data-ambient-audio
-    src="/audio/santa-barbara.mp3"
+    src={src}
     loop
     preload="auto"
   ></audio>
@@ -9,7 +19,7 @@
     type="button"
     class="ambient-player__btn"
     data-ambient-toggle
-    aria-label="Tocar música de fundo: Santa Bárbara"
+    aria-label={`Tocar música de fundo: ${title}`}
     aria-pressed="false"
   >
     <span class="ambient-player__disc" aria-hidden="true">
@@ -21,7 +31,7 @@
       </svg>
     </span>
     <span class="ambient-player__meta">
-      <span class="ambient-player__title">Santa Bárbara</span>
+      <span class="ambient-player__title">{title}</span>
       <span class="ambient-player__status" data-ambient-status>Tocar</span>
     </span>
   </button>
@@ -59,10 +69,12 @@
 <script>
   const KEY_STOPPED = "imas_bgm_stopped";
   const KEY_VOLUME = "imas_bgm_vol";
-  const KEY_TIME = "imas_bgm_time";
   const DEFAULT_VOL = 0.22;
 
   const root = document.querySelector<HTMLElement>("[data-ambient-player]");
+  // Stop/volume are shared site-wide; the position is per track so songs do not resume each other.
+  const KEY_TIME = `imas_bgm_time_${root?.dataset.track ?? "default"}`;
+  const trackTitle = root?.dataset.title ?? "";
   const audio = document.querySelector<HTMLAudioElement>("[data-ambient-audio]");
   const toggleBtn = document.querySelector<HTMLButtonElement>("[data-ambient-toggle]");
   const statusEl = document.querySelector<HTMLElement>("[data-ambient-status]");
@@ -114,7 +126,7 @@
       toggleBtn.setAttribute("aria-pressed", playing ? "true" : "false");
       toggleBtn.setAttribute(
         "aria-label",
-        playing ? "Parar música de fundo: Santa Bárbara" : "Tocar música de fundo: Santa Bárbara",
+        playing ? `Parar música de fundo: ${trackTitle}` : `Tocar música de fundo: ${trackTitle}`,
       );
       statusEl.textContent = playing ? "Parar" : "Tocar";
     };
