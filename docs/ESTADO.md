@@ -1,10 +1,12 @@
 # Estado
 
-Atualizado a 2026-11-23, com a página própria dos Amigos de Santa Bárbara, Protegidos por Oyá e dos Guardiões da Ancestralidade, a fotografia dela na igreja publicada inteira, e a reportagem de 7 de setembro na lista de notícias. O domínio e o `www` estão verificados na Vercel.
+Atualizado a 2026-11-25, com a notícia do perfil de Delgrace Aeppli no Café com Shah. O domínio e o `www` estão verificados na Vercel.
 
 Estimativa do projeto: **95%**. O site e o DNS estão feitos. Falta o que a associação ainda não fechou.
 
 ## Feito
+
+- 2026-11-25 (notícias): perfil de Delgrace Aeppli, Café com Shah, 25 de novembro de 2026, em `/noticias/perfil-de-delgrace-aeppli/`. A presidente pediu, depois de autorização da Delgrace. Resumo nosso e ligação à fonte. Sem a fotografia de Duda Tawil. A parceira entra como Associação Comadres de Cascais. A campanha de pijamas e o Clube Brasil Portugal, ainda em preparação, continuam de fora. A narrativa da festa não mudou.
 
 - 2026-11-23 (música): a música de fundo do Santa Bárbara passou a tocar só na página da festa. O resto do site toca «Maria Maria», de Milton Nascimento, com o mesmo controlo discreto. A gravação é da Universal e não tem licença: foi decisão do Leo, que assumiu o risco (nota no CLAUDE.md).
 

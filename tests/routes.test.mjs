@@ -223,7 +223,12 @@ test("notícia do livro com data anunciada e sem o que a imprensa não liga a el
     for (const fonte of noticia.fontes) assert.ok(page.includes(`href="${fonte.url}"`), fonte.url);
     if (noticia.foto) assert.ok(page.includes(noticia.foto.src), noticia.slug);
     if (noticia.ligacao) assert.ok(page.includes(`href="${noticia.ligacao.href}"`), noticia.slug);
-    assert.equal(/Marcelo|Sorbonne|abuso|escola de elite|pijama|Comadres|Abadá|Barafunda|Filhas de Gandhy/i.test(page), false, noticia.slug);
+    assert.equal(/Marcelo|Sorbonne|abuso|escola de elite|pijama|Abadá|Barafunda|Filhas de Gandhy/i.test(page), false, noticia.slug);
+    // Comadres stays off every news page except the 2026-11-25 profile the president asked to publish.
+    assert.equal(/Comadres/i.test(page), noticia.slug === "perfil-de-delgrace-aeppli", noticia.slug);
+    if (noticia.slug === "perfil-de-delgrace-aeppli") {
+      assert.equal(/em preparação|Clube Brasil/i.test(page), false, noticia.slug);
+    }
     assert.ok(xml.includes(`/noticias/${noticia.slug}/`), noticia.slug);
   }
 });

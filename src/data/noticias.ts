@@ -27,6 +27,37 @@ export type Noticia = {
 // Newest first. A fact needs a named, dated source, or it has to be visible in a photo she sent.
 export const noticias: readonly Noticia[] = [
   {
+    slug: "perfil-de-delgrace-aeppli",
+    titulo: "Delgrace Aeppli: uma gigante pela própria natureza",
+    metaTitle: "Perfil de Delgrace Aeppli",
+    data: "25 de novembro de 2026",
+    dataIso: "2026-11-25",
+    etiqueta: "Imprensa",
+    corpoTitulo: "O perfil",
+    resumo:
+      "O Café com Shah publicou, a 25 de novembro de 2026, um perfil de Delgrace Aeppli, da Associação Comadres de Cascais, parceira do instituto.",
+    paragrafos: [
+      "A 25 de novembro de 2026, o Café com Shah publicou o perfil «Delgrace Aeppli: uma gigante pela própria natureza», assinado por Luizinho Filho.",
+      "O texto apresenta Maria Delgrace Conceição Aeppli e indica-a como CEO da Associação Comadres de Cascais, parceira do instituto.",
+      "O perfil diz que colaborou na 1.ª Festa de Santa Bárbara em Lisboa, como co-coordenadora, e que participou no cortejo de 6 de setembro de 2026. A legenda da fotografia, de Duda Tawil, refere a festa como idealizada e realizada por Maria Andreza Sá.",
+    ],
+    ficha: [
+      { term: "Data do perfil", value: "25 de novembro de 2026" },
+      { term: "Publicação", value: "Café com Shah" },
+      { term: "Parceira", value: "Associação Comadres de Cascais" },
+    ],
+    fontes: [
+      {
+        titulo: "Café com Shah, 25 de novembro de 2026",
+        url: "https://cafecomshah.com.br/delgrace-aeppli-uma-gigante-pela-propria-natureza-2/",
+      },
+    ],
+    ligacao: {
+      href: "/projetos/festa-de-santa-barbara-lisboa-2026/",
+      label: "1.ª Festa de Santa Bárbara em Lisboa",
+    },
+  },
+  {
     slug: "primeira-festa-de-santa-barbara-oya-na-europa",
     titulo: "Primeira Festa de Santa Bárbara/Oyá na Europa agitou Lisboa",
     metaTitle: "Festa de Santa Bárbara/Oyá agitou Lisboa",

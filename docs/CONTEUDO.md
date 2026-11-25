@@ -200,7 +200,7 @@ Title
 Notícias | Maria Andreza Sá
 
 Meta description
-Notícias do Instituto Maria Andreza Sá: o livro Entrelinhas, o XIII Fórum de Lisboa e os Prémios Embaixadores.
+Notícias do Instituto Maria Andreza Sá: Delgrace Aeppli, a festa, Entrelinhas, o fórum e os Prémios Embaixadores.
 
 H1
 Notícias
@@ -208,7 +208,7 @@ Notícias
 Corpo
 Com notícias em `src/data/noticias.ts`, a página mostra os cartões. Cada notícia tem página própria em /noticias/<slug>/, com a fotografia enviada pela presidente, o que a imprensa registou, a ficha e as fontes.
 
-Publicadas, da mais recente para a mais antiga: presença no XIII Fórum de Lisboa (2 a 4 de julho de 2025, crachá de imprensa, sem oradora), presença nos Prémios Embaixadores 2025 (homenagem na categoria Justiça anunciada para 24 de maio, sem dizer que venceu) e o livro Entrelinhas (lançamento anunciado para 19 de outubro de 2024).
+Publicadas, da mais recente para a mais antiga: perfil de Delgrace Aeppli no Café com Shah (25 de novembro de 2026, Luizinho Filho; CEO da Associação Comadres de Cascais, parceira do instituto; colaboração na festa atribuída à peça; sem a fotografia de Duda Tawil; sem o Clube Brasil Portugal e sem a campanha de pijamas), reportagem do Portal Turismo Total sobre a festa (7 de setembro de 2026), presença no XIII Fórum de Lisboa (2 a 4 de julho de 2025, crachá de imprensa, sem oradora), presença nos Prémios Embaixadores 2025 (homenagem na categoria Justiça anunciada para 24 de maio, sem dizer que venceu) e o livro Entrelinhas (lançamento anunciado para 19 de outubro de 2024).
 
 O estado vazio, se a lista ficar sem itens, ainda diz que não há notícias e aponta para o evento mais recente.
 

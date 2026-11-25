@@ -208,7 +208,7 @@ export const pages = {
     path: "/noticias/",
     title: "Notícias | Maria Andreza Sá",
     description:
-      "Notícias do Instituto Maria Andreza Sá: o livro Entrelinhas, o XIII Fórum de Lisboa e os Prémios Embaixadores.",
+      "Notícias do Instituto Maria Andreza Sá: Delgrace Aeppli, a festa, Entrelinhas, o fórum e os Prémios Embaixadores.",
     h1: "Notícias",
     paragraphs: [
       "Ainda não há notícias publicadas. Esta página fica para a cobertura das atividades, quando elas acontecem.",
