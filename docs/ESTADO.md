@@ -1,12 +1,12 @@
 # Estado
 
-Atualizado a 2026-11-25, com a notícia do perfil de Delgrace Aeppli no Café com Shah. O domínio e o `www` estão verificados na Vercel.
+Atualizado a 2026-11-25, com a notícia de Delgrace Aeppli e a fotografia do cortejo. O domínio e o `www` estão verificados na Vercel.
 
 Estimativa do projeto: **95%**. O site e o DNS estão feitos. Falta o que a associação ainda não fechou.
 
 ## Feito
 
-- 2026-11-25 (notícias): perfil de Delgrace Aeppli, Café com Shah, 25 de novembro de 2026, em `/noticias/perfil-de-delgrace-aeppli/`. A presidente pediu, depois de autorização da Delgrace. Resumo nosso e ligação à fonte. Sem a fotografia de Duda Tawil. A parceira entra como Associação Comadres de Cascais. A campanha de pijamas e o Clube Brasil Portugal, ainda em preparação, continuam de fora. A narrativa da festa não mudou.
+- 2026-11-25 (notícias): Delgrace Aeppli, Café com Shah, 25 de novembro de 2026, em `/noticias/delgrace-aeppli-uma-gigante-pela-propria-natureza/`. O endereço `perfil-de-delgrace-aeppli` redireciona. A fotografia do cortejo entra inteira, sem desfoque: o Leo disse que a equipa a tirou e que está autorizada. A parceira entra como Associação Comadres de Cascais. A campanha de pijamas continua de fora. A narrativa da festa não mudou.
 
 - 2026-11-23 (música): a música de fundo do Santa Bárbara passou a tocar só na página da festa. O resto do site toca «Maria Maria», de Milton Nascimento, com o mesmo controlo discreto. A gravação é da Universal e não tem licença: foi decisão do Leo, que assumiu o risco (nota no CLAUDE.md).
 

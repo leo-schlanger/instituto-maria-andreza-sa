@@ -26,7 +26,7 @@ const path = `/noticias/${noticia.slug}/`;
       {noticia.foto && (
         <figure class="news-figure">
           <img src={noticia.foto.src} width={noticia.foto.width} height={noticia.foto.height} alt={noticia.foto.alt} />
-          <figcaption>Fotografia enviada pela presidente.</figcaption>
+          <figcaption>{noticia.foto.legenda ?? "Fotografia enviada pela presidente."}</figcaption>
         </figure>
       )}
       <section class="press" aria-labelledby="noticia-corpo">

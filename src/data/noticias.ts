@@ -5,6 +5,7 @@ export type FotoNoticia = {
   width: number;
   height: number;
   alt: string;
+  legenda?: string;
 };
 
 export type Noticia = {
@@ -27,22 +28,25 @@ export type Noticia = {
 // Newest first. A fact needs a named, dated source, or it has to be visible in a photo she sent.
 export const noticias: readonly Noticia[] = [
   {
-    slug: "perfil-de-delgrace-aeppli",
+    slug: "delgrace-aeppli-uma-gigante-pela-propria-natureza",
     titulo: "Delgrace Aeppli: uma gigante pela própria natureza",
-    metaTitle: "Perfil de Delgrace Aeppli",
+    metaTitle: "Delgrace Aeppli, uma gigante",
     data: "25 de novembro de 2026",
     dataIso: "2026-11-25",
     etiqueta: "Imprensa",
-    corpoTitulo: "O perfil",
+    corpoTitulo: "A trajetória",
     resumo:
-      "O Café com Shah publicou, a 25 de novembro de 2026, um perfil de Delgrace Aeppli, da Associação Comadres de Cascais, parceira do instituto.",
+      "Delgrace Aeppli, jornalista baiana em Cascais, dirige a Associação Comadres de Cascais e colaborou na 1.ª Festa de Santa Bárbara em Lisboa.",
     paragrafos: [
-      "A 25 de novembro de 2026, o Café com Shah publicou o perfil «Delgrace Aeppli: uma gigante pela própria natureza», assinado por Luizinho Filho.",
-      "O texto apresenta Maria Delgrace Conceição Aeppli e indica-a como CEO da Associação Comadres de Cascais, parceira do instituto.",
-      "O perfil diz que colaborou na 1.ª Festa de Santa Bárbara em Lisboa, como co-coordenadora, e que participou no cortejo de 6 de setembro de 2026. A legenda da fotografia, de Duda Tawil, refere a festa como idealizada e realizada por Maria Andreza Sá.",
+      "Maria Delgrace Conceição Aeppli nasceu em 1950, em Salvador. É jornalista, formada pela Universidade Católica do Salvador, e tem formação em Psicologia pelo Instituto Adler, na Suíça. Brasileira de nascimento e suíça por naturalização, vive em Portugal, em Cascais e no Estoril.",
+      "Desde 1978 trabalha na Europa como repórter, colunista e empresária. Nas colunas escrevia sobre personalidades brasileiras, a música, as festas populares e a variedade do país, contra a imagem única da violência. Foi colunista do Mamaterra, na Alemanha, e fundou a Rádio Mamaterra Suíça, de que foi proprietária.",
+      "Na Suíça fundou a creche ZinZikon, em Winterthur. Foi dona e responsável da casa, e o nome dela ficou ligado à história da instituição.",
+      "Em Cascais e no Estoril passou a tratar de cultura, intercâmbio e solidariedade. Dirige a Associação Comadres de Cascais, parceira do instituto. O Café com Shah, a 25 de novembro de 2026, indica-a como CEO e escreve que prepara o Clube Brasil Portugal, nome já registado, para eventos, encontros e workshops entre as comunidades brasileira e portuguesa.",
+      "Colaborou na 1.ª Festa de Santa Bárbara em Lisboa, como co-coordenadora. No cortejo de 6 de setembro de 2026, pelas ruas do centro, ia vestida de baiana. A festa foi idealizada e realizada por Maria Andreza Sá.",
+      "O texto refere ainda o trabalho dela junto de quem vive com menos recursos, a peça A Carta com o grupo de teatro sénior CasKotas, apoiado pela Junta de Freguesia de Cascais e Estoril, e o grupo de dança do Complexo Desportivo dos Bombeiros do Estoril. Mantém o blogue Delgrace Aeppli, de jornalismo e estilo de vida.",
     ],
     ficha: [
-      { term: "Data do perfil", value: "25 de novembro de 2026" },
+      { term: "Data", value: "25 de novembro de 2026" },
       { term: "Publicação", value: "Café com Shah" },
       { term: "Parceira", value: "Associação Comadres de Cascais" },
     ],
@@ -52,6 +56,13 @@ export const noticias: readonly Noticia[] = [
         url: "https://cafecomshah.com.br/delgrace-aeppli-uma-gigante-pela-propria-natureza-2/",
       },
     ],
+    foto: {
+      src: "/noticias/delgrace-aeppli-cortejo.webp",
+      width: 757,
+      height: 551,
+      alt: "Delgrace Aeppli, à esquerda, vestida de baiana, no cortejo da 1.ª Festa de Santa Bárbara em Lisboa, a 6 de setembro de 2026.",
+      legenda: "Delgrace Aeppli, à esquerda, no cortejo de 6 de setembro de 2026, em Lisboa. Fotografia da equipa da festa.",
+    },
     ligacao: {
       href: "/projetos/festa-de-santa-barbara-lisboa-2026/",
       label: "1.ª Festa de Santa Bárbara em Lisboa",

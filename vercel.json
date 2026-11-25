@@ -4,6 +4,13 @@
   "framework": "astro",
   "cleanUrls": true,
   "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/noticias/perfil-de-delgrace-aeppli/",
+      "destination": "/noticias/delgrace-aeppli-uma-gigante-pela-propria-natureza/",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/_astro/(.*)",
