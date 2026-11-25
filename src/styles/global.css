@@ -1389,6 +1389,10 @@ a[data-slot="button"] { text-decoration: none; }
 .news-figure { margin: 0; }
 .news-figure img { width: 100%; height: auto; }
 .news-figure figcaption { font-size: 0.9375rem; line-height: 1.5; color: #5c564e; }
+/* Phone first screen: the fixed player (about 44px, 12px off the bottom) sat on this photo. */
+@media (max-width: 999px) {
+  .news-figure { margin-top: 12rem; }
+}
 @media (min-width: 900px) {
   .event-card__art--photo { min-height: 380px; }
 }
